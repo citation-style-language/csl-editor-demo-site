@@ -9,7 +9,7 @@
 	<script>
 		require.config({
 			baseUrl: "../cslEditorLib",
-			urlArgs : "bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5"
+			urlArgs : "bust=$GIT_COMMIT"
 		});
 		requirejs(['src/config'], function (config) {
 			require(['../src/codeEditorPage'], function () {});
@@ -19,7 +19,7 @@
 
 	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.8.18/themes/ui-lightness/jquery-ui.css">
 	<link rel="stylesheet" href="../cslEditorLib/css/codemirror.css" />
-	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5" />
+	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=$GIT_COMMIT" />
 
 <style type="text/css">
 #codeEditorContainer {

@@ -8,7 +8,7 @@
 	<script>
 		require.config({
 			baseUrl: "../cslEditorLib",
-			urlArgs : "bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5"
+			urlArgs : "bust=$GIT_COMMIT"
 		});
 		requirejs(['src/config'], function (config) {
 			require(['../src/searchByNamePage'], function () {});
@@ -16,9 +16,9 @@
 	</script>
 	<script type="text/javascript" src="../src/analytics.js"></script>
 
-	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5" />
-	<link rel="stylesheet" href="../cslEditorLib/css/searchResults.css?bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5" />
-	<link rel="stylesheet" href="../cslEditorLib/css/searchByName.css?bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5" />
+	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=$GIT_COMMIT" />
+	<link rel="stylesheet" href="../cslEditorLib/css/searchResults.css?bust=$GIT_COMMIT" />
+	<link rel="stylesheet" href="../cslEditorLib/css/searchByName.css?bust=$GIT_COMMIT" />
 
 </head>
 <body id="searchByName">

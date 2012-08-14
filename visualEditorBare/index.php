@@ -10,7 +10,7 @@
 	<script>
 		require.config({
 			baseUrl: "../cslEditorLib",
-			urlArgs : "bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5"
+			urlArgs : "bust=$GIT_COMMIT"
 		});
 		requirejs(['src/config'], function (config) {
 			require(['src/VisualEditor'], function (CSLEDIT_VisualEditor) {
@@ -37,9 +37,9 @@
 	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.8.22/themes/ui-lightness/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="../cslEditorLib/external/jstree/themes/default/style.css" />
 
-	<link rel="stylesheet" type="text/css" href="../cslEditorLib/css/base.css?bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5" />
-	<link rel="stylesheet" type="text/css" href="../cslEditorLib/css/dropdown.css?bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5" />
-	<link rel="stylesheet" type="text/css" href="../cslEditorLib/css/visualEditor.css?bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5" />
+	<link rel="stylesheet" type="text/css" href="../cslEditorLib/css/base.css?bust=$GIT_COMMIT" />
+	<link rel="stylesheet" type="text/css" href="../cslEditorLib/css/dropdown.css?bust=$GIT_COMMIT" />
+	<link rel="stylesheet" type="text/css" href="../cslEditorLib/css/visualEditor.css?bust=$GIT_COMMIT" />
 
 	<style>
 		#visualEditorContainer {
