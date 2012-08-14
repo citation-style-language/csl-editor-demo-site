@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="../cslEditorLib/external/require.js"></script>
 	<script>
 		require.config({
-			baseUrl: ".."
+			baseUrl: "../cslEditorLib"
 		});
 		// load the appropriate page
 		requirejs(['src/config'], function () {});
