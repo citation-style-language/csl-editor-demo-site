@@ -1,3 +1,3 @@
-cd csledit
+cd cslEditorLib 
 ./configure.sh
 cd ..
