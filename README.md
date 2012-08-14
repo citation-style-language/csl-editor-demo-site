@@ -44,6 +44,8 @@ Play with it here: [Citation Style Editor](http://steveridout.com/csl/)
 
 ### To Embed Website in a web pane in your reference manager
 
+** These instructions are out of date, please wait for new ones! **
+
 - Create a web pane and point it to one of the following URLs:
 
 	- My current 'stable' version (recommended)
@@ -60,7 +62,6 @@ Play with it here: [Citation Style Editor](http://steveridout.com/csl/)
 
 - Within the webpage, execute this code:
 
-** This code is out of date: needs updating **
 
 ```javascript
 var cslEditor = new CSLEDIT.VisualEditor("#visualEditorContainer", {

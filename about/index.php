@@ -4,7 +4,7 @@
 
 	<title>About</title>
 
-	<script type="text/javascript" src="../csledit/external/require.js"></script>
+	<script type="text/javascript" src="../cslEditorLib/external/require.js"></script>
 	<script>
 		require.config({
 			baseUrl: ".."
@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="../src/analytics.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.8.18/themes/ui-lightness/jquery-ui.css">
-	<link rel="stylesheet" href="../csledit/css/base.css?bust=$GIT_COMMIT" />
+	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5" />
 <style>
 #mainContent {
 	padding-left: 20px;
@@ -38,7 +38,7 @@
 <p>Source code: <a href="https://github.com/citation-style-editor">https://github.com/citation-style-editor</a></p>
 
 <div id="gitCommit">
-<strong>Current CSL Editor version: </strong> <a href="https://github.com/citation-style-editor/csl-editor/commit/$GIT_COMMIT">$GIT_COMMIT</a>
+<strong>Current CSL Editor version: </strong> <a href="https://github.com/citation-style-editor/csl-editor/commit/21bc39ccdd543fe59756d70e2bda5f7618b896a5">21bc39ccdd543fe59756d70e2bda5f7618b896a5</a>
 </div>
 
 <h2>Getting Started</h2>

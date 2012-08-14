@@ -9,7 +9,7 @@
 	<script>
 		require.config({
 			baseUrl: "../csledit",
-			urlArgs : "bust=$GIT_COMMIT"
+			urlArgs : "bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5"
 		});
 		requirejs(['src/config'], function (config) {
 			require(['jquery'], function () {

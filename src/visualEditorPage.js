@@ -151,6 +151,8 @@ define(
 					height: 400
 				});
 			};
+			
+			console.log("creating vis editor");
 
 			cslEditor = new CSLEDIT_VisualEditor('#visualEditorContainer',	
 				{
@@ -162,6 +164,8 @@ define(
 				});
 		});
 	};
+
+	initVisualEditorDemo();
 
 	return {
 		cslEditor : cslEditor

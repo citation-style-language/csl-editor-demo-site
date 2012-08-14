@@ -13,7 +13,22 @@
 			urlArgs : "bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5"
 		});
 		requirejs(['src/config'], function (config) {
-			require(['../src/visualEditorPage'], function () {});
+			require(['src/VisualEditor'], function (CSLEDIT_VisualEditor) {
+			
+			var cslEditor = new CSLEDIT_VisualEditor('#visualEditorContainer',	
+				{
+					loadCSLName : "Load Style Not Implemented",
+					loadCSLFunc : function () {
+						// your load function here
+						alert("Not implemented");
+					},
+					saveCSLName : 'Save Style Not Implemented',
+					saveCSLFunc : function () {
+						// your save function here
+						alert("Not implemented");
+					}
+				});
+			});
 		});
 	</script>
 
@@ -29,13 +44,7 @@
 	<style>
 		#visualEditorContainer {
 			position: absolute;
-<?php
-if (isset($_GET['embedded']) && $_GET['embedded'] == "true") {
-			echo("top: 0px;");
-} else {
-			echo("top: 40px;");
-}
-?>
+			top: 0px;;
 			bottom: 0px;
 			left: 0px;
 			right: 0px;
@@ -43,11 +52,6 @@ if (isset($_GET['embedded']) && $_GET['embedded'] == "true") {
 	</style>
 </head>
 <body id="visualEditor">
-<?php
-if (!isset($_GET['embedded']) || $_GET['embedded'] != "true") {
-	include '../html/navigation.html';
-}
-?>
 <div id="visualEditorContainer">
 </div>
 </body>

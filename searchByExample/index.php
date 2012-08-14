@@ -4,27 +4,24 @@
 
 	<title>CSL Search by Example</title>
 
-	<script type="text/javascript" src="../csledit/external/require.js"></script>
+	<script type="text/javascript" src="../cslEditorLib/external/require.js"></script>
 	<script>
 		require.config({
-			baseUrl: "../csledit",
-			urlArgs : "bust=$GIT_COMMIT"
+			baseUrl: "../cslEditorLib",
+			urlArgs : "bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5"
 		});
 		requirejs(['src/config'], function (config) {
-			requirejs(['jquery'], function () {
-				// load jquery first due to plugin errors ('hoverIntent' was undefined)
-				require(['../src/searchByExamplePage'], function () {});
-			});
+			require(['../src/searchByExamplePage'], function () {});
 		});
 	</script>
 	<script type="text/javascript" src="../src/analytics.js"></script>
 	
 	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.8.18/themes/ui-lightness/jquery-ui.css">
-	<link rel="stylesheet" type="text/css" href="../csledit/external/cleditor/jquery.cleditor.css">
+	<link rel="stylesheet" type="text/css" href="../cslEditorLib/external/cleditor/jquery.cleditor.css">
 
-	<link rel="stylesheet" href="../csledit/css/base.css?bust=$GIT_COMMIT" />
-	<link rel="stylesheet" href="../csledit/css/searchByExample.css?bust=$GIT_COMMIT" />
-	<link rel="stylesheet" href="../csledit/css/searchResults.css?bust=$GIT_COMMIT" />
+	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5" />
+	<link rel="stylesheet" href="../cslEditorLib/css/searchByExample.css?bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5" />
+	<link rel="stylesheet" href="../cslEditorLib/css/searchResults.css?bust=21bc39ccdd543fe59756d70e2bda5f7618b896a5" />
 
 </head>
 <body id="searchByExample">

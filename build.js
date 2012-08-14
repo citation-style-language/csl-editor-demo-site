@@ -1,6 +1,6 @@
 ({
-	baseUrl: "csledit",
-	mainConfigFile: "csledit/src/config.js",
+	baseUrl: "cslEditorLib",
+	mainConfigFile: "cslEditorLib/src/config.js",
 	optimize: "none",
 
 	appDir: ".",
@@ -16,6 +16,11 @@
 		'jquery': 'empty:',
 		'jquery.ui': 'empty:'
 	},
+	
+	// if this was not set, we'd need to wrap everything with:
+	//    require(['jquery'], function () { ...... });
+	// for it to work
+	cjsTranslate: true,
 
 	modules: [
 		{

@@ -17,7 +17,7 @@ fi
 echo "deploying to build dir $BUILD_DIR"
 
 rm -rf "$BUILD_DIR"
-node csledit/external/r.js -o build.js dir=$BUILD_DIR
+node cslEditorLib/external/r.js -o build.js dir=$BUILD_DIR
 
 GIT_COMMIT=$(git rev-parse HEAD)
 
