@@ -26,7 +26,7 @@ Play with it here: [Citation Style Editor](http://steveridout.com/csl/)
 
 - Run configure.sh
 
-- Point your browser to `$BASE_URL/csl-source/unitTests/` to run the unit tests
+- Point your browser to `$BASE_URL/csl-source/cslEditorLib/unitTests/` to run the unit tests
 
 - Point your browser to `$BASE_URL/csl-source/` to view the site
 
@@ -38,7 +38,7 @@ Play with it here: [Citation Style Editor](http://steveridout.com/csl/)
 
 - Run `./deploy.sh $DEPLOY_PATH`, where `$DEPLOY_PATH` is the path you wish to deploy to. **All current contents of `$DEPLOY_PATH` will be removed!**
 
-- Point your browser to `$BASE_URL/unitTests/` to run the unit tests
+- Point your browser to `$BASE_URL/cslEditorLib/unitTests/` to run the unit tests
 
 - Point your browser to `$BASE_URL/` to view the deployed site
 
