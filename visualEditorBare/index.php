@@ -6,7 +6,6 @@
 	<title>Visual CSL Editor</title>
 
 	<script type="text/javascript" src="../cslEditorLib/external/require.js"></script>
-
 	<script>
 		require.config({
 			baseUrl: "../cslEditorLib",
@@ -14,25 +13,22 @@
 		});
 		requirejs(['src/config'], function (config) {
 			require(['src/VisualEditor'], function (CSLEDIT_VisualEditor) {
-			
-			var cslEditor = new CSLEDIT_VisualEditor('#visualEditorContainer',	
-				{
-					loadCSLName : "Load Style Not Implemented",
-					loadCSLFunc : function () {
-						// your load function here
-						alert("Not implemented");
-					},
-					saveCSLName : 'Save Style Not Implemented',
-					saveCSLFunc : function () {
-						// your save function here
-						alert("Not implemented");
-					}
-				});
+				var cslEditor = new CSLEDIT_VisualEditor('#visualEditorContainer',	
+					{
+						loadCSLName : "Load Style Not Implemented",
+						loadCSLFunc : function () {
+							// your load function here
+							alert("Not implemented");
+						},
+						saveCSLName : 'Save Style Not Implemented',
+						saveCSLFunc : function () {
+							// your save function here
+							alert("Not implemented");
+						}
+					});
 			});
 		});
 	</script>
-
-	<script type="text/javascript" src="../src/analytics.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.8.22/themes/ui-lightness/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="../cslEditorLib/external/jstree/themes/default/style.css" />
