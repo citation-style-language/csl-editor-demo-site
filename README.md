@@ -20,7 +20,7 @@ Play with it here: [Citation Style Editor](http://steveridout.com/csl/)
 
 ### To Setup Development Version
 
-- Run `git clone https://github.com/citation-style-editor/csl-editor.git csl-source` to checkout repo into the directory `csl-source` within your `public\_html` (or equivalent) directory
+- Run `git clone https://github.com/citation-style-editor/csl-editor-demo-site.git csl-source` to checkout repo into the directory `csl-source` within your `public\_html` (or equivalent) directory
 
 - Run `git submodule update --init` from checked out directory to fetch submodules
 
