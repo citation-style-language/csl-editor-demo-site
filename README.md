@@ -10,9 +10,9 @@ Play with it here: [Citation Style Editor](http://steveridout.com/csl/)
 
 - LAMP stack
 
-- Java runtime (doesn't have to be on server, just for pre-processing)
-
 - Node.js 0.8.4 or later
+
+- Java runtime (optional - for running trang to convert the CSL schema)
 
 - Mail server (for sending feedback emails)
 
@@ -24,7 +24,7 @@ Play with it here: [Citation Style Editor](http://steveridout.com/csl/)
 
 - Run `git submodule update --init --recursive` from checked out directory to fetch submodules
 
-- Run configure.sh
+- Run configure.sh (optional - only if you want to re-generate the example citations, or change the CSL schema in external/csl-styles)
 
 - Point your browser to `$BASE_URL/csl-source/cslEditorLib/unitTests/` to run the unit tests
 
