@@ -3,11 +3,12 @@
 define(
 		[
 			'src/VisualEditor',
+			'src/urlUtils',
 			'../external/downloadify/swfobject',
 			'../external/downloadify/downloadify.min',
 			'jquery.ui'
 		],
-		function (CSLEDIT_VisualEditor) {
+		function (CSLEDIT_VisualEditor, CSLEDIT_urlUtils) {
 
 	var cslEditor;
 
@@ -101,6 +102,28 @@ define(
 		});
 	};
 
+	var loadStyleFromUrl = function () {
+		var styleURL = prompt("Please enter the URL of the style you want to load"),
+			cslCode;
+
+		if (typeof(styleURL) === "string" && styleURL !== "") {
+			// fetch the URL
+			$.ajax({
+				url : CSLEDIT_urlUtils.getResourceUrl('../getFromOtherWebsite.php', {url : encodeURIComponent(styleURL)}),
+				dataType : "text",
+				success : function (newStyle) {
+					cslCode = newStyle;
+				},
+				error : function () {
+					debug.log("ajax error: style not loaded");
+				},
+				async : false
+			});
+		}
+
+		return cslCode;
+	};
+
 	var initVisualEditorDemo = function () {
 		$("document").ready(function () {
 			window.onerror = function (err, url, line) {
@@ -160,7 +183,10 @@ define(
 					loadCSLFunc : loadCSL,
 
 					saveCSLName : 'Save Style',
-					saveCSLFunc : saveCSL
+					saveCSLFunc : saveCSL,
+
+					loadStyleFromUrlName : "Load Style From URL",
+					loadStyleFromUrlFunc : loadStyleFromUrl
 				});
 		});
 	};
