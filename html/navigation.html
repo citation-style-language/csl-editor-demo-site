@@ -133,41 +133,45 @@ body#about           a#nav_about {
 "use strict";
 
 require(['src/config'], function () {
-	require(['jquery', 'jquery.ui'], function () {
+	require(['src/browserCheck', 'jquery', 'jquery.ui'], function (CSLEDIT_browserCheck) {
 		var CSLEDIT_feedback = {
 			init : function (feedbackTab, feedbackPanel) {
-				feedbackTab.on('click', function () {
-					feedbackPanel.removeClass('hidden');
-				});
-
-				feedbackPanel.find('button.cancel').on('click', function () {
-					feedbackPanel.addClass('hidden');
-				});
-
-				feedbackPanel.find('input:submit').on('click', function () {
-					var message, email;
-
-					feedbackPanel.addClass('hidden');
-
-					message = feedbackPanel.find('.message').val();
-					email = feedbackPanel.find('.email').val();
-
-					var url = "../demoSite/sendFeedback.php?subject=" + encodeURIComponent("CSL editor feedback") +
-						"&message=" + encodeURIComponent(message) +
-						"&email=" + encodeURIComponent(email);
-
-					$.ajax({
-					  url: url
-					}).done(function ( data ) {
-						$('<div title="Feedback Sent"><\/div>').append(data).dialog();
-						if (/Thanks for your feedback!\s*$/.test(data)) {
-							feedbackPanel.find('.message').val("");
-						}
-					}).fail(function () {
-						alert("Error, feedback not sent.");
-					});
+				if (CSLEDIT_browserCheck.isCompatible()) {
+					feedbackTab.html('Give Feedback');
 					
-				});
+					feedbackTab.on('click', function () {
+						feedbackPanel.removeClass('hidden');
+					});
+
+					feedbackPanel.find('button.cancel').on('click', function () {
+						feedbackPanel.addClass('hidden');
+					});
+
+					feedbackPanel.find('input:submit').on('click', function () {
+						var message, email;
+
+						feedbackPanel.addClass('hidden');
+
+						message = feedbackPanel.find('.message').val();
+						email = feedbackPanel.find('.email').val();
+
+						var url = "../demoSite/sendFeedback.php?subject=" + encodeURIComponent("CSL editor feedback") +
+							"&message=" + encodeURIComponent(message) +
+							"&email=" + encodeURIComponent(email);
+
+						$.ajax({
+						  url: url
+						}).done(function ( data ) {
+							$('<div title="Feedback Sent"><\/div>').append(data).dialog();
+							if (/Thanks for your feedback!\s*$/.test(data)) {
+								feedbackPanel.find('.message').val("");
+							}
+						}).fail(function () {
+							alert("Error, feedback not sent.");
+						});
+						
+					});
+				}
 			}
 		};
 		$('document').ready( function() {
@@ -179,7 +183,7 @@ require(['src/config'], function () {
 </script>
 
 <div id="feedbackTab">
-	Give Feedback
+	Unsupported browser detected, please use the latest Chrome or Firefox
 </div>
 <div id="feedbackPanel" class="hidden">
 	<h3>What do you think?</h3>
