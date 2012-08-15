@@ -29,13 +29,7 @@
 	<style>
 		#visualEditorContainer {
 			position: absolute;
-<?php
-if (isset($_GET['embedded']) && $_GET['embedded'] == "true") {
-			echo("top: 0px;");
-} else {
-			echo("top: 40px;");
-}
-?>
+			top: 40px;
 			bottom: 0px;
 			left: 0px;
 			right: 0px;
@@ -43,11 +37,7 @@ if (isset($_GET['embedded']) && $_GET['embedded'] == "true") {
 	</style>
 </head>
 <body id="visualEditor">
-<?php
-if (!isset($_GET['embedded']) || $_GET['embedded'] != "true") {
-	include '../html/navigation.html';
-}
-?>
+<?php include '../html/navigation.html'; ?>
 <div id="visualEditorContainer">
 </div>
 </body>
