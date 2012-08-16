@@ -4,11 +4,16 @@ define(
 		[
 			'src/VisualEditor',
 			'src/urlUtils',
+			'src/storage',
 			'../external/downloadify/swfobject',
 			'../external/downloadify/downloadify.min',
 			'jquery.ui'
 		],
-		function (CSLEDIT_VisualEditor, CSLEDIT_urlUtils) {
+		function (
+			CSLEDIT_VisualEditor,
+			CSLEDIT_urlUtils,
+			CSLEDIT_storage
+		) {
 
 	var cslEditor;
 

@@ -1,6 +1,6 @@
 define(
 		[	'src/SearchByExample',
-			'src/styleUtils',
+			'../src/styleUtils',
 		],
 		function (
 			CSLEDIT_SearchByExample,
