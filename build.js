@@ -14,13 +14,16 @@
  */
 	paths: {
 		'jquery': 'empty:',
-		'jquery.ui': 'empty:'
+		'jquery.ui': 'empty:',
+		'external/citeproc/citeproc': 'empty:'
 	},
 	
 	// if this was not set, we'd need to wrap everything with:
 	//    require(['jquery'], function () { ...... });
 	// for it to work
 	cjsTranslate: true,
+
+	skipModuleInsertion: true,
 
 	modules: [
 		{

@@ -19,6 +19,12 @@ echo "deploying to build dir $BUILD_DIR"
 rm -rf "$BUILD_DIR"
 node cslEditorLib/external/r.js -o build.js dir=$BUILD_DIR
 
+# doing this becuase the cjsTranslate r.js option breaks citeproc.js
+ORIGINAL_CITEPROC=$(find cslEditorLib/external/citeproc/citeproc*.js)
+BUILD_CITEPROC=$(find $BUILD_DIR/cslEditorLib/external/citeproc/citeproc*.js)
+echo "copying $ORIGINAL_CITEPROC to $BUILD_CITEPROC"
+cp $ORIGINAL_CITEPROC $BUILD_CITEPROC
+
 GIT_COMMIT=$(git rev-parse HEAD)
 
 echo "git commit is $GIT_COMMIT"

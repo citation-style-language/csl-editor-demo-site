@@ -1,6 +1,7 @@
 define(
 		[	'src/SearchByExample',
 			'../src/styleUtils',
+			'jquery'
 		],
 		function (
 			CSLEDIT_SearchByExample,
