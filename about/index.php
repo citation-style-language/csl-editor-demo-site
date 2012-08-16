@@ -38,7 +38,7 @@
 <p>Source code: <a href="https://github.com/citation-style-editor">https://github.com/citation-style-editor</a></p>
 
 <div id="gitCommit">
-<strong>Current CSL Editor version: </strong> <a href="https://github.com/citation-style-editor/csl-editor/commit/$GIT_COMMIT">$GIT_COMMIT</a>
+<strong>Current CSL Editor version: </strong> <a href="https://github.com/citation-style-editor/csl-editor-demo-site/commit/$GIT_COMMIT">$GIT_COMMIT</a>
 </div>
 
 <h2>Getting Started</h2>
