@@ -140,7 +140,16 @@ body#about           a#nav_about {
 "use strict";
 
 require(['src/config'], function () {
-	require(['src/browserCheck', 'jquery', 'jquery.ui'], function (CSLEDIT_browserCheck) {
+	require(
+			[	'src/browserCheck',
+				'src/urlUtils',
+				'jquery',
+				'jquery.ui'
+			],
+			function (
+				CSLEDIT_browserCheck,
+				CSLEDIT_urlUtils
+			) {
 		var CSLEDIT_feedback = {
 			init : function (feedbackTab, feedbackPanel) {
 				feedbackTab.html('Give Feedback');
@@ -161,9 +170,11 @@ require(['src/config'], function () {
 					message = feedbackPanel.find('.message').val();
 					email = feedbackPanel.find('.email').val();
 
-					var url = "../demoSite/sendFeedback.php?subject=" + encodeURIComponent("CSL editor feedback") +
-						"&message=" + encodeURIComponent(message) +
-						"&email=" + encodeURIComponent(email);
+					var url = CSLEDIT_urlUtils.getResourceUrl("../sendFeedback.php", {
+						subject : encodeURIComponent("CSL editor feedback"),
+						message : encodeURIComponent(message),
+						email : encodeURIComponent(email)
+					});
 
 					$.ajax({
 					  url: url
