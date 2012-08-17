@@ -22,9 +22,7 @@ Play with it here: [Citation Style Editor](http://steveridout.com/csl/)
 
 ### To Setup Development Version
 
-- Run `git clone https://github.com/citation-style-editor/csl-editor-demo-site.git csl-demo` to checkout repo into the directory `csl-demo` within your `public\_html` (or equivalent) directory
-
-- Run `git submodule update --init --recursive` from checked out directory to fetch submodules
+- Run `git clone --recursive https://github.com/citation-style-editor/csl-editor-demo-site.git csl-demo` to checkout repo into the directory `csl-demo` within your `public\_html` (or equivalent) directory
 
 - Run configure.sh (optional - only if you want to re-generate the example citations, or change the CSL schema in external/csl-styles)
 
