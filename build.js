@@ -11,6 +11,7 @@
 	paths: {
 		'jquery': 'empty:',
 		'jquery.ui': 'empty:',
+		'jquery.layout' : 'empty:',
 		'external/citeproc/citeproc': 'empty:'
 	},
 	
