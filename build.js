@@ -8,10 +8,6 @@
 
 	fileExclusionRegExp: /^\.git$/,
 
-/*	
- *	TODO: try to get this working, we shouldn't include a different jquery on
- *	      every page
- */
 	paths: {
 		'jquery': 'empty:',
 		'jquery.ui': 'empty:',
