@@ -4,7 +4,7 @@
 
 	<title>CSL Search by Name</title>
 
-	<script type="text/javascript" src="../cslEditorLib/external/require.js"></script>
+	<script type="text/javascript" src="../cslEditorLib/external/require-jquery.js"></script>
 	<script>
 		require.config({
 			baseUrl: "../cslEditorLib",

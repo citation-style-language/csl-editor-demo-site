@@ -5,7 +5,7 @@
 
 	<title>CSL-data-exporter style generator</title>
 
-	<script type="text/javascript" src="../csledit/external/require.js"></script>
+	<script type="text/javascript" src="../csledit/external/require-jquery.js"></script>
 	<script>
 		require.config({
 			baseUrl: "../csledit",

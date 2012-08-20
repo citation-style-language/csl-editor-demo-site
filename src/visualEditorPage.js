@@ -145,10 +145,10 @@ define(
 							"\nUrl: " + url + "\nLine: " + line
 					},
 					success : function (data) {
-						console.log("Logged error: " + data);
+						debug.log("Logged error: " + data);
 					},
 					error : function () {
-						console.log("Failed to log error");
+						debug.log("Failed to log error");
 					}
 				});
 
@@ -167,7 +167,6 @@ define(
 
 				errLines.splice(0, 1);
 				if (errLines.length > 0) {
-					//dialog.append("<ul><li>" + errLines.join("</li><li>") + "</li></ul>");
 					dialog.append("<pre>" + errLines.join("\n") + "</pre>");
 				} else {
 					dialog.append("<p>url: " + url + "</p>");
@@ -180,8 +179,6 @@ define(
 				});
 			};
 			
-			console.log("creating vis editor");
-
 			cslEditor = new CSLEDIT_VisualEditor('#visualEditorContainer',	
 				{
 					loadCSLName : "Load Style",
