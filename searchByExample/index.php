@@ -17,7 +17,6 @@
 	<script type="text/javascript" src="../src/analytics.js"></script>
 	
 	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.8.18/themes/ui-lightness/jquery-ui.css">
-	<link rel="stylesheet" type="text/css" href="../cslEditorLib/external/cleditor/jquery.cleditor.css">
 
 	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=$GIT_COMMIT" />
 	<link rel="stylesheet" href="../cslEditorLib/css/searchByExample.css?bust=$GIT_COMMIT" />
