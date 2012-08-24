@@ -31,7 +31,10 @@ define(
 			var file = event.target.files[0],
 				reader = new FileReader();
 			reader.onload = function (event) {
-				cslEditor.setCslCode(event.target.result);
+				var result = cslEditor.setCslCode(event.target.result);
+				if ("error" in result && "message" in result.error) {
+					alert(result.error.message);
+				}
 				dialog.dialog("destroy");
 			};
 			reader.readAsText(file);
