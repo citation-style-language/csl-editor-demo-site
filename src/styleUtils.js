@@ -20,14 +20,8 @@ define(
 		$.ajax({
 			url: url,
 			success: function (cslCode) {
-				var result = CSLEDIT_controller.exec("setCslCode", [cslCode]);
-				if ("error" in result) {
-					if ("message" in result.error) {
-						alert(result.error.message);
-					} else {
-						alert("Error: " + JSON.stringify(result.error));
-					}
-				} else {
+				var result = CSLEDIT_controller.exec("setCslCode", [cslCode], true);
+				if (!("error" in result)) {
 					window.location.href = visualEditorUrl;
 				}
 			},
