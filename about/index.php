@@ -7,7 +7,8 @@
 	<script type="text/javascript" src="../cslEditorLib/external/require-jquery.js"></script>
 	<script>
 		require.config({
-			baseUrl: "../cslEditorLib"
+			baseUrl: "../cslEditorLib",
+			urlArgs : "bust=$GIT_COMMIT"
 		});
 		// load the appropriate page
 		requirejs(['src/config'], function () {});
