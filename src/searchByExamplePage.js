@@ -1,11 +1,12 @@
 define(
 		[	'src/SearchByExample',
 			'../src/styleUtils',
-			'jquery'
+			'../src/errorHandler'
 		],
 		function (
 			CSLEDIT_SearchByExample,
-			styleUtils
+			styleUtils,
+			errorHandler
 		) {
 	$(document).ready(function () {
 		var searchByExample = new CSLEDIT_SearchByExample($('#mainContainer'), {

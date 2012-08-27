@@ -12,7 +12,7 @@
 			baseUrl: "../cslEditorLib",
 			urlArgs : "bust=$GIT_COMMIT"
 		});
-		requirejs(['src/config'], function (config) {
+		requirejs(['src/config'], function (config, errorHandler) {
 			require(['../src/visualEditorPage'], function () {});
 		});
 	</script>
