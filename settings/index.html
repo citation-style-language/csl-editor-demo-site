@@ -1,5 +1,13 @@
+<!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="../cslEditorLib/css/base.css?bust=$GIT_COMMIT" />
+		<style>
+			td {
+				background-color: #eeeeee;
+			}
+		</style>
+
 		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 
 		<script type="text/javascript">
@@ -32,7 +40,63 @@
 						subList.append("<li>" + name + "</li>");
 					});
 				}
+
+				displayLocalStorage();
 			}
+
+			var displayLocalStorage = function () {
+				var table = $('<table>'),
+					key,
+					value,
+					totalCharacters = 0;
+
+				if (localStorage.length > 0) {
+					table.append(
+						$('<tr>')
+							.append($('<td>').append("<strong>key</strong>"))
+							.append($('<td>').append("<strong>value</strong>"))
+					);
+				}
+
+				// list local storage contents
+				for (var i = 0; i < localStorage.length; i++) {
+					key = localStorage.key(i);
+					value = localStorage.getItem(key);
+
+					totalCharacters += value.length + key.length;
+
+					// elide value
+					if (value.length > 400) {
+						value = value.substring(0, 400) + "...";
+					}
+
+					console.log(sanitize(value));
+
+					table.append(
+						$('<tr>')
+							.append($('<td>').append(key))
+							.append($('<td>').append(sanitize(value)))
+					);
+				}
+
+				console.log("total = " + totalCharacters);
+				var thousandsOfCharacters = Math.round(totalCharacters / 1000);
+
+				$('#localStorage')
+					.html("")
+					.append("<p>Using " + thousandsOfCharacters + "k characters out of a possible 2500k (see " +
+							"<a href=http://dev-test.nemikor.com/web-storage/support-test>reference</a>)</p>")
+					.append(table);
+
+			};
+
+			var sanitize = function (input) {
+				return input
+					.replace(/&/g, "&amp;")
+					.replace(/</g, "&lt")
+					.replace(/>/g, "&gt;")
+					.replace(/"/g, "&quot;");
+			};
 
 			var readSchemaFiles = function (schemaKey, files) {
 				var schemaData = {};
@@ -73,7 +137,7 @@
 				
 				$("#resetEverything").click(function () {
 					localStorage.clear();
-					alert("All local settings removed");
+					updateView();
 				});
 
 				updateView();
@@ -93,15 +157,14 @@
 
 		<button id="deleteSchema">Delete All Files (reset schema to default)</button>
 
-		<h3>Reset everything</h3>
-		<button id="resetEverything">Reset all local settings to default (your style will be lost)</button>
-
+		<h3>Current local storage</h3>
+		<div id=localStorage>
+		</div>
+		<button id="resetEverything">Delete all local settings (your style will be lost)</button>
 		<p>
 
 		<h3>CSL Editor</h3>
-		<a href="../visualEditor">
-			Go to Visual Editor page
-		</a> (these settings will be remembered, return back to this page is you want to change them)
+		<a href="../visualEditor">Go to Visual Editor page</a> (these settings will be remembered, return back to this page if you want to change them)
 		</p>
 	</body>
 </html>
