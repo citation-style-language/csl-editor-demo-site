@@ -26,7 +26,7 @@ Play with it here: [Citation Style Editor](http://steveridout.com/csl/)
 
 - Run configure.sh (optional - only if you want to re-generate the example citations, or change the CSL schema in external/csl-styles)
 
-- Point your browser to `$BASE_URL/csl-demo/cslEditorLib/unitTests/` to run the unit tests
+- Point your browser to `$BASE_URL/csl-demo/cslEditorLib/pages/unitTests.html` to run the unit tests
 
 - Point your browser to `$BASE_URL/csl-demo/` to view the site
 
