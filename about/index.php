@@ -4,6 +4,9 @@
 
 	<title>About</title>
 
+	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.8.18/themes/ui-lightness/jquery-ui.css">
+	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=$GIT_COMMIT" />
+
 	<script type="text/javascript" src="../cslEditorLib/external/require-jquery.js"></script>
 	<script>
 		require.config({
@@ -14,9 +17,6 @@
 		requirejs(['src/config'], function () {});
 	</script>
 	<script type="text/javascript" src="../src/analytics.js"></script>
-
-	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.8.18/themes/ui-lightness/jquery-ui.css">
-	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=$GIT_COMMIT" />
 <style>
 #mainContent {
 	padding-left: 20px;

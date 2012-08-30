@@ -4,6 +4,11 @@
 
 	<title>CSL Search by Example</title>
 
+	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.8.18/themes/ui-lightness/jquery-ui.css">
+	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=$GIT_COMMIT" />
+	<link rel="stylesheet" href="../cslEditorLib/css/searchByExample.css?bust=$GIT_COMMIT" />
+	<link rel="stylesheet" href="../cslEditorLib/css/searchResults.css?bust=$GIT_COMMIT" />
+
 	<script type="text/javascript" src="../cslEditorLib/external/require-jquery.js"></script>
 	<script>
 		require.config({
@@ -16,12 +21,6 @@
 	</script>
 	<script type="text/javascript" src="../src/analytics.js"></script>
 	
-	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.8.18/themes/ui-lightness/jquery-ui.css">
-
-	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=$GIT_COMMIT" />
-	<link rel="stylesheet" href="../cslEditorLib/css/searchByExample.css?bust=$GIT_COMMIT" />
-	<link rel="stylesheet" href="../cslEditorLib/css/searchResults.css?bust=$GIT_COMMIT" />
-
 </head>
 <body id="searchByExample">
 <?php include '../html/navigation.html'; ?>
