@@ -11,7 +11,9 @@
 			urlArgs : "bust=$GIT_COMMIT"
 		});
 		// load the appropriate page
-		requirejs(['src/config'], function () {});
+		requirejs(['src/config'], function () {
+			require(['../src/aboutPage'], function () {});
+		});
 	</script>
 	<script type="text/javascript" src="../src/analytics.js"></script>
 
