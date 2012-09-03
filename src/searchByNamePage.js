@@ -15,8 +15,8 @@ define(
 	$(document).ready(function () {
 		var styleQuery = CSLEDIT_urlUtils.getUrlVar('style');
 
-		if ("pushState" in window.history) {
-			window.history.pushState({}, document.title,
+		if ("replaceState" in window.history) {
+			window.history.replaceState({}, document.title,
 				CSLEDIT_urlUtils.removeQueryParam(window.location.href, 'style'));
 		}
 
