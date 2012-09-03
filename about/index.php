@@ -95,7 +95,7 @@ body {
 <div class="column">
 	<div class="padding">
 		<h2>2. Edit the style</h2>
-		<p>If you can't find a style that quite suits your needs, find one that's a pretty close match and click the "Edit style" button to open that style in the <a href="">visual editor</a>.</p>
+		<p>If you can't find a style that quite suits your needs, find one that's a pretty close match and click the "Edit style" button to open that style in the <a href="../visualEditor">visual editor</a>.</p>
 		<a href="../searchByExample/" class="fig"><img src="../images/edit-style.png"></a>
 		<p>Watch the video tutorial below for a quick tour of how the visual editor works.</p>
 	</div>
