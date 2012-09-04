@@ -21,9 +21,11 @@ define(
 		}
 
 		var searchByName = new CSLEDIT_SearchByName($('#mainContainer'), {
-			editStyle_func : function (styleURL) {
-				styleUtils.editStyle(styleURL, "../visualEditor");
+			editStyle_func : function (styleId) {
+				styleUtils.editStyle(styleId, "../visualEditor");
 			},
+			viewCode_func : styleUtils.viewCode,
+			installStyle_func : styleUtils.installStyle,
 			initialSearchQuery : styleQuery
 		});
 	});
