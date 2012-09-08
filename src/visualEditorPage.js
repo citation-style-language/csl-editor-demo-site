@@ -43,28 +43,6 @@ define(
 		dialog.dialog({modal : true});
 	};
 
-	var loadStyleFromUrl = function () {
-		var styleURL = prompt("Please enter the URL of the style you want to load"),
-			cslCode;
-
-		if (typeof(styleURL) === "string" && styleURL !== "") {
-			// fetch the URL
-			$.ajax({
-				url : CSLEDIT_urlUtils.getResourceUrl('../getFromOtherWebsite.php', {url : encodeURIComponent(styleURL)}),
-				dataType : "text",
-				success : function (newStyle) {
-					cslCode = newStyle;
-				},
-				error : function () {
-					debug.log("ajax error: style not loaded");
-				},
-				async : false
-			});
-		}
-
-		return cslCode;
-	};
-
 	var initVisualEditorDemo = function () {
 		$(document).ready(function () {
 			cslEditor = new CSLEDIT_VisualEditor('#visualEditorContainer',	
@@ -82,10 +60,7 @@ define(
 							cslEditor.getStyleId(),
 							"This style was edited with the Visual CSL Editor (" + window.location.href + ")"
 						);
-					},
-
-					loadStyleFromUrlName : "Load Style From URL",
-					loadStyleFromUrlFunc : loadStyleFromUrl
+					}
 				});
 		});
 	};
