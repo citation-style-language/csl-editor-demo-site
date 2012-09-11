@@ -123,7 +123,7 @@ body {
 	<li><a href="https://github.com/citation-style-language/styles">CSL style repository</a></li>
 	<li><a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html">citeproc-js</a> (Citation formatting engine)</li>
 	<li><a href="http://codemirror.net/">CodeMirror</a> (text editor on codeEditor page)</li>
-	<li><a href="http://code.google.com/p/google-diff-match-patch/">diff_match_patch</a> (for showing highlighted differences in formatted output)</li>
+	<li><a href="http://code.google.com/p/google-diff-match-patch/">diff_match_patch</a> (for calculating the edit distances in Search by Example)</li>
 	<li><a href="http://www.thaiopensource.com/relaxng/trang.html">Trang</a> (for converting schema files from .rnc to .rng)</li>
 	<li><a href="http://node.js.org">node.js</a> (for javascript run in the build process)</li>
 	<li><a href="http://www.mozilla.org/rhino/">Rhino</a> (for javascript run in the build process)</li></li>
