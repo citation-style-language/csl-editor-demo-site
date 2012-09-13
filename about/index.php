@@ -104,7 +104,7 @@ body {
 <div class="column last">
 	<div class="padding">
 		<h2>3. Install &amp; share the style</h2>
-		<p>Once you've found a style that's suitable for you to use, simply click the "Install" button on the search results, or "Save" a style you've edited, and they'll be installed in Mendeley Desktop automatically.</p>
+		<p>Once you've found a style that's suitable for you to use, simply click the "Install" button on the search results, or "Save" a style you've edited, to use it in your reference manager.</p>
 		<p></p>
 	</div>
 </div>
