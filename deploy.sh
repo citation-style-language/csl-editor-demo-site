@@ -5,8 +5,6 @@
 # By default it will create a sibling build directory called 'csl'
 # or it uses a command line argument if present
 
-# TODO: check that configure.sh has been run
-
 if [ "$1" == "" ]
 then
 	BUILD_DIR="../csl"
@@ -32,12 +30,15 @@ echo "git commit is $GIT_COMMIT"
 # Replace $GIT_COMMIT with the git commit hash in all php files
 cd $BUILD_DIR
 
-find */index.php | while read FILENAME;
+find cslEditorLib/pages/*.html >> find */index.php > filesToConvert
+
+while read FILENAME;
 do
 echo "converting $FILENAME"
-sed s/\$GIT_COMMIT/$GIT_COMMIT/g <$FILENAME >temp.php
-mv temp.php $FILENAME
-done
+sed s/\$GIT_COMMIT/$GIT_COMMIT/g <$FILENAME >tempFile
+mv tempFile $FILENAME
+done < filesToConvert
+rm filesToConvert
 
 # Create error.log file
 echo "CSL edit error log" > error.log
