@@ -7,11 +7,13 @@
 
 define(
 		[	'src/storage',
+			'src/urlUtils',
 			'src/debug',
 			'jquery.ui'
 		],
 		function (
 			CSLEDIT_storage,
+			CSLEDIT_urlUtils,
 			debug,
 			jquery_ui
 		) {
@@ -24,7 +26,7 @@ define(
 				resetButton = $('<button>Reset Everything</button>');
 
 			$.ajax({
-				url : "../logError.php",
+				url : CSLEDIT_urlUtils.getResourceUrl("../logError.php"),
 				type : "POST",
 				data : {
 					message : err + "\nBrowser: " + JSON.stringify($.browser) +

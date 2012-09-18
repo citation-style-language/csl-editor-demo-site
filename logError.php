@@ -1,10 +1,14 @@
 <?php
-// write to error.log file
-$success = error_log("\nDate: " . date('d.m.Y H:i:s') . "\n" . $_REQUEST['message'] . "\n", 3, "error.log");
+if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+	header("HTTP/1.0 405 Method Not Allowed");
+	die();
+}
+
+// write to error log on server
+$success = error_log("CSL Editor Client Error: " . $_REQUEST['message']);
 if ($success == TRUE) {
         echo "success";
 } else {
         echo "fail";
 }
 ?>
-
