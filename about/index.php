@@ -134,7 +134,9 @@ body {
 	<li><a href="http://layout.jquery-dev.net">jQuery UI Layout Plugin</a></li>
 	<li><a href="http://cherne.net/brian/resources/jquery.hoverIntent.html">jQuery hoverIntent Plugin</a></li>
 	<li><a href="http://demos.flesler.com/jquery/scrollTo/">jQuery scrollTo Plugin</a></li>
-	<li><a href="http://requirejs.org/">require.js</a></li>
+	<li><a href="http://requirejs.org/">RequireJS</a></li>
+	<li><a href="http://mustache.github.com/">mustache</a> (used to generate HTML from templates)</li>
+	<li><a href="http://code.google.com/p/pagedown/">pagedown</a> (used to generate source code docmentation)</li>
 </ul>
 </div>
 
