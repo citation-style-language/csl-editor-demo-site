@@ -45,3 +45,7 @@ echo "CSL edit error log" > error.log
 echo "------------------" >> error.log
 echo "" >> error.log
 chmod o+w error.log
+
+# Remove any *.php files in external libraries
+find external -name "*.php" -type f -print0 | xargs -0 rm -f
+find cslEditorLib/external -name "*.php" -type f -print0 | xargs -0 rm -f
