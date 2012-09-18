@@ -54,7 +54,6 @@ body#about           a#nav_about {
 	position: absolute;
 	right: 10px;
 }
-
 </style>
 
 <nav id="navigationBar">
@@ -177,7 +176,8 @@ require(['src/config'], function () {
 					});
 
 					$.ajax({
-					  url: url
+						url: url,
+						type: "POST"
 					}).done(function ( data ) {
 						$('<div title="Feedback Sent"><\/div>').append(data).dialog();
 						if (/Thanks for your feedback!\s*$/.test(data)) {
