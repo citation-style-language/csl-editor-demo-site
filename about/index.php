@@ -119,24 +119,25 @@ body {
 </ul>
 <strong>Attributions</strong>
 <ul>
-	<li><a href="http://citationstyles.org/">Citation Style Language</a></li>
-	<li><a href="https://github.com/citation-style-language/styles">CSL style repository</a></li>
-	<li><a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html">citeproc-js</a> (Citation formatting engine)</li>
-	<li><a href="http://codemirror.net/">CodeMirror</a> (text editor on codeEditor page)</li>
-	<li><a href="http://code.google.com/p/google-diff-match-patch/">diff_match_patch</a> (for calculating the edit distances in Search by Example)</li>
-	<li><a href="http://www.thaiopensource.com/relaxng/trang.html">Trang</a> (for converting schema files from .rnc to .rng)</li>
-	<li><a href="http://node.js.org">node.js</a> (for javascript run in the build process)</li>
-	<li><a href="http://www.mozilla.org/rhino/">Rhino</a> (for javascript run in the build process)</li></li>
-	<li><a href="http://www.famfamfam.com/lab/icons/silk/">FamFamFam Silk icons</a></li>
-	<li><a href="http://p.yusukekamiyamane.com/">Fugue icons</a></li>
-	<li><a href="http://jquery.com/">jQuery</a></li>
-	<li><a href="http://www.jstree.com/">jQuery jsTree Plugin</a> (tree view on visualEditor page)</li>
-	<li><a href="http://layout.jquery-dev.net">jQuery UI Layout Plugin</a></li>
-	<li><a href="http://cherne.net/brian/resources/jquery.hoverIntent.html">jQuery hoverIntent Plugin</a></li>
-	<li><a href="http://demos.flesler.com/jquery/scrollTo/">jQuery scrollTo Plugin</a></li>
-	<li><a href="http://requirejs.org/">RequireJS</a></li>
-	<li><a href="http://mustache.github.com/">mustache</a> (used to generate HTML from templates)</li>
-	<li><a href="http://code.google.com/p/pagedown/">pagedown</a> (used to generate source code docmentation)</li>
+<li><a href="http://citationstyles.org/">Citation Style Language</a></li>
+<li><a href="https://github.com/citation-style-language/styles">CSL style repository</a></li>
+<li><a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html">citeproc-js</a> (Citation formatting engine)</li>
+<li><a href="http://codemirror.net/">CodeMirror</a> (text editor on codeEditor page)</li>
+<li><a href="http://code.google.com/p/google-diff-match-patch/">diff_match_patch</a> (for calculating edit distances in Search by Example)</li>
+<li><a href="http://www.thaiopensource.com/relaxng/trang.html">Trang</a> (for converting schema files from .rnc to .rng)</li>
+<li><a href="http://node.js.org">node.js</a> (for javascript run in the build process)</li>
+<li><a href="http://www.famfamfam.com/lab/icons/silk/">FamFamFam Silk icons</a></li>
+<li><a href="http://p.yusukekamiyamane.com/">Fugue icons</a></li>
+<li><a href="http://jquery.com/">jQuery</a></li>
+<li><a href="http://www.jstree.com/">jQuery jsTree Plugin</a> (tree view on visualEditor page)</li>
+<li><a href="http://layout.jquery-dev.net">jQuery UI Layout Plugin</a></li>
+<li><a href="http://cherne.net/brian/resources/jquery.hoverIntent.html">jQuery hoverIntent Plugin</a></li>
+<li><a href="http://demos.flesler.com/jquery/scrollTo/">jQuery scrollTo Plugin</a></li>
+<li><a href="http://qunitjs.com/">QUnit</a> (javascript unit testing framework)</li>
+<li><a href="http://requirejs.org/">RequireJS</a> (javascript module loader)</li>
+<li><a href="http://mustache.github.com/">mustache</a> (used to generate HTML from templates)</li>
+<li><a href="http://code.google.com/p/pagedown/">pagedown</a> (used to generate source code docmentation)</li>
+<li><a href="http://xregexp.com/">XRegExp</a> (for unicode letter matching in the Search by Example page)</li>
 </ul>
 </div>
 
