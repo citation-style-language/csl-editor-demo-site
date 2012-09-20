@@ -179,7 +179,7 @@ require(['src/config'], function () {
 						url: url,
 						type: "POST"
 					}).done(function ( data ) {
-						$('<div title="Feedback Sent"><\/div>').append(data).dialog();
+						$('<div title="Feedback Sent"><\/div>').html(data).dialog();
 						if (/Thanks for your feedback!\s*$/.test(data)) {
 							feedbackPanel.find('.message').val("");
 						}

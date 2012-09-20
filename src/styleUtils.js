@@ -2,6 +2,7 @@ define(
 		[	'src/controller',
 			'src/urlUtils',
 			'src/cslStyles',
+			'src/options',
 			'src/debug',
 			'../external/downloadify/swfobject',
 			'../external/downloadify/downloadify.min',
@@ -11,6 +12,7 @@ define(
 			CSLEDIT_controller,
 			CSLEDIT_urlUtils,
 			CSLEDIT_cslStyles,
+			CSLEDIT_options,
 			debug
 		) {
 	var editStyle = function (styleId, visualEditorUrl) {
@@ -30,8 +32,13 @@ define(
 	};
 
 	var viewCode = function (styleId) {
-		var styleURL = CSLEDIT_cslStyles.localURLFromZoteroId(styleId);
-		window.location.href = styleURL;
+		var styleInfoURL = CSLEDIT_options.get('styleInfoURL');
+		if (typeof(styleInfoURL) === "undefined") {
+			var styleURL = CSLEDIT_cslStyles.localURLFromZoteroId(styleId);
+			window.location.href = styleURL;
+		} else {
+			window.location.href = styleInfoURL + "?styleId=" + encodeURIComponent(styleId);
+		}
 	};
 
 	var installStyle = function (styleId) {

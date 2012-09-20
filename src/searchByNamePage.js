@@ -24,9 +24,12 @@ define(
 			editStyle_func : function (styleId) {
 				styleUtils.editStyle(styleId, "../visualEditor");
 			},
-			viewCode_func : styleUtils.viewCode,
+			viewCode_func : function (styleId) {
+				styleUtils.viewCode(styleId);
+			},
 			installStyle_func : styleUtils.installStyle,
-			initialSearchQuery : styleQuery
+			initialSearchQuery : styleQuery,
+			styleInfoURL : "../styleInfo/"
 		});
 	});
 });

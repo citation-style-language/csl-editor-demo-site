@@ -14,7 +14,8 @@ define(
 				styleUtils.editStyle(styleId, "../visualEditor");
 			},
 			viewCode_func :	styleUtils.viewCode,
-			installStyle_func : styleUtils.installStyle
+			installStyle_func : styleUtils.installStyle,
+			styleInfoURL : "../styleInfo/"
 		});
 	});
 });
