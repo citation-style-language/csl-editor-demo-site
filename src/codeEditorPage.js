@@ -1,3 +1,7 @@
+"use strict";
+
+// Sets up the codeEditor/ page
+
 define(
 		[	'src/CodeEditor',
 			'../src/errorHandler'

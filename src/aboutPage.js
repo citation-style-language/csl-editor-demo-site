@@ -1,5 +1,7 @@
 "use strict";
 
+// Sets up the about/ page
+
 define([],function () {
 	$(document).ready(function () {
 		var queryInput = $('#styleNameQuery');

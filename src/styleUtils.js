@@ -1,3 +1,7 @@
+"use strict";
+
+// Functions to handle CSL styles which don't belong in cslEditorLib
+
 define(
 		[	'src/controller',
 			'src/urlUtils',
@@ -15,6 +19,9 @@ define(
 			CSLEDIT_options,
 			debug
 		) {
+
+	// Event handler for an 'Edit Style' action
+	// e.g. when user clicks on an "Edit Style" button
 	var editStyle = function (styleId, visualEditorUrl) {
 		var styleURL = CSLEDIT_cslStyles.localURLFromZoteroId(styleId);
 		CSLEDIT_cslStyles.fetchCslCode(
@@ -31,6 +38,8 @@ define(
 		);
 	};
 
+	// Event handler for a 'View Code' action
+	// e.g. when user clicks on a "View Code" button
 	var viewCode = function (styleId) {
 		var styleInfoURL = CSLEDIT_options.get('styleInfoURL');
 		if (typeof(styleInfoURL) === "undefined") {
@@ -41,6 +50,8 @@ define(
 		}
 	};
 
+	// Event handler for a 'Install Style' action
+	// e.g. when user clicks on an "Install Style" button
 	var installStyle = function (styleId) {
 		CSLEDIT_cslStyles.fetchCslCode(
 			styleId,
@@ -53,13 +64,14 @@ define(
 		);
 	};
 	
-	// Use Flash based downloadify plugin to save files to local file system
+	// Uses the Flash based downloadify library to save files to the local file system
 	var saveCsl = function (
 			cslCodeOrData,
 			styleId,
-			comment /* optional, if comment is included, cslCodeOrData must be a CSLEDIT_Data instance */
+			comment // optional, if comment is included cslCodeOrData
+			        // must be a CSLEDIT_Data instance
 			) {
-		var dialog = $('<div title="Save CSL Style">' + 
+		var dialog = $('<div title="Save CSL Style">' +
 				'<div id="downloadify" style="padding-left: 300px"></div>' +
 				'<div id="installFlash" style="padding-left:50px"></div>' +
 				'<div id="refManagerInstructions"><\/div>' +
