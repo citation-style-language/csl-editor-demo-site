@@ -69,10 +69,10 @@ body#about           a#nav_about {
 	</ul>
 </nav>
 
-<!-- Feedback pop-out panel -->
+<!-- Unsupported brower message -->
 
 <style type="text/css">
-#feedbackTab {
+#unsupportedBrowserMessage {
 	position: fixed;
 	top: 0;
 	right: 16px;
@@ -81,57 +81,19 @@ body#about           a#nav_about {
 	font-weight: bold;
 	font-family: Tahoma, Sans-Serif;
 	background-color: blue;
-	color: white;
+	color: #ddddff;
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-top: 4px;
 	padding-bottom: 4px;
 
 	z-index: 20;
+
+	display: none;
 }
-#feedbackTab:hover {
-	cursor: pointer;
-}
-#feedbackTab .unsupported {
-	color: #ddddff;
-}
-#feedbackTab a {
+#unsupportedBrowserMessage a {
 	font-weight: bold;
 	color: white;
-}
-#feedbackPanel {
-	background-color: #1111cc;
-	color: white;
-
-	position: fixed;
-	right: 0;
-	top: 0;
-
-	padding: 8px;
-	z-index: 30;
-
-	width: 300px;
-
-	font-size: 12px;
-	font-family: Sans-Serif;
-}
-#feedbackPanel h3,
-#feedbackPanel input.email {
-	margin-top: 0px;
-	margin-bottom: 6px;
-	width: 100%;
-}
-#feedbackPanel input[type=submit],
-#feedbackPanel button {
-	width: 50%;
-}
-#feedbackPanel textarea {
-	margin-bottom: 6px;
-	width: 100%;
-	height: 100px;
-}
-#feedbackPanel.hidden {
-	visibility: hidden;
 }
 </style>
 
@@ -149,68 +111,27 @@ require(['src/config'], function () {
 				CSLEDIT_browserCheck,
 				CSLEDIT_urlUtils
 			) {
-		var CSLEDIT_feedback = {
-			init : function (feedbackTab, feedbackPanel) {
-				feedbackTab.html('Give Feedback');
-				
-				feedbackTab.on('click', function () {
-					feedbackPanel.removeClass('hidden');
-				});
-
-				feedbackPanel.find('button.cancel').on('click', function () {
-					feedbackPanel.addClass('hidden');
-				});
-
-				feedbackPanel.find('input:submit').on('click', function () {
-					var message, email;
-
-					feedbackPanel.addClass('hidden');
-
-					message = feedbackPanel.find('.message').val();
-					email = feedbackPanel.find('.email').val();
-
-					var url = CSLEDIT_urlUtils.getResourceUrl("../sendFeedback.php", {
-						subject : encodeURIComponent("CSL editor feedback"),
-						message : encodeURIComponent(message),
-						email : encodeURIComponent(email)
-					});
-
-					$.ajax({
-						url: url,
-						type: "POST"
-					}).done(function ( data ) {
-						$('<div title="Feedback Sent"><\/div>').html(data).dialog();
-						if (/Thanks for your feedback!\s*$/.test(data)) {
-							feedbackPanel.find('.message').val("");
-						}
-					}).fail(function () {
-						alert("Error, feedback not sent.");
-					});
-				});
-			}
-		};
 		$('document').ready( function() {
 			if (CSLEDIT_browserCheck.isCompatible()) {
-				CSLEDIT_feedback.init($('#feedbackTab'), $('#feedbackPanel'));
+
+				// Setup uservoice feedback tag
+				var uvOptions = {};
+				(function() {
+				var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+					uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/oO7BJ8Bejbo6PLFoP4M4Q.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+				})();
 			} else {
-				$('#feedbackTab').html(
-					'<span class=unsupported>Unsupported browser detected, please use the latest <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a></span>');
+				$('#unsupportedBrowserMessage').css("display", "block").html(
+					'<span>Unsupported browser detected, please use the latest <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a></span>');
 			}
 		});
 	});
 });
-
 </script>
 
-<div id="feedbackTab">
+<div id="unsupportedBrowserMessage">
 	<!--[if IE]>
-	<span class=unsupported>Unsupported browser detected, please use the latest <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a></span>
+	<span>Unsupported browser detected, please use the latest <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a></span>
 	<![endif]-->
-</div>
-<div id="feedbackPanel" class="hidden">
-	<h3>What do you think?</h3>
-	<textarea class="message" placeholder="Enter your bug report or any other feedback here" ></textarea><br />
-	Your email: (if you'd like a reply)<br />
-	<input class="email" type="text" placeholder="Email address"/><br />
-	<input type="submit" value="Submit" /><button class="cancel">Cancel</button>
 </div>
