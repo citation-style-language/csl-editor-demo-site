@@ -81,11 +81,11 @@ body {
 <div class="column first">
 	<div class="padding">
 		<h2>1. Find a style</h2>
-		<h3><a href="">Search by name</a></h3>
+		<h3><a href="../searchByName">Search by name</a></h3>
 				<p>If you're looking for a style like APA, Harvard, etc... just use the search box at the top of the page to search for a style name, or journal title.</p>
 
 
-		<h3><a href="">Search by example</a></h3>
+		<h3><a href="../searchByExample">Search by example</a></h3>
 		<p>If you don't know the name of the style, but know what the final citation should look like, you can use our <a href="../searchByExample/">search by example</a> tool to find styles that most closely match.</p>
 
 		<a href="../searchByExample/" class="fig"><img src="../images/search-by-example.png"></a>
