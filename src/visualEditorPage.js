@@ -45,24 +45,35 @@ define(
 
 	var initVisualEditorDemo = function () {
 		$(document).ready(function () {
-			cslEditor = new CSLEDIT_VisualEditor('#visualEditorContainer',	
-				{
-					loadCSLName : "Load Style",
-					loadCSLFunc : loadCSL,
-
-					saveCSLName : 'Save Style',
-					saveCSLFunc : function () {
-						if (!cslEditor.conformStyleToRepoConventions()) {
-							return;
-						}
-						styleUtils.saveCsl(
-							CSLEDIT_data,
-							cslEditor.getStyleId(),
-							"This style was edited with the Visual CSL Editor (" + window.location.href + ")"
+			var styleMenuConfiguration = [];
+			styleMenuConfiguration[0] = {
+				'label' : 'New Style',
+				'name' : 'menuNewStyle',
+				'func' : undefined
+				};
+			styleMenuConfiguration[1] = {
+				'label' : 'Load Style',
+				'func' : loadCSL
+				};
+			styleMenuConfiguration[2] = {
+				'label' : 'Save Style',
+				'func' : function() {
+					if (!cslEditor.conformStyleToRepoConventions()) {
+						return;
+					}
+					styleUtils.saveCsl(
+						CSLEDIT_data,
+						cslEditor.getStyleId(),
+						"This style was edited with the Visual CSL Editor (" + window.location.href + ")"
 						);
 					}
+				}
+
+			cslEditor = new CSLEDIT_VisualEditor('#visualEditorContainer',	
+				{
+					styleMenu : styleMenuConfiguration
 				});
-		});
+			});
 	};
 
 	initVisualEditorDemo();
