@@ -28,7 +28,9 @@
 			urlArgs : "bust=$GIT_COMMIT"
 		});
 		requirejs(['src/config'], function (config) {
-			require(['../src/codeEditorPage'], function () {});
+			require(['src/codeEditor'], function () {
+				require(['../src/codeEditorPage'], function () {});
+			});
 		});
 	</script>
 	<script type="text/javascript" src="../src/analytics.js"></script>

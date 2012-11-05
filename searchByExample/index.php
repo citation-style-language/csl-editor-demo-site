@@ -16,7 +16,9 @@
 			urlArgs : "bust=$GIT_COMMIT"
 		});
 		requirejs(['src/config'], function (config) {
-			require(['../src/searchByExamplePage'], function () {});
+			require(['src/searchByExample'], function () {
+				require(['../src/searchByExamplePage'], function () {});
+			});
 		});
 	</script>
 	<script type="text/javascript" src="../src/analytics.js"></script>

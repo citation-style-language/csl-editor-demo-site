@@ -28,7 +28,9 @@
 			urlArgs : "bust=$GIT_COMMIT"
 		});
 		requirejs(['src/config'], function (config, errorHandler) {
-			require(['../src/visualEditorPage'], function () {});
+			require(['src/VisualEditor'], function () {
+				require(['../src/visualEditorPage'], function () {});
+			});
 		});
 	</script>
 
