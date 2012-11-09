@@ -28,7 +28,7 @@
 			urlArgs : "bust=$GIT_COMMIT"
 		});
 		requirejs(['src/config'], function (config) {
-			require(['src/codeEditor'], function () {
+			require(['src/CodeEditor'], function () {
 				require(['../src/codeEditorPage'], function () {});
 			});
 		});

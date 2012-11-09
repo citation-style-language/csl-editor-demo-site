@@ -16,7 +16,7 @@
 			urlArgs : "bust=$GIT_COMMIT"
 		});
 		requirejs(['src/config'], function (config) {
-			require(['src/searchByExample'], function () {
+			require(['src/SearchByName'], function () {
 				require(['../src/searchByNamePage'], function () {});
 			});
 		});
