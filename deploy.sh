@@ -55,6 +55,7 @@ find cslEditorLib/external -name "*.php" -type f -print0 | xargs -0 rm -f
 # Run Jekyll
 jekyll
 
+# If gh-pages repo directory specified, deploy to github
 if [ "$2" != "" ]
 then
 	cd ../$2
