@@ -2,14 +2,22 @@
 
 # Use the requirejs optimizer r.js to optimise js files
 
-# By default it will create a sibling build directory called 'csl'
+# By default it will create a sibling build directory called 'csl-build'
 # or it uses a command line argument if present
+
+echo ""
+echo "Instructions"
+echo "Argument 1: the name of the build dir, which must be a"
+echo "            sibling of the current dir"
+echo "Argument 2: the name of the gh-pages dir to deploy to,"
+echo "            which must be a sibling of the current dir"
+echo ""
 
 if [ "$1" == "" ]
 then
 	BUILD_DIR="../csl-build"
 else
-	BUILD_DIR="$1"
+	BUILD_DIR="../$1"
 fi
 
 echo "deploying to build dir $BUILD_DIR"
@@ -46,4 +54,18 @@ find cslEditorLib/external -name "*.php" -type f -print0 | xargs -0 rm -f
 
 # Run Jekyll
 jekyll
+
+if [ "$2" != "" ]
+then
+	cd ../$2
+	git checkout gh-pages
+	git rm -rf .
+
+	# Copy to gh-pages repo and commit
+	cp -r $BUILD_DIR/_site/* .
+
+	git add --all
+	git commit -m "deploy"
+	git push
+fi
 
