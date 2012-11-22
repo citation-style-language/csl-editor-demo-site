@@ -7,7 +7,7 @@
 
 if [ "$1" == "" ]
 then
-	BUILD_DIR="../csl"
+	BUILD_DIR="../csl-build"
 else
 	BUILD_DIR="$1"
 fi
@@ -23,14 +23,14 @@ BUILD_CITEPROC=$(find $BUILD_DIR/cslEditorLib/external/citeproc/citeproc*.js)
 echo "copying $ORIGINAL_CITEPROC to $BUILD_CITEPROC"
 cp $ORIGINAL_CITEPROC $BUILD_CITEPROC
 
+# Replace $GIT_COMMIT with the git commit hash in all php files
 GIT_COMMIT=$(git rev-parse HEAD)
 
 echo "git commit is $GIT_COMMIT"
 
-# Replace $GIT_COMMIT with the git commit hash in all php files
 cd $BUILD_DIR
 
-find cslEditorLib/pages/*.html >> find */index.php > filesToConvert
+find cslEditorLib/pages/*.html >> find */index.html > filesToConvert
 
 while read FILENAME;
 do
@@ -43,3 +43,7 @@ rm filesToConvert
 # Remove any *.php files in external libraries
 find external -name "*.php" -type f -print0 | xargs -0 rm -f
 find cslEditorLib/external -name "*.php" -type f -print0 | xargs -0 rm -f
+
+# Run Jekyll
+jekyll
+
