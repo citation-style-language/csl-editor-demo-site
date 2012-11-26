@@ -31,11 +31,13 @@ This process creates a version of the site to with concatenated javascript files
 
 - Follow above steps for Development version (but if you want to deploy directly to `public_html` you'll have to checkout to a `csl-demo/` somewhere else, since the deploy directory will be erased by the deploy script)
 
-- Run `./deploy.sh $DEPLOY_PATH`, where `$DEPLOY_PATH` is the path you wish to deploy to, if you don't specify it defaults to `../csl`. **All current contents of** `$DEPLOY_PATH` **will be removed!**
+- Run `./deploy.sh $BUILD_DIR $GH_PAGES_REPO_DIR`, where:
+  - `$BUILD_DIR` is the name of the directory you wish to deploy to, relative to the parent of the current directory, if you don't specify it defaults to `csl-build`, which will be a sibling of the current directory. **All current contents of** `$BUILD_DIR` **will be removed!**
+  - `$GH_PAGES_REPO_DIR` (optional) is the name of a checked out `csl-editor-demo-site` repo directory, again relative to the parent of the current directory, which will be used to copy the built version and commit and push the result to github, which will automatically update the github pages site at [csleditor.steveridout.com](csleditor.steveridout.com), the domain given in the CNAME file.
 
-- Point your browser to `$BASE_URL/cslEditorLib/pages/unitTests.html` to run the unit tests
+- Point your browser to `http://csleditor.steveridout.com/cslEditorLib/pages/unitTests.html` to run the unit tests
 
-- Point your browser to `$BASE_URL/` to view the deployed site
+- Point your browser to `http://csleditor.steveridout.com` to view the deployed site
 
 ## Customising the editor to integrate with your website or application
 
