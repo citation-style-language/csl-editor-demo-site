@@ -1,9 +1,6 @@
 
 
-// On any error:
-//
-// 1. Show an error dialog
-// 2. Log error on the server
+// Show an error dialog on any error
 
 define(
 		[	'src/storage',
@@ -24,22 +21,6 @@ define(
 				errLines = err.split("\n"),
 				refreshPage = $('<button>Refresh Page</button>'),
 				resetButton = $('<button>Reset Everything</button>');
-
-			$.ajax({
-				url : CSLEDIT_urlUtils.getResourceUrl("../logError.php"),
-				type : "POST",
-				data : {
-					message : err + "\nBrowser: " + JSON.stringify($.browser) +
-						"\nUrl: " + url + "\nLine: " + line
-				},
-				success : function (data) {
-					debug.log("Logged error: " + data);
-				},
-				error : function () {
-					debug.log("Failed to log error");
-				}
-			});
-
 
 			if (
 					!($.browser.chrome === true && $.browser.version.split(".")[0] >= 21) &&

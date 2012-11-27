@@ -13,7 +13,7 @@ echo "Argument 2: the name of the gh-pages dir to deploy to,"
 echo "            which must be a sibling of the current dir"
 echo ""
 
-if [ "$1" == "" ]
+if [ -n "$1" ]
 then
 	BUILD_DIR="../csl-build"
 else
@@ -55,7 +55,8 @@ find cslEditorLib/external -name "*.php" -type f -print0 | xargs -0 rm -f
 # Run Jekyll
 jekyll
 
-if [ "$2" != "" ]
+# If gh-pages repo directory specified, deploy to github
+if [ -n "$2" ]
 then
 	cd ../$2
 	git checkout gh-pages
