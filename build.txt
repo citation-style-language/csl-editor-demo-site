@@ -31,6 +31,14 @@ cslEditorLib/css/visualEditor.css
 ----------------
 cslEditorLib/css/visualEditor.css
 
+cslEditorLib/exampleCitationsGenerator/node_modules/jquery/test/fixtures/css.css
+----------------
+cslEditorLib/exampleCitationsGenerator/node_modules/jquery/test/fixtures/css.css
+
+cslEditorLib/exampleCitationsGenerator/node_modules/jsdom/node_modules/request/node_modules/form-data/node_modules/async/deps/nodeunit.css
+----------------
+cslEditorLib/exampleCitationsGenerator/node_modules/jsdom/node_modules/request/node_modules/form-data/node_modules/async/deps/nodeunit.css
+
 cslEditorLib/external/codemirror2/doc/docs.css
 ----------------
 cslEditorLib/external/codemirror2/doc/docs.css
@@ -174,6 +182,14 @@ _site/cslEditorLib/css/styleInfo.css
 _site/cslEditorLib/css/visualEditor.css
 ----------------
 _site/cslEditorLib/css/visualEditor.css
+
+_site/cslEditorLib/exampleCitationsGenerator/node_modules/jquery/test/fixtures/css.css
+----------------
+_site/cslEditorLib/exampleCitationsGenerator/node_modules/jquery/test/fixtures/css.css
+
+_site/cslEditorLib/exampleCitationsGenerator/node_modules/jsdom/node_modules/request/node_modules/form-data/node_modules/async/deps/nodeunit.css
+----------------
+_site/cslEditorLib/exampleCitationsGenerator/node_modules/jsdom/node_modules/request/node_modules/form-data/node_modules/async/deps/nodeunit.css
 
 _site/cslEditorLib/external/codemirror2/doc/docs.css
 ----------------
