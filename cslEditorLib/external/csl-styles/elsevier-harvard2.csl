@@ -16,7 +16,7 @@
     <category citation-format="author-date"/>
     <category field="generic-base"/>
     <summary>This is a variant of the Elsevier Harvard Style (with titles). Book chapter use . In: instead of , in:</summary>
-    <updated>2012-09-27T22:06:38+00:00</updated>
+    <updated>2011-07-16T20:01:01+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="container">
@@ -77,17 +77,9 @@
   <macro name="access">
     <choose>
       <if type="webpage">
-        <group delimiter=" ">
-          <text value="URL"/>
+        <group>
+          <text value="URL" suffix=" "/>
           <text variable="URL"/>
-          <group prefix="(" suffix=").">
-            <text term="accessed" suffix=" "/>
-            <date variable="accessed">
-              <date-part name="month" form="numeric" suffix="."/>
-              <date-part name="day" suffix="."/>
-              <date-part name="year" form="short"/>
-            </date>
-          </group>
         </group>
       </if>
     </choose>
@@ -145,6 +137,18 @@
           <date-part name="year"/>
         </date>
       </if>
+      <else-if variable="accessed">
+        <choose>
+          <if type="webpage">
+            <date variable="accessed">
+              <date-part name="year"/>
+            </date>
+          </if>
+          <else>
+            <text term="no date" form="short"/>
+          </else>
+        </choose>
+      </else-if>
       <else>
         <text term="no date" form="short"/>
       </else>
@@ -191,11 +195,7 @@
       </else-if>
     </choose>
   </macro>
-  <!--
-    cite-group-delimiter will be available with csl 1.0.1, but is not valid csl 1.0 & it doesn't work reliably with the released zotero version
-    <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" collapse="year" cite-group-delimiter=", ">
-  -->
-  <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" collapse="year">
+  <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" collapse="year" cite-group-delimiter=", ">
     <sort>
       <key macro="author"/>
       <key macro="issued" sort="descending"/>

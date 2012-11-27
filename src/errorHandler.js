@@ -1,6 +1,15 @@
 
 
 // Show an error dialog on any error
+//
+// # Error logging
+//
+// If you want to add error logging, you may find the following link useful:
+// 
+// https://github.com/citation-style-editor/csl-editor-demo-site/commit/b77e0b7667ee3dc494b8934c3239643446f882e8
+//
+// This commit removed the PHP error logging which was used before migrating
+// to a static Jekyll site.
 
 define(
 		[	'src/storage',
