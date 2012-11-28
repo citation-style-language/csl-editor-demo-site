@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>	
+<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
 
-	<title>CSL Search by Name</title>
+	<title>Style Info</title>
 
-	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/ui-lightness/jquery-ui.css">
-	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=7d8623d4fb0e23e11420d7dd96903ae319f708ea" />
-	<link rel="stylesheet" href="../cslEditorLib/css/searchResults.css?bust=7d8623d4fb0e23e11420d7dd96903ae319f708ea" />
-	<link rel="stylesheet" href="../cslEditorLib/css/searchByName.css?bust=7d8623d4fb0e23e11420d7dd96903ae319f708ea" />
+	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.8.22/themes/ui-lightness/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="../cslEditorLib/css/base.css?bust=7d8623d4fb0e23e11420d7dd96903ae319f708ea" />
+	<link rel="stylesheet" type="text/css" href="../cslEditorLib/css/styleInfo.css?bust=7d8623d4fb0e23e11420d7dd96903ae319f708ea" />
 
 	<script type="text/javascript" src="../cslEditorLib/external/require-jquery.js"></script>
 	<script>
@@ -17,15 +16,11 @@
 			urlArgs : "bust=7d8623d4fb0e23e11420d7dd96903ae319f708ea"
 		});
 		requirejs(['src/config'], function (config) {
-			require(['src/SearchByName'], function () {
-				require(['../src/searchByNamePage'], function () {});
-			});
+			require(['../src/styleInfoPage'], function () {});
 		});
 	</script>
-	<script type="text/javascript" src="../src/analytics.js"></script>
-
 </head>
-<body id="searchByName">
+<body>
 <style type="text/css">
 #navigationBar {
 	font-family: Helvetica, Arial, sans-serif;
@@ -164,8 +159,7 @@ require(['src/config'], function () {
 	<![endif]-->
 </div>
 
-
-<div id="mainContainer">
+<div id="styleInfoContainer">
 </div>
 </body>
 </html>
