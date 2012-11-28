@@ -2,7 +2,19 @@
 <html>
 <head>
 <script type="text/javascript">
-"use strict";
+	"use strict";
+
+// google analytics (needs to be on the root page so google knows it's installed)
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-36641383-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
 // javascript redirect
 window.location.href = "about";
 </script>
