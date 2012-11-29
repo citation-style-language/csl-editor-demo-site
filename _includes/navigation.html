@@ -54,7 +54,33 @@ body#about           a#nav_about {
 	position: absolute;
 	right: 10px;
 }
+
+#siteNotificationBar {
+	position: relative;
+	background-color: #ffee88;
+
+	margin: 0;
+	padding: 1px;
+
+	height: 72px;
+}
+
+#siteNotification {
+	position: relative;
+
+	margin: 0 auto 0 auto;
+	padding: 0;
+
+	width: 700px;
+
+	font-size: 12px;
+}
 </style>
+<div id="siteNotificationBar">
+<div id="siteNotification">
+	<h2>The CSL Editor has a new home at <a href=editor.citationstyles.org>editor.citationstyles.org</a>. Please save any existing work and use that site from now on. The site here will shut down soon.</h2>
+</div>
+</div>
 
 <nav id="navigationBar">
 	<ul>
@@ -112,16 +138,7 @@ require(['src/config'], function () {
 				CSLEDIT_urlUtils
 			) {
 		$('document').ready( function() {
-			if (CSLEDIT_browserCheck.isCompatible()) {
-
-				// Setup uservoice feedback tag
-				var uvOptions = {};
-				(function() {
-				var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
-					uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/oO7BJ8Bejbo6PLFoP4M4Q.js';
-					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
-				})();
-			} else {
+			if (!CSLEDIT_browserCheck.isCompatible()) {
 				$('#unsupportedBrowserMessage').css("display", "block").html(
 					'<span>Unsupported browser detected, please use the latest <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a></span>');
 			}
