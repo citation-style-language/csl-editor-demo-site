@@ -10472,8 +10472,8 @@ define('src/genericPropertyPanel',[	'src/MultiPanel',
 			enabled : true
 		};
 
-		executeCommand("amendNode", [nodeData.cslId, stripChildren(nodeData)]);
-		
+		nodeChanged();
+
 		event.preventDefault();
 	};
 
@@ -11549,7 +11549,17 @@ define('src/ConditionalPropertyPanel',['src/CslNode', 'src/debug'], function (CS
 //
 // Migrating to use mustache for most of the HTML generation may help
 
-define('src/infoPropertyPanel',['src/CslNode', 'src/dataInstance', 'src/options', 'src/debug'], function (CSLEDIT_CslNode, CSLEDIT_data, CSLEDIT_options, debug) {
+define('src/infoPropertyPanel',
+		[	'src/CslNode',
+			'src/dataInstance',
+			'src/options',
+			'src/debug'
+		], function (
+			CSLEDIT_CslNode,
+			CSLEDIT_data,
+			CSLEDIT_options,
+			debug
+		) {
 	var panel, infoNode, inputTimeout, executeCommand;
 
 	var layout = [
@@ -11643,8 +11653,15 @@ define('src/infoPropertyPanel',['src/CslNode', 'src/dataInstance', 'src/options'
 
 			if (type === "textValue") {
 				thisNode.textValue = $this.val();
+				if (thisNode.textValue === "") {
+					// TODO: deleting in this way redraws the whole panel, losing the
+					//       cursor position, which would be nice to retain.
+					deleteNode(cslId);
+					return;
+				}
 			} else {
-				thisNode.setAttr(type, $this.val()); 
+				thisNode.setAttr(type, $this.val());
+				thisNode.setAttrEnabled(type, $this.val() !== "");
 			}
 
 			if (isNaN(cslId)) {
@@ -11727,6 +11744,14 @@ define('src/infoPropertyPanel',['src/CslNode', 'src/dataInstance', 'src/options'
 		}
 	};
 
+	// deletes a child node of style/info
+	var deleteNode = function (cslId) {
+		CSLEDIT_viewController.setSuppressSelectNode(true);
+		executeCommand("deleteNode", [cslId]);
+		CSLEDIT_viewController.setSuppressSelectNode(false);
+		CSLEDIT_viewController.selectNode(infoNode.cslId);
+	};
+
 	// Set up a property panel for the style/info node
 	//
 	// - _panel - the jQuery element to create the panel within
@@ -11787,8 +11812,7 @@ define('src/infoPropertyPanel',['src/CslNode', 'src/dataInstance', 'src/options'
 
 					deleteButton = $('<button>Delete</button>');
 					deleteButton.on('click', function () {
-						executeCommand("deleteNode", [node.cslId]);
-						setupPanel(panel, executeCommand);
+						deleteNode(node.cslId);
 					});
 
 					inputRow.append($('<td/>').append(deleteButton));
@@ -14195,9 +14219,7 @@ define('src/Schema',['src/options', 'src/storage', 'src/debug'], function (CSLED
 					};
 					if (values.attributeValues.length > 0 &&
 							(values.attributeValues[0].type === "value" ||
-							 (values.attributeValues[0].type === "data" &&
-							  values.attributeValues[0].value === "integer")
-							) &&
+							 values.attributeValues[0].type === "data") &&
 							schemaOptions && 'defaultDefaultAttribute' in schemaOptions) {
 						// add an empty string if no default value is present
 						if (defaultValue === null) {
