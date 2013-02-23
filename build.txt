@@ -31,6 +31,10 @@ cslEditorLib/css/visualEditor.css
 ----------------
 cslEditorLib/css/visualEditor.css
 
+cslEditorLib/exampleCitationsGenerator/node_modules/jquery/test/fixtures/css.css
+----------------
+cslEditorLib/exampleCitationsGenerator/node_modules/jquery/test/fixtures/css.css
+
 cslEditorLib/exampleCitationsGenerator/_node_modules/jquery/node_modules/jsdom/node_modules/request/node_modules/form-data/node_modules/async/deps/nodeunit.css
 ----------------
 cslEditorLib/exampleCitationsGenerator/_node_modules/jquery/node_modules/jsdom/node_modules/request/node_modules/form-data/node_modules/async/deps/nodeunit.css
@@ -203,18 +207,6 @@ _site/cslEditorLib/external/codemirror2/lib/util/simple-hint.css
 ----------------
 _site/cslEditorLib/external/codemirror2/lib/util/simple-hint.css
 
-_site/cslEditorLib/external/codemirror2/mode/rpm/spec/spec.css
-----------------
-_site/cslEditorLib/external/codemirror2/mode/rpm/spec/spec.css
-
-_site/cslEditorLib/external/codemirror2/mode/tiddlywiki/tiddlywiki.css
-----------------
-_site/cslEditorLib/external/codemirror2/mode/tiddlywiki/tiddlywiki.css
-
-_site/cslEditorLib/external/codemirror2/mode/tiki/tiki.css
-----------------
-_site/cslEditorLib/external/codemirror2/mode/tiki/tiki.css
-
 _site/cslEditorLib/external/codemirror2/test/mode_test.css
 ----------------
 _site/cslEditorLib/external/codemirror2/test/mode_test.css
@@ -270,22 +262,6 @@ _site/cslEditorLib/external/codemirror2/theme/vibrant-ink.css
 _site/cslEditorLib/external/codemirror2/theme/xq-dark.css
 ----------------
 _site/cslEditorLib/external/codemirror2/theme/xq-dark.css
-
-_site/cslEditorLib/external/jstree/themes/apple/style.css
-----------------
-_site/cslEditorLib/external/jstree/themes/apple/style.css
-
-_site/cslEditorLib/external/jstree/themes/classic/style.css
-----------------
-_site/cslEditorLib/external/jstree/themes/classic/style.css
-
-_site/cslEditorLib/external/jstree/themes/default/style.css
-----------------
-_site/cslEditorLib/external/jstree/themes/default/style.css
-
-_site/cslEditorLib/external/jstree/themes/default-rtl/style.css
-----------------
-_site/cslEditorLib/external/jstree/themes/default-rtl/style.css
 
 _site/cslEditorLib/external/qunit/qunit-1.9.0.css
 ----------------

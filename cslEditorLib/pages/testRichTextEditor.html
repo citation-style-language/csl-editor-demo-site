@@ -5,7 +5,7 @@
 
 		<title>Rich text editor interactive test</title>
 
-		<link rel="stylesheet" href="../css/base.css?bust=ad02ea5b65adfe52a414df041438be793af34032" />
+		<link rel="stylesheet" href="../css/base.css?bust=$GIT_COMMIT" />
 
 		<script type="text/javascript" src="../external/require-jquery.js"></script>
 		<script>
@@ -13,7 +13,7 @@
 
 			require.config({
 				baseUrl: "..",
-				urlArgs : "bust=ad02ea5b65adfe52a414df041438be793af34032"
+				urlArgs : "bust=$GIT_COMMIT"
 			});
 			requirejs(['src/config'], function (config) {
 				require(['src/richTextEditor'], function (CSLEDIT_RichTextEditor) {

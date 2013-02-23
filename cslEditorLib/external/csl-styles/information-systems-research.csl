@@ -278,9 +278,11 @@
       <key variable="page"/>
     </sort>
     <layout prefix="(" suffix=")" delimiter="; ">
-      <group delimiter="">
-        <text macro="author-short"/>
-        <text macro="issued-year" prefix=" "/>
+      <group delimiter=", ">
+        <group delimiter=" ">
+          <text macro="author-short"/>
+          <text macro="issued-year"/>
+        </group>
         <text macro="citation-locator"/>
       </group>
     </layout>

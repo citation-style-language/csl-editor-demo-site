@@ -10,14 +10,14 @@
 	<title>Style Info</title>
 
 	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/ui-lightness/jquery-ui.css">
-	<link rel="stylesheet" type="text/css" href="../css/base.css?bust=ad02ea5b65adfe52a414df041438be793af34032" />
-	<link rel="stylesheet" type="text/css" href="../css/styleInfo.css?bust=ad02ea5b65adfe52a414df041438be793af34032" />
+	<link rel="stylesheet" type="text/css" href="../css/base.css?bust=$GIT_COMMIT" />
+	<link rel="stylesheet" type="text/css" href="../css/styleInfo.css?bust=$GIT_COMMIT" />
 
 	<script type="text/javascript" src="../external/require-jquery.js"></script>
 	<script>
 		require.config({
 			baseUrl: "..",
-			urlArgs : "bust=ad02ea5b65adfe52a414df041438be793af34032"
+			urlArgs : "bust=$GIT_COMMIT"
 		});
 		requirejs(['src/config'], function (config) {
 			require(['src/StyleInfo'], function (CSLEDIT_StyleInfo) {
