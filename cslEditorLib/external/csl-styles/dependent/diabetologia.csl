@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="en-US">
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" default-locale="en-US">
   <info>
     <title>Diabetologia</title>
     <id>http://www.zotero.org/styles/diabetologia</id>
+    <link href="http://www.zotero.org/styles/diabetologia" rel="self"/>
     <link href="http://www.zotero.org/styles/springer-vancouver" rel="independent-parent"/>
     <link href="http://www.diabetologia-journal.org/instructionstoauthors.html#references" rel="documentation"/>
     <category citation-format="numeric"/>
