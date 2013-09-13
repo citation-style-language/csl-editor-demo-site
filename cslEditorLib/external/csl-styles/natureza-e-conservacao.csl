@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" demote-non-dropping-particle="never" default-locale="pt-BR">
   <info>
-    <title>Natureza &amp; Conservação (Brazilian Journal of Nature Conservation)</title>
+    <title>Natureza &amp; Conservação (Brazilian Journal of Nature Conservation) (Portuguese - Brazil)</title>
     <id>http://www.zotero.org/styles/natureza-e-conservacao</id>
     <link href="http://www.zotero.org/styles/natureza-e-conservacao" rel="self"/>
-    <link href="http://www.abecol.org.br/" rel="documentation"/>
+    <link href="http://www.abeco.org.br/publicacoes/natureza-e-conservacao" rel="documentation"/>
     <author>
       <name>Mario José</name>
       <email>gnumario [at-mark] gmail [dot-mark] com</email>
@@ -179,7 +179,7 @@
   <macro name="locators">
     <choose>
       <if type="bill legislation" match="any">
-        <group prefix=". " suffix="" delimiter=", ">
+        <group prefix=". " delimiter=", ">
           <date variable="issued">
             <date-part name="day"/>
             <date-part prefix=" " name="month" form="short"/>

@@ -12,7 +12,8 @@
     </author>
     <category citation-format="numeric"/>
     <category field="medicine"/>
-    <issn>1478-3231</issn>
+    <issn>1478-3223</issn>
+    <eissn>1478-3231</eissn>
     <summary>Liver international journal style.</summary>
     <updated>2012-02-07T01:46:04+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
@@ -20,7 +21,7 @@
   <macro name="author">
     <names variable="author" suffix=". ">
       <name sort-separator=" " initialize-with=" " name-as-sort-order="all" delimiter=", " delimiter-precedes-last="always"/>
-      <label form="long" prefix=", " text-case="lowercase"/>
+      <label form="long" prefix=", "/>
       <substitute>
         <names variable="editor"/>
       </substitute>
@@ -29,7 +30,7 @@
   <macro name="editor">
     <names variable="editor" suffix=". ">
       <name sort-separator=" " initialize-with="" name-as-sort-order="all" delimiter=", " delimiter-precedes-last="always"/>
-      <label form="long" prefix=", " text-case="lowercase"/>
+      <label form="long" prefix=", "/>
     </names>
   </macro>
   <macro name="publisher">
@@ -58,8 +59,8 @@
     <choose>
       <if variable="URL">
         <group prefix="[" suffix="]" delimiter=" ">
-          <text term="cited" text-case="lowercase"/>
-          <date variable="accessed" suffix="">
+          <text term="cited"/>
+          <date variable="accessed">
             <date-part name="year"/>
             <date-part name="month" prefix=" " form="short" strip-periods="true"/>
             <date-part name="day" prefix=" "/>
@@ -104,7 +105,7 @@
       <if is-numeric="edition">
         <group delimiter=" ">
           <number variable="edition" form="ordinal"/>
-          <text term="edition" form="short" suffix="." strip-periods="true"/>
+          <text term="edition" form="short"/>
         </group>
       </if>
       <else>
@@ -148,7 +149,7 @@
             <text macro="accessed-date" prefix=" "/>
           </group>
           <group suffix=". ">
-            <text variable="volume" prefix="" suffix=""/>
+            <text variable="volume"/>
             <text variable="page" prefix=":" suffix="."/>
           </group>
         </else>

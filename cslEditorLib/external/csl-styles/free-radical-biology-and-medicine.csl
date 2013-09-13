@@ -17,9 +17,10 @@
     </contributor>
     <category citation-format="numeric"/>
     <category field="medicine"/>
+    <category field="biology"/>
     <issn>0891-5849</issn>
     <eissn>1873-4596</eissn>
-    <summary>Style for Elsevier Journal Free Radical Biology &amp; Medicine; style guide doesn't agree with journal - followed examples in recent journal article included as documentation link.</summary>
+    <summary>Style for Elsevier journal Free Radical Biology &amp; Medicine; style guide doesn't agree with journal - followed examples in recent journal article included as documentation link.</summary>
     <updated>2013-02-02T19:36:27+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
@@ -31,7 +32,7 @@
   </locale>
   <macro name="author">
     <names variable="author">
-      <name delimiter="; " delimiter-precedes-last="always" initialize-with=". " name-as-sort-order="all" sort-separator=" "/>
+      <name delimiter="; " delimiter-precedes-last="always" initialize-with=". " name-as-sort-order="all" sort-separator=", "/>
       <label form="long" prefix=", "/>
       <substitute>
         <names variable="editor"/>
@@ -46,7 +47,7 @@
         </if>
       </choose>
       <names variable="editor" suffix=".">
-        <name delimiter="; " delimiter-precedes-last="always" initialize-with=". " name-as-sort-order="all" sort-separator=" "/>
+        <name delimiter="; " delimiter-precedes-last="always" initialize-with=". " name-as-sort-order="all" sort-separator=", "/>
         <label form="long" prefix=", "/>
       </names>
     </group>
@@ -81,8 +82,8 @@
     <choose>
       <if variable="URL">
         <group prefix="[" suffix="]" delimiter=" ">
-          <text term="cited" text-case="lowercase"/>
-          <date variable="accessed" suffix="">
+          <text term="cited"/>
+          <date variable="accessed">
             <date-part name="year"/>
             <date-part name="month" prefix=" " form="short" strip-periods="true"/>
             <date-part name="day" prefix=" "/>
@@ -209,13 +210,13 @@
     <sort>
       <key variable="citation-number"/>
     </sort>
-    <layout prefix="[" suffix="]" delimiter=", ">
+    <layout prefix="[" suffix="]" delimiter=",">
       <text variable="citation-number"/>
     </layout>
   </citation>
   <bibliography et-al-min="31" et-al-use-first="30" second-field-align="flush">
     <layout suffix=".">
-      <text variable="citation-number" suffix=". "/>
+      <text variable="citation-number" prefix=" [" suffix="]"/>
       <group delimiter=". " suffix=". ">
         <text macro="author"/>
         <text macro="title"/>

@@ -4,6 +4,7 @@
     <title>Sociedade Brasileira de Computação</title>
     <id>http://www.zotero.org/styles/sociedade-brasileira-de-computacao</id>
     <link href="http://www.zotero.org/styles/sociedade-brasileira-de-computacao" rel="self"/>
+    <link href="https://forums.zotero.org/discussion/19203/preliminar-sociedade-brasileira-de-computacao-style/" rel="documentation"/>
     <author>
       <name>Maurício de Paulo</name>
       <email>mauricio dot dev at gmail dot com</email>
@@ -118,7 +119,7 @@
     </names>
   </macro>
   <macro name="access">
-    <text variable="URL" prefix=""/>
+    <text variable="URL"/>
     <date variable="accessed" prefix=", [accessed on " suffix="]">
       <date-part name="month" form="short" suffix=" " text-case="capitalize-first"/>
       <date-part name="day"/>
@@ -213,7 +214,7 @@
   <macro name="locators">
     <choose>
       <if type="bill legislation" match="any">
-        <group prefix=". " suffix="" delimiter=", ">
+        <group prefix=". " delimiter=", ">
           <date variable="issued">
             <date-part name="day"/>
             <date-part prefix=" " name="month" form="short"/>
@@ -227,7 +228,7 @@
         <group delimiter=", ">
           <group delimiter=", ">
             <text variable="volume" prefix="v. "/>
-            <text variable="issue" prefix="n. " suffix=""/>
+            <text variable="issue" prefix="n. "/>
           </group>
           <text variable="page" prefix="p. "/>
         </group>

@@ -13,7 +13,8 @@
     </author>
     <category citation-format="author-date"/>
     <category field="biology"/>
-    <issn>1097-4687</issn>
+    <issn>0362-2525</issn>
+    <eissn>1097-4687</eissn>
     <summary>Journal of Morphology style</summary>
     <updated>2013-01-05T13:29:20+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
@@ -24,7 +25,7 @@
         <text term="in" text-case="capitalize-first" prefix=". " suffix=": "/>
         <names variable="editor translator" delimiter=", " suffix=". ">
           <name name-as-sort-order="all" sort-separator=" " initialize-with="" delimiter=", " delimiter-precedes-last="always" suffix=","/>
-          <label form="long" text-case="lowercase" prefix=" " suffix="." strip-periods="true"/>
+          <label form="long" prefix=" "/>
         </names>
         <group delimiter=". ">
           <text variable="container-title" text-case="capitalize-first"/>
@@ -178,13 +179,13 @@
         </group>
       </if>
       <else-if type="book" match="any">
-        <group delimiter=", " prefix="">
+        <group delimiter=", ">
           <text macro="publisher"/>
           <text variable="page"/>
         </group>
       </else-if>
       <else-if type="chapter paper-conference" match="any">
-        <group delimiter=". " prefix="">
+        <group delimiter=". ">
           <text macro="event"/>
           <text macro="publisher"/>
           <group>

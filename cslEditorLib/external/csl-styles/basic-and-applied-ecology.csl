@@ -5,7 +5,7 @@
     <id>http://www.zotero.org/styles/basic-and-applied-ecology</id>
     <link href="http://www.zotero.org/styles/basic-and-applied-ecology" rel="self"/>
     <link href="http://www.zotero.org/styles/journal-of-evolutionary-biology" rel="template"/>
-    <link href="http://www.elsevier.com/wps/find/journaldescription.cws_home/701754/authorinstructions" rel="documentation"/>
+    <link href="http://www.elsevier.com/journals/basic-and-applied-ecology/1439-1791/guide-for-authors" rel="documentation"/>
     <author>
       <name>Richard Karnesky</name>
       <email>karnesky+zotero@gmail.com</email>
@@ -21,7 +21,7 @@
   <macro name="editor-translator">
     <names variable="editor translator" prefix="(" suffix=")" delimiter=", ">
       <name and="symbol" initialize-with=". " delimiter=", "/>
-      <label form="short" prefix=", " text-case="capitalize-first" suffix="." strip-periods="true"/>
+      <label form="short" prefix=", " text-case="capitalize-first"/>
     </names>
   </macro>
   <macro name="author">
@@ -126,9 +126,9 @@
               <name and="symbol" sort-separator=", " initialize-with=". "/>
               <label form="short" prefix=" (" suffix=".)" text-case="capitalize-first" strip-periods="true"/>
             </names>
-            <text variable="container-title" font-style="italic" prefix=" " suffix=""/>
+            <text variable="container-title" font-style="italic" prefix=" "/>
             <group prefix=" (" suffix=").">
-              <label variable="page" form="short" suffix=". " strip-periods="true"/>
+              <label variable="page" form="short" suffix=" "/>
               <text variable="page"/>
             </group>
             <text variable="collection-title" prefix=" " suffix="."/>

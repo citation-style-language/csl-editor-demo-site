@@ -2,6 +2,7 @@
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" page-range-format="minimal" default-locale="en-GB">
   <info>
     <title>British Journal of Anaesthesia</title>
+    <title-short>BJA</title-short>
     <id>http://www.zotero.org/styles/british-journal-of-anaesthesia</id>
     <link href="http://www.zotero.org/styles/british-journal-of-anaesthesia" rel="self"/>
     <link href="http://www.zotero.org/styles/vancouver" rel="template"/>
@@ -83,8 +84,8 @@
     <choose>
       <if variable="URL">
         <group prefix="[" suffix="]" delimiter=" ">
-          <text term="cited" text-case="lowercase"/>
-          <date variable="accessed" suffix="">
+          <text term="cited"/>
+          <date variable="accessed">
             <date-part name="year"/>
             <date-part name="month" prefix=" " form="short" strip-periods="true"/>
             <date-part name="day" prefix=" "/>

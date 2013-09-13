@@ -10,7 +10,6 @@
       <name>Henning Lorenz</name>
       <email>henning.lorenz@geo.uu.se</email>
     </author>
-    <!-- Based on the style "Geology" by Charles Parnot, adapted to fit the examples on Terra Nova (Blackwell) instructions to authors-->
     <category citation-format="author-date"/>
     <category field="geology"/>
     <issn>0954-4879</issn>
@@ -21,7 +20,7 @@
   <macro name="editor-translator">
     <names variable="editor translator" prefix="(" suffix=")" delimiter=", ">
       <name and="text" initialize-with=". " delimiter=", " delimiter-precedes-last="never"/>
-      <label form="short" prefix=", " text-case="capitalize-first" suffix="." strip-periods="true"/>
+      <label form="short" prefix=", " text-case="capitalize-first"/>
     </names>
   </macro>
   <macro name="author">
@@ -114,7 +113,7 @@
             </group>
             <names variable="editor translator" prefix=" (" suffix=")" delimiter=", ">
               <name and="text" sort-separator=", " initialize-with="." name-as-sort-order="all" delimiter-precedes-last="never" suffix=","/>
-              <label form="short" prefix=" " suffix="." text-case="lowercase" strip-periods="true"/>
+              <label form="short" prefix=" " suffix="." strip-periods="true"/>
             </names>
             <group suffix=".">
               <group prefix=" " delimiter=", ">

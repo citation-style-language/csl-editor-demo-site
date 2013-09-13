@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="sort-only" default-locale="en-GB">
   <info>
-    <title>Australian Guide to Legal Citation (AGLC)</title>
+    <title>Australian Guide to Legal Citation</title>
+    <title-short>AGLC</title-short>
     <id>http://www.zotero.org/styles/australian-guide-to-legal-citation</id>
     <link href="http://www.zotero.org/styles/australian-guide-to-legal-citation" rel="self"/>
+    <link href="https://forums.zotero.org/discussion/4841/new-australian-legal-citation-style/?Focus=20831#Comment_20831" rel="documentation"/>
     <author>
       <name>Sebastian Karcher</name>
     </author>
@@ -24,6 +26,7 @@
       <email>nic@suzor.com</email>
     </author>
     <category citation-format="note"/>
+    <category field="law"/>
     <summary>A modification of the Bluebook legal citation style for Australian conditions.</summary>
     <updated>2012-10-25T21:15:26+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>

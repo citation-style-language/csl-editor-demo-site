@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" default-locale="en-US" version="1.0" demote-non-dropping-particle="sort-only">
   <info>
-    <title>Springer Basic (Author Date)</title>
+    <title>Springer Basic (author-date)</title>
     <id>http://www.zotero.org/styles/springer-basic-author-date</id>
     <link href="http://www.zotero.org/styles/springer-basic-author-date" rel="self"/>
     <link href="http://www.springer.com/cda/content/document/cda_downloaddocument/instruct-authors-e.pdf" rel="documentation"/>
     <link href="http://www.springer.com/cda/content/document/cda_downloaddocument/manuscript-guidelines-1.0.pdf" rel="documentation"/>
     <!-- This style corresponds to 'Springer Basic' in the pdf document 'Key Style Points' at this url -->
-    <link href="http://www.springer.com/cda/content/document/cda_downloaddocument/Key_Style_Points_Aug2012.pdf" rel="documentation"/>
+    <link href="http://www.springer.com/cda/content/document/cda_downloaddocument/Key_Style_Points_1.0.pdf" rel="documentation"/>
     <author>
       <name>Jens Allmer</name>
       <email>jens@allmer.de</email>
@@ -19,7 +19,7 @@
     <category citation-format="author-date"/>
     <category field="generic-base"/>
     <summary>Springer Author Date Style for the disciplines Medicine, Biomedicine, Life Sciences, Chemistry, Geosciences, Computer Science, Engineering, Economics. This style is based on Harvard style and recommendations of the Council of Biology Editors.</summary>
-    <updated>2013-03-07T12:00:00+00:00</updated>
+    <updated>2013-05-10T12:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="author-short">
@@ -86,8 +86,8 @@
   </macro>
   <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true">
     <sort>
+      <key variable="issued"/>
       <key macro="author"/>
-      <key variable="issued" sort="descending"/>
     </sort>
     <layout prefix="(" suffix=")" delimiter="; ">
       <group delimiter=" ">
@@ -136,7 +136,7 @@
 		   in long author lists will also be accepted:
 		   Smith J, Jones M Jr, Houghton L et al (1999)
 		   Future of health insurance. N Engl J Med 965:325-329   -->
-              <group delimiter="">
+              <group>
                 <text variable="container-title" suffix=" " form="short" strip-periods="true"/>
                 <text variable="volume" suffix=":"/>
                 <text variable="page" suffix="."/>
@@ -162,13 +162,13 @@
             <text variable="publisher-place"/>
           </group>
         </else-if>
-        <else-if type="webpage">
+        <else-if type="webpage post-weblog" match="any">
           <!--    Online document
 	       Doe J (1999) Title of subordinate document. In: The dictionary of substances and their effects.
 	       Royal Society of Chemistry. Available via DIALOG.
 	       http://www.rsc.org/dose/title of subordinate document. Accessed 15 Jan 1999
 	       Unfortunately, "Royal Society of Chemistry. Available via DIALOG." cannot seem to be mapped here -->
-          <group delimiter="">
+          <group>
             <text prefix="In: " variable="container-title" suffix=". " form="short"/>
             <text variable="URL" suffix=". "/>
             <date variable="accessed">
@@ -188,7 +188,7 @@
         </else-if>
         <else>
           <!--    None of the provided formats need to add manually (some data provided) -->
-          <group delimiter="">
+          <group>
             <text variable="container-title" form="short" suffix=" "/>
             <text variable="volume" suffix=":"/>
             <text variable="page" suffix="."/>

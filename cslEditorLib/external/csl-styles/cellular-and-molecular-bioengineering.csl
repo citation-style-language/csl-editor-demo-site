@@ -5,7 +5,7 @@
     <id>http://www.zotero.org/styles/cellular-and-molecular-bioengineering</id>
     <link href="http://www.zotero.org/styles/cellular-and-molecular-bioengineering" rel="self"/>
     <link href="http://www.zotero.org/styles/vancouver-superscript" rel="template"/>
-    <link href="http://www.springer.com/engineering/biomedical+engineering/journal/12195?print_view=true&amp;detailsPage=pltci_719108" rel="documentation"/>
+    <link href="http://www.springer.com/engineering/biomedical+engineering/journal/12195" rel="documentation"/>
     <author>
       <name>Charles Parnot</name>
       <uri>http://twitter.com/cparnot</uri>
@@ -82,8 +82,8 @@
     <choose>
       <if variable="URL">
         <group prefix="[" suffix="]" delimiter=" ">
-          <text term="cited" text-case="lowercase"/>
-          <date variable="accessed" suffix="">
+          <text term="cited"/>
+          <date variable="accessed">
             <date-part name="year"/>
             <date-part name="month" prefix=" " form="short" strip-periods="true"/>
             <date-part name="day" prefix=" "/>
