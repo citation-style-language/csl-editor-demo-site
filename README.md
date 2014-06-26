@@ -19,7 +19,7 @@ Play with it here: [Citation Style Editor](http://editor.citationstyles.org)
 
 - Run `git clone --recursive https://github.com/citation-style-editor/csl-editor-demo-site.git csl-demo` to checkout the repo.
 
-- In the repo directory, run `jekyll --server --auto`.
+- In the repo directory, run `jekyll serve` (optional: add `--watch` to automatically rebuild when source changes).
 
 - Point your browser to `localhost:5000` to view the site locally.
 

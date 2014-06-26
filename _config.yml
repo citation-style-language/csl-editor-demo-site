@@ -1,2 +1,2 @@
-server_port: 5000
-exclude: node_modules
+port: 5001
+exclude: ["cslEditorLib/exampleCitationsGenerator"]
