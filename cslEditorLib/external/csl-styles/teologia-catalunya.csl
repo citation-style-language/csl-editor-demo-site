@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="sort-only">
-  <!-- No "default-locale"; used both with Spanish and Catalan
+  <!-- Polyglot; used both with Catalan and Spanish
        http://forums.zotero.org/discussion/23798/created-new-style-teologia-catalunya/?Focus=128763#Comment_128763 -->
   <info>
     <title>Teologia Catalunya</title>
@@ -97,7 +97,7 @@
           <name delimiter=" &#8211; " delimiter-precedes-last="always">
             <name-part name="family" font-variant="small-caps"/>
           </name>
-          <label form="short" text-case="lowercase" prefix=" (" suffix=".)" strip-periods="true"/>
+          <label form="short" text-case="lowercase" prefix=" (" suffix=")"/>
         </names>
       </if>
     </choose>
@@ -107,7 +107,7 @@
       <name delimiter=" &#8211; " delimiter-precedes-last="always" sort-separator=", ">
         <name-part name="family" font-variant="small-caps"/>
       </name>
-      <label form="short" text-case="lowercase" prefix=" (" suffix=".)" strip-periods="true"/>
+      <label form="short" text-case="lowercase" prefix=" (" suffix=")"/>
       <substitute>
         <names variable="editor"/>
       </substitute>
@@ -118,7 +118,7 @@
       <name form="short" delimiter=" &#8211; " delimiter-precedes-last="always" sort-separator=", ">
         <name-part name="family" font-variant="small-caps"/>
       </name>
-      <label form="short" text-case="lowercase" prefix=" (" suffix=".)" strip-periods="true"/>
+      <label form="short" text-case="lowercase" prefix=" (" suffix=")"/>
       <substitute>
         <names variable="editor"/>
       </substitute>
@@ -129,7 +129,7 @@
       <name name-as-sort-order="all" form="long" delimiter=" &#8211; " delimiter-precedes-last="always" sort-separator=", ">
         <name-part name="family" font-variant="small-caps"/>
       </name>
-      <label form="short" text-case="lowercase" prefix=" (" suffix=".)" strip-periods="true"/>
+      <label form="short" text-case="lowercase" prefix=" (" suffix=")"/>
       <substitute>
         <names variable="editor"/>
       </substitute>

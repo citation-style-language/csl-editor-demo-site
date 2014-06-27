@@ -77,6 +77,9 @@
     </choose>
   </macro>
   <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
     <layout vertical-align="sup" delimiter=", ">
       <text variable="citation-number"/>
     </layout>
@@ -112,7 +115,7 @@
         <else-if type="patent">
           <group delimiter=", ">
             <text variable="title"/>
-            <text variable="number" prefix=" "/>
+            <text variable="number"/>
             <text macro="year-date"/>
           </group>
         </else-if>

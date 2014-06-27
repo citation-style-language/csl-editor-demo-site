@@ -19,7 +19,7 @@ Play with it here: [Citation Style Editor](http://editor.citationstyles.org)
 
 - Run `git clone --recursive https://github.com/citation-style-editor/csl-editor-demo-site.git csl-demo` to checkout the repo.
 
-- In the repo directory, run `jekyll --server --auto`.
+- In the repo directory, run `jekyll serve` (optional: add `--watch` to automatically rebuild when source changes).
 
 - Point your browser to `localhost:5000` to view the site locally.
 
@@ -27,13 +27,13 @@ Play with it here: [Citation Style Editor](http://editor.citationstyles.org)
 
 ## To Deploy
 
-This process creates a version of the site to with concatenated javascript files and cache busters on the URLs, and optionally pushes the built version to the `gh-pages` branch, which is currently served by github pages using the domain `editor.citationstyles.org`.
+This process creates a static HTML site with concatenated javascript files and cache busters on the URLs, and optionally pushes to the `gh-pages` branch, currently served by github at [http://editor.citationstyles.org](http://editor.citationstyles.org).
 
-- Follow above steps for Development version (but if you want to deploy directly to `public_html` you'll have to checkout to a `csl-demo/` somewhere else, since the deploy directory will be erased by the deploy script)
+- Run `git clone --recursive https://github.com/citation-style-editor/csl-editor-demo-site.git csl-demo` to checkout the repo.
 
-- Run `./deploy.sh $BUILD_DIR $GH_PAGES_REPO_DIR`, where:
-  - `$BUILD_DIR` is the name of the directory you wish to deploy to, relative to the parent of the current directory, if you don't specify it defaults to `csl-build`, which will be a sibling of the current directory. **All current contents of** `$BUILD_DIR` **will be removed!**
-  - `$GH_PAGES_REPO_DIR` (optional) is the name of a checked out `csl-editor-demo-site` repo directory, again relative to the parent of the current directory, which will be used to copy the built version and commit and push the result to github, which will automatically update the github pages site at [editor.citationstyles.org](http://editor.citationstyles.org), the domain given in the CNAME file.
+- From the repo directory, run `./deploy.sh $BUILD_DIR $GH_PAGES_REPO_DIR`, where:
+  - `$BUILD_DIR` is the name of the directory you wish to deploy to, relative to the parent of the current directory. **All current contents of** `$BUILD_DIR` **will be removed!**
+  - `$GH_PAGES_REPO_DIR` (optional) is the name of a checked out `csl-editor-demo-site` repo directory, again relative to the parent of the current directory, which will be used to copy the built version and push the result to the `gh-pages` branch in github, which will automatically update the site at [editor.citationstyles.org](http://editor.citationstyles.org), the domain given in the CNAME file.
 
 - Point your browser to `http://editor.citationstyles.org/cslEditorLib/pages/unitTests.html` to run the unit tests
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="sort-only">
-  <!-- No "default-locale"; journal publishes in Romanian, German, French, and English -->
+  <!-- Polyglot; journal publishes in English, French, German, and Romanian -->
   <info>
     <title>Studii Teologice</title>
     <id>http://www.zotero.org/styles/studii-teologice</id>
@@ -47,7 +47,7 @@
           <name delimiter=", " delimiter-precedes-last="always">
             <name-part name="family" font-variant="small-caps"/>
           </name>
-          <label form="short" text-case="lowercase" prefix=" (" suffix=".)" strip-periods="true"/>
+          <label form="short" text-case="lowercase" prefix=" (" suffix=")"/>
         </names>
       </if>
     </choose>
@@ -59,7 +59,7 @@
           <name delimiter=", " delimiter-precedes-last="always" initialize-with=".">
             <name-part name="family" font-variant="small-caps"/>
           </name>
-          <label form="short" text-case="lowercase" prefix=" (" suffix=".)" strip-periods="true"/>
+          <label form="short" text-case="lowercase" prefix=" (" suffix=")"/>
         </names>
       </if>
     </choose>
@@ -94,7 +94,7 @@
               <name delimiter=", " delimiter-precedes-last="always" sort-separator=", ">
                 <name-part name="family" font-variant="small-caps"/>
               </name>
-              <label form="short" text-case="lowercase" prefix=" (" suffix=".)" strip-periods="true"/>
+              <label form="short" text-case="lowercase" prefix=" (" suffix=")"/>
             </names>
           </if>
         </choose>
@@ -119,7 +119,7 @@
               <name delimiter=", " delimiter-precedes-last="always" sort-separator=", " initialize-with=".">
                 <name-part name="family" font-variant="small-caps"/>
               </name>
-              <label form="short" text-case="lowercase" prefix=" (" suffix=".)" strip-periods="true"/>
+              <label form="short" text-case="lowercase" prefix=" (" suffix=")"/>
             </names>
           </if>
         </choose>

@@ -13,14 +13,15 @@ echo "Argument 2: the name of the gh-pages dir to deploy to,"
 echo "            which must be a sibling of the current dir"
 echo ""
 
-if [ -n "$1" ]
+if [ $# -eq 0 ]
 then
-	BUILD_DIR="../csl-build"
+	echo "Build dir not specified"
+	exit
 else
 	BUILD_DIR="../$1"
+	echo "Deploying to build dir: $BUILD_DIR"
 fi
 
-echo "deploying to build dir $BUILD_DIR"
 
 rm -rf "$BUILD_DIR"
 node cslEditorLib/external/r.js -o build.js dir=$BUILD_DIR
@@ -53,7 +54,7 @@ find external -name "*.php" -type f -print0 | xargs -0 rm -f
 find cslEditorLib/external -name "*.php" -type f -print0 | xargs -0 rm -f
 
 # Run Jekyll
-jekyll
+jekyll build
 
 # If gh-pages repo directory specified, deploy to github
 if [ -n "$2" ]

@@ -63,13 +63,13 @@ define([	'src/options',
 			enumerateCitations;
 
 		citeprocSys.setJsonDocuments(documents);
+		citeprocSys.csl_reverse_lookup_support = true;
 
 		result = { "statusMessage": "", "formattedCitations": [], "formattedBibliography": [] };
 		result.statusMessage = "";
 		if (style !== previousStyle) {
 			try {
 				citeproc = new CSL.Engine(citeprocSys, style);
-				citeproc.opt.development_extensions.csl_reverse_lookup_support = true;
 				previousStyle = style;
 			}
 			catch (err) {
@@ -84,6 +84,9 @@ define([	'src/options',
 		inLineCitationArray = [];
 		
 		$.each(citationClusters, function (clusterIndex, cluster) {
+			if (cluster.citationItems.length === 0) {
+				return;
+			}
 			try {
 				citations = citeproc.appendCitationCluster(cluster, false);
 			}

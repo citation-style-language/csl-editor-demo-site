@@ -34,7 +34,7 @@
   <macro name="editor">
     <names variable="editor">
       <name initialize-with="." delimiter=", " delimiter-precedes-last="always"/>
-      <label form="short" prefix=" (" text-case="capitalize-first" suffix=".)" strip-periods="true"/>
+      <label form="short" prefix=" (" text-case="capitalize-first" suffix=")"/>
     </names>
   </macro>
   <macro name="year-date">
@@ -125,6 +125,7 @@
           </group>
         </else>
       </choose>
+      <text variable="DOI" prefix=". doi:"/>
     </layout>
   </bibliography>
 </style>
