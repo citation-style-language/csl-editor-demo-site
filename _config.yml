@@ -1,2 +1,2 @@
 port: 5001
-exclude: ["cslEditorLib/exampleCitationsGenerator"]
+exclude: ["cslEditorLib/exampleCitationsGenerator", ".git"]
