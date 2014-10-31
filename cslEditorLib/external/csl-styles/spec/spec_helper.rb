@@ -10,7 +10,7 @@ ISSN_FILTER = %w{
   1662-453X 1663-9812 1664-042X 1664-0640 1664-1078 1664-2295
   1664-2392 1664-302X 1664-3224 1664-462X 1664-8021 2234-943X
   0036-8075 1095-9203 1359-4184 1476-5578 1097-6256 1047-7594
-  1546-1726
+  1546-1726 2108-6419
 }
 
 # These titles are ignored when checking for duplicate titles
@@ -22,6 +22,13 @@ TITLES_FILTER = [
 # These styles are ignored when checking for valid citation-formats
 CITATION_FORMAT_FILTER = %w{
   bibtex blank national-archives-of-australia
+}
+
+# These styles are ignored when checking for unused macros
+UNUSED_MACROS_FILTER = %w{
+  chicago-annotated-bibliography chicago-author-date
+  chicago-library-list chicago-note-biblio-no-ibid
+  chicago-note-bibliography taylor-and-francis-chicago-author-date
 }
 
 # These files are ignored when checking for extra files
@@ -129,7 +136,7 @@ STYLE_FILTER = case ENV['CSL_TEST']
   when 'git'
     Regexp.new("/(#{`git diff --name-only`.split(/\s+/).join('|')})$")
   else
-    Regexp.new("/(#{ENV['CSL_TEST'].split(/\s+/).join('|')})$")  
+    Regexp.new("/(#{ENV['CSL_TEST'].split(/\s+/).join('|')})$")
   end
 
 def collect_styles(type = '')

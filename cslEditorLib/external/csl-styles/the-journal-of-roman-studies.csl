@@ -2,6 +2,7 @@
 <style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="sort-only" default-locale="en-GB">
   <info>
     <title>The Journal of Roman Studies</title>
+    <title-short>JRS</title-short>
     <id>http://www.zotero.org/styles/the-journal-of-roman-studies</id>
     <link href="http://www.zotero.org/styles/the-journal-of-roman-studies" rel="self"/>
     <link href="http://www.zotero.org/styles/international-organization" rel="template"/>
@@ -13,8 +14,8 @@
     <category field="history"/>
     <issn>0075-4358</issn>
     <eissn>1753-528X</eissn>
-    <summary>Style for the Cambridge Journal International Organization</summary>
-    <updated>2012-10-25T21:15:26+00:00</updated>
+    <summary>Style for The Journal of Roman Studies</summary>
+    <updated>2014-10-16T18:21:53+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale>
@@ -74,18 +75,6 @@
         </group>
       </if>
     </choose>
-  </macro>
-  <macro name="editor">
-    <names variable="editor">
-      <name name-as-sort-order="first" and="text" sort-separator=", " delimiter=", " delimiter-precedes-last="always" initialize-with=". "/>
-      <label form="short" prefix=" (" suffix=")"/>
-    </names>
-  </macro>
-  <macro name="translator">
-    <names variable="translator">
-      <name name-as-sort-order="first" and="text" sort-separator=", " delimiter=", " delimiter-precedes-last="always" initialize-with=". "/>
-      <label form="short" prefix=", "/>
-    </names>
   </macro>
   <macro name="recipient-note">
     <names variable="recipient" delimiter=", ">
@@ -165,29 +154,6 @@
       </else-if>
       <else>
         <text variable="title" quotes="true"/>
-      </else>
-    </choose>
-  </macro>
-  <macro name="title-short">
-    <choose>
-      <if variable="title" match="none">
-        <choose>
-          <if type="interview">
-            <text term="interview"/>
-          </if>
-          <else-if type="manuscript speech" match="any">
-            <text variable="genre" form="short"/>
-          </else-if>
-          <else-if type="personal_communication">
-            <text macro="issued"/>
-          </else-if>
-        </choose>
-      </if>
-      <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
-        <text variable="title" form="short" font-style="italic"/>
-      </else-if>
-      <else>
-        <text variable="title" form="short" quotes="true"/>
       </else>
     </choose>
   </macro>
@@ -418,8 +384,6 @@
   <bibliography hanging-indent="true" et-al-min="11" et-al-use-first="7" entry-spacing="0">
     <sort>
       <key macro="contributors-sort"/>
-      <key variable="title"/>
-      <key variable="genre"/>
       <key variable="issued"/>
     </sort>
     <layout suffix=".">

@@ -51,9 +51,6 @@
       <text variable="page" prefix="p.&#160;"/>
     </group>
   </macro>
-  <macro name="anon">
-    <text term="anonymous" form="short" text-case="capitalize-first" strip-periods="true"/>
-  </macro>
   <macro name="author-short">
     <names variable="author">
       <name form="short" delimiter=", "/>
@@ -139,7 +136,10 @@
     <layout prefix="(" suffix=")" delimiter="&#160;; ">
       <text macro="author-short" suffix=", "/>
       <text macro="year-date"/>
-      <text variable="locator" prefix=", p.&#160;"/>
+      <group prefix=",&#160;">
+        <label variable="locator" form="short" suffix=".&#160;"/>
+        <text variable="locator"/>
+      </group>
     </layout>
   </citation>
   <bibliography subsequent-author-substitute="">

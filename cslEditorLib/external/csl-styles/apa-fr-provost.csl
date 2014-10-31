@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" default-locale="fr-FR">
   <info>
-    <title>American Psychological Association 6th edition (French - Provost)</title>
+    <title>American Psychological Association 6th edition (Provost) (French - Canada)</title>
     <title-short>APA FR Provost</title-short>
     <id>http://www.zotero.org/styles/apa-fr-provost</id>
     <link href="http://www.zotero.org/styles/apa-fr-provost" rel="self"/>
@@ -20,6 +20,10 @@
   </info>
   <locale xml:lang="fr">
     <terms>
+      <term name="editor" form="short">
+        <single>éd.</single>
+        <multiple>éds</multiple>
+      </term>
       <term name="editortranslator" form="short">
         <single>éd. &amp; trad.</single>
         <multiple>éd. &amp; trad.</multiple>
@@ -289,7 +293,7 @@
       <if type="manuscript">
         <text value="Manuscrit soumis pour publication"/>
       </if>
-      <else-if type="book chapter thesis">
+      <else-if type="book chapter thesis" match="any">
         <text variable="note" prefix="(" suffix=")"/>
       </else-if>
     </choose>

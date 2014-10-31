@@ -6,14 +6,14 @@
 	<title>Style Info</title>
 
 	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.8.22/themes/ui-lightness/jquery-ui.css">
-	<link rel="stylesheet" type="text/css" href="../cslEditorLib/css/base.css?bust=0de9529ffc2c37601785cb49bbc4e0495177e883" />
-	<link rel="stylesheet" type="text/css" href="../cslEditorLib/css/styleInfo.css?bust=0de9529ffc2c37601785cb49bbc4e0495177e883" />
+	<link rel="stylesheet" type="text/css" href="../cslEditorLib/css/base.css?bust=e3662bdc4188a6395afa454ac66f0a6a28664bba" />
+	<link rel="stylesheet" type="text/css" href="../cslEditorLib/css/styleInfo.css?bust=e3662bdc4188a6395afa454ac66f0a6a28664bba" />
 
 	<script type="text/javascript" src="../cslEditorLib/external/require-jquery.js"></script>
 	<script>
 		require.config({
 			baseUrl: "../cslEditorLib",
-			urlArgs : "bust=0de9529ffc2c37601785cb49bbc4e0495177e883"
+			urlArgs : "bust=e3662bdc4188a6395afa454ac66f0a6a28664bba"
 		});
 		requirejs(['src/config'], function (config) {
 			require(['../src/styleInfoPage'], function () {});
@@ -141,7 +141,7 @@ require(['src/config'], function () {
 				var uvOptions = {};
 				(function() {
 				var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
-					uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/oO7BJ8Bejbo6PLFoP4M4Q.js';
+					uv.src = '//widget.uservoice.com/oO7BJ8Bejbo6PLFoP4M4Q.js';
 					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
 				})();
 			} else {

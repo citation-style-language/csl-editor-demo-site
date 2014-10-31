@@ -23,20 +23,34 @@
   <macro name="editor">
     <names variable="editor">
       <label form="short" suffix=" "/>
-      <name initialize-with=". " and="text" delimiter=", "/>
+      <name initialize-with=". " and="text" delimiter=", " delimiter-precedes-last="never"/>
     </names>
   </macro>
   <macro name="author">
-    <names variable="author">
-      <name initialize-with=". " and="text" delimiter=", "/>
-      <label form="short" prefix=", " suffix="." text-case="capitalize-first" strip-periods="true"/>
-      <substitute>
-        <names variable="editor"/>
-      </substitute>
-    </names>
-  </macro>
-  <macro name="access">
-    <text variable="URL"/>
+    <choose>
+      <if type="patent">
+        <group delimiter=", ">
+          <choose>
+            <if variable="authority">
+              <text variable="authority"/>
+            </if>
+            <else> 
+              <text variable="publisher"/>
+            </else>
+          </choose>
+          <text variable="number"/>
+        </group>
+      </if>
+      <else>
+        <names variable="author">
+          <name initialize-with=". " and="text" delimiter=", " delimiter-precedes-last="never"/>
+          <label form="short" prefix=", " text-case="capitalize-first"/>
+          <substitute>
+            <names variable="editor"/>
+          </substitute>
+        </names>
+      </else>
+    </choose>
   </macro>
   <macro name="title">
     <choose>
@@ -53,9 +67,6 @@
       <text variable="publisher"/>
       <text variable="publisher-place"/>
     </group>
-  </macro>
-  <macro name="volume">
-    <text variable="volume" prefix="vol. "/>
   </macro>
   <macro name="pages">
     <label variable="page" form="short" suffix=" "/>

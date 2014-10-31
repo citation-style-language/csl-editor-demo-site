@@ -3984,7 +3984,7 @@ define('src/dataInstance',['src/Data'], function (CSLEDIT_Data) {
 
 
 
-// Sends commands to the CSLEDIT_Data, and maintains the command history used by
+// Sends commands to CSLEDIT_Data, and maintains the command history used by
 // the undo function.
 //
 // The CSLEDIT_controller allows you to issue commands which alter the current
@@ -9021,9 +9021,9 @@ define("jquery.hotkeys", ["jquery"], function(){});
 //     - Delete node (pressing delete on keyboard)
 //
 // - Implements macroLinks
-//     - These make each macro instance node behave link a symlink to the
+//     - These make each macro instance node behave like a symlink to the
 //       corresponding macro definition
-//     - Supports nested macros within macros work for any depth
+//     - Supports nested macros within macros for any depth
 //     - Infinite loops are detected and the offending node is given a
 //       data-error="Infinite Loop" attribute
 //
@@ -14107,7 +14107,8 @@ define('src/citationEditor',
 		// list references
 		dialog.dialog({
 			title : 'Edit Citation ' + (citation + 1),
-			width : 700
+			width : 700,
+			resizable: false
 		});
 
 		if (!initialised) {
@@ -14121,6 +14122,11 @@ define('src/citationEditor',
 		if (dialog.height() > $(window).height() - 50) {
 			dialog.height($(window).height() - 50);
 		}
+
+		// Give the dialog has a fixed height so that it doesn't expand beyond the bottom
+		// of the page when the "Advanced" accoridion is expanded
+		dialog.dialog('option', 'height', dialog.height() + 55);
+
 		if (dialog.offset().top < 80) {
 			dialog.dialog("option", "position", [dialog.offset().left, 80]);
 		}
@@ -16084,9 +16090,10 @@ define('src/addNodeDialog',
 			dialogDiv.dialog('destroy');
 
 			position = "last";
+
 			// override position for certain nodes
 			// TODO: generalise
-			if (nodeName === 'if') {
+			if (nodeName === 'if' || nodeName === 'sort') {
 				position = "first";
 			} else if (nodeName === 'else-if' && children[children.length - 1].name === "else") {
 				position = children.length - 1;

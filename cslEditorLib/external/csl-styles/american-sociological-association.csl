@@ -22,12 +22,6 @@
       <name and="text" delimiter=", "/>
     </names>
   </macro>
-  <macro name="series-editor">
-    <names variable="original-author">
-      <label form="short" text-case="capitalize-first" suffix=" "/>
-      <name and="text" delimiter=", "/>
-    </names>
-  </macro>
   <macro name="anon">
     <text term="anonymous" form="short" text-case="capitalize-first" strip-periods="true"/>
   </macro>
@@ -93,10 +87,20 @@
     </choose>
   </macro>
   <macro name="publisher">
-    <group delimiter=": ">
-      <text variable="publisher-place"/>
-      <text variable="publisher"/>
-    </group>
+    <choose>
+      <if type="thesis">
+        <group delimiter=", ">
+          <text variable="publisher"/>
+          <text variable="publisher-place"/>
+        </group>
+      </if>
+      <else>
+        <group delimiter=": ">
+          <text variable="publisher-place"/>
+          <text variable="publisher"/>
+        </group>
+      </else>
+    </choose>
   </macro>
   <macro name="year-date">
     <choose>

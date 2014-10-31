@@ -5,6 +5,7 @@
     <id>http://www.zotero.org/styles/infoclio-fr-smallcaps</id>
     <link href="http://www.zotero.org/styles/infoclio-fr-smallcaps" rel="self"/>
     <link href="https://github.com/citation-style-language/styles/pull/234" rel="documentation"/>
+    <link href="http://www.infoclio.ch/de/node/133932" rel="documentation"/>
     <author>
       <name>Nicolas Chachereau</name>
       <email>nicolas.chachereau@unil.ch</email>
@@ -68,21 +69,6 @@
       <et-al font-style="italic"/>
       <label form="short" prefix="&#160;(" suffix=")"/>
     </names>
-  </macro>
-  <macro name="editor-or-book-author">
-    <choose>
-      <if variable="editor">
-        <text macro="editor"/>
-      </if>
-      <else-if variable="container-author">
-        <names variable="container-author">
-          <name sort-separator=" ">
-            <name-part name="family" font-variant="small-caps"/>
-          </name>
-          <et-al font-style="italic"/>
-        </names>
-      </else-if>
-    </choose>
   </macro>
   <macro name="title">
     <choose>

@@ -13,7 +13,7 @@
     <category citation-format="author-date"/>
     <category field="social_science"/>
     <summary>Zitierkonventionen des Fachbereichs Medien an der Fachhochschule Kiel</summary>
-    <updated>2014-05-07T10:37:22+00:00</updated>
+    <updated>2014-07-13T18:52:48+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="editor">
@@ -61,9 +61,6 @@
       </if>
     </choose>
   </macro>
-  <macro name="title">
-    <text variable="title" font-style="normal"/>
-  </macro>
   <macro name="publisher">
     <group>
       <text variable="publisher"/>
@@ -81,19 +78,6 @@
       </else>
     </choose>
     <text value=""/>
-  </macro>
-  <macro name="edition">
-    <choose>
-      <if is-numeric="edition">
-        <group delimiter=" ">
-          <number variable="edition" form="ordinal"/>
-          <text term="edition" form="short"/>
-        </group>
-      </if>
-      <else>
-        <text variable="edition" suffix="."/>
-      </else>
-    </choose>
   </macro>
   <macro name="pages">
     <text variable="page" prefix="S. "/>
@@ -118,7 +102,7 @@
       </group>
     </layout>
   </citation>
-  <bibliography hanging-indent="true" et-al-min="9" et-al-use-first="8" entry-spacing="0" line-spacing="1">
+  <bibliography hanging-indent="true" et-al-min="9" et-al-use-first="8" entry-spacing="1" line-spacing="1">
     <sort>
       <key macro="author"/>
       <key macro="year-date"/>
@@ -191,7 +175,7 @@
             <text variable="publisher-place"/>
           </group>
         </else-if>
-        <else-if type="article-newspaper article-magazine" match="any">
+        <else-if type="paper-conference article-newspaper article-magazine article-journal" match="any">
           <group>
             <text macro="author"/>
             <text macro="year-date" prefix=" (" suffix="): "/>
