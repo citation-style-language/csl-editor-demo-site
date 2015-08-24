@@ -21,9 +21,9 @@ Play with it here: [Citation Style Editor](http://editor.citationstyles.org)
 
 - In the repo directory, run `jekyll serve` (optional: add `--watch` to automatically rebuild when source changes).
 
-- Point your browser to `localhost:5000` to view the site locally.
+- Point your browser to `localhost:5001` to view the site locally.
 
-- Point your browser to `localhost:5000/cslEditorLib/pages/unitTests.html` to run the unit tests
+- Point your browser to `localhost:5001/cslEditorLib/pages/unitTests.html` to run the unit tests
 
 ## To Deploy
 

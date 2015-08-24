@@ -6,16 +6,16 @@
 	<title>CSL Search by Example</title>
 
 	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/ui-lightness/jquery-ui.css">
-	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=e3662bdc4188a6395afa454ac66f0a6a28664bba" />
-	<link rel="stylesheet" href="../cslEditorLib/css/searchByExample.css?bust=e3662bdc4188a6395afa454ac66f0a6a28664bba" />
-	<link rel="stylesheet" href="../cslEditorLib/css/searchResults.css?bust=e3662bdc4188a6395afa454ac66f0a6a28664bba" />
+	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=3d554b20fce369232dd523d29a605c0464f172f6" />
+	<link rel="stylesheet" href="../cslEditorLib/css/searchByExample.css?bust=3d554b20fce369232dd523d29a605c0464f172f6" />
+	<link rel="stylesheet" href="../cslEditorLib/css/searchResults.css?bust=3d554b20fce369232dd523d29a605c0464f172f6" />
 	<link rel="icon" href="../images/favicon-32x32.png" type="image/png"/>
 
 	<script type="text/javascript" src="../cslEditorLib/external/require-jquery.js"></script>
 	<script>
 		require.config({
 			baseUrl: "../cslEditorLib",
-			urlArgs : "bust=e3662bdc4188a6395afa454ac66f0a6a28664bba"
+			urlArgs : "bust=3d554b20fce369232dd523d29a605c0464f172f6"
 		});
 		requirejs(['src/config'], function (config) {
 			require(['src/SearchByExample'], function () {
@@ -147,7 +147,7 @@ require(['src/config'], function () {
 				var uvOptions = {};
 				(function() {
 				var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
-					uv.src = '//widget.uservoice.com/oO7BJ8Bejbo6PLFoP4M4Q.js';
+					uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/oO7BJ8Bejbo6PLFoP4M4Q.js';
 					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
 				})();
 			} else {
