@@ -70,6 +70,22 @@ body {
 	box-shadow: 0 0 5px 0px rgba(0,136,204,0.5), inset 0 1px 2px rgba(0,0,0,0.2);
 	border: 1px solid #2f87e0;
 }
+
+.calloutRow {
+  clear: both;
+  display: block;
+  margin: 0;
+  background: #fdf9c6;
+  border-top: 1px solid #cecbaa;
+  padding: 10px 20px;
+}
+
+.callout {
+  max-width:750px;
+  margin:auto;
+  text-align:left;
+}
+
 </style>
 </head>
 <body id="about">
@@ -82,45 +98,48 @@ body {
   </div>
 </div>
 
-<!--p class="note"><strong>Note:</strong> This set of tools is still in public beta. Please report any bugs or feedback using the form at the top right of the screen.</p-->
-
-<div class="note">
-  <p style="max-width:750px;margin:auto;text-align:left">
-    <strong>Maintainer needed!</strong> Development has stalled on these tools since I worked on them as part of a <a href="https://csleditor.wordpress.com/about">joint Mendeley-Columbia University project</a> which ended in 2012. The site is visited by over 3,000 people every month and there are plenty of <a href="https://csleditor.uservoice.com/forums/177809-general/filters/top">user suggestions</a> and <a href="https://github.com/citation-style-editor/csl-editor/issues">github issues</a> to work on. If you're interested, <a href="https://github.com/citation-style-editor/csl-editor-demo-site">fork the source code</a>, make your changes, and issue a pull request, I promise to review it.
-    <br><br>
-    Steve Ridout, August 2015
-  </p>
-</div>
-
-
 <div class="column first">
-	<div class="padding">
-		<h2>1. Find a style</h2>
-		<h3><a href="../searchByName">Search by name</a></h3>
-				<p>If you're looking for a style like APA, Harvard, etc... just use the search box at the top of the page to search for a style name, or journal title.</p>
+  <div class="padding">
+    <h2>1. Find a style</h2>
+    <h3><a href="../searchByName">Search by name</a></h3>
+    <p>
+      If you're looking for a style like APA, Harvard, etc... just use the search box at the top of the page to search for a style name, or journal title.
+    </p>
 
+    <h3><a href="../searchByExample">Search by example</a></h3>
+    <p>
+      If you don't know the name of the style, but know what the final citation should look like, you can use our <a href="../searchByExample/">search by example</a> tool to find styles that most closely match.
+    </p>
 
-		<h3><a href="../searchByExample">Search by example</a></h3>
-		<p>If you don't know the name of the style, but know what the final citation should look like, you can use our <a href="../searchByExample/">search by example</a> tool to find styles that most closely match.</p>
-
-		<a href="../searchByExample/" class="fig"><img src="../images/search-by-example.png"></a>
-	</div>
+    <a href="../searchByExample/" class="fig"><img src="../images/search-by-example.png"></a>
+  </div>
 </div>
 
 <div class="column">
-	<div class="padding">
-		<h2>2. Edit the style</h2>
-		<p>If you can't find a style that quite suits your needs, find one that's a pretty close match and click the "Edit style" button to open that style in the <a href="../visualEditor">visual editor</a>.</p>
-		<a href="../searchByExample/" class="fig"><img src="../images/edit-style.png"></a>
-	</div>
+  <div class="padding">
+    <h2>2. Edit the style</h2>
+    <p>
+      If you can't find a style that quite suits your needs, find one that's a pretty close match and click the "Edit style" button to open that style in the <a href="../visualEditor">visual editor</a>.
+    </p>
+    <a href="../searchByExample/" class="fig"><img src="../images/edit-style.png"></a>
+  </div>
 </div>
 
 <div class="column last">
-	<div class="padding">
-		<h2>3. Use the style</h2>
-		<p>Once you've found a style that's suitable for you to use, simply click the "Install" button on the search results, or "Save" a style you've edited, to use it in your reference manager.</p>
-		<p></p>
-	</div>
+  <div class="padding">
+    <h2>3. Use the style</h2>
+    <p>
+      Once you've found a style that's suitable for you to use, simply click the "Install" button on the search results, or "Save" a style you've edited, to use it in your reference manager.
+    </p>
+  </div>
+</div>
+
+<div class="calloutRow">
+  <p class="callout">
+    <strong>Maintainer needed!</strong> Development has stalled on these tools since the <a href="https://csleditor.wordpress.com/about"> Mendeley &amp; Columbia University project</a> ended in 2012. The site is visited by over 3,000 people every month and there are plenty of <a href="https://csleditor.uservoice.com/forums/177809-general/filters/top">user suggestions</a> and <a href="https://github.com/citation-style-editor/csl-editor/issues">github issues</a> to work on. If you're interested, <a href="https://github.com/citation-style-editor/csl-editor-demo-site">fork the source code</a>, make your changes, and issue a pull request, I promise to review it.
+    <br><br>
+    Steve Ridout, August 2015
+  </p>
 </div>
 
 <div class="footer">
