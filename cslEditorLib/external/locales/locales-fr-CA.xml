@@ -25,7 +25,7 @@
     <term name="anonymous">anonyme</term>
     <term name="anonymous" form="short">anon.</term>
     <term name="at">sur</term>
-    <term name="available at">disponible sur</term>
+    <term name="available at">disponible à</term>
     <term name="by">par</term>
     <term name="circa">vers</term>
     <term name="circa" form="short">v.</term>
@@ -261,6 +261,7 @@
     </term>
 
     <!-- VERB ROLE FORMS -->
+    <term name="container-author" form="verb">par</term>
     <term name="director" form="verb">réalisé par</term>
     <term name="editor" form="verb">édité par</term>
     <term name="editorial-director" form="verb">sous la direction de</term>
@@ -272,7 +273,6 @@
     <term name="editortranslator" form="verb">édité et traduit par</term>
 
     <!-- SHORT VERB ROLE FORMS -->
-    <term name="container-author" form="verb-short">par</term>
     <term name="director" form="verb-short">réal. par</term>
     <term name="editor" form="verb-short">éd. par</term>
     <term name="editorial-director" form="verb-short">ss la dir. de</term>

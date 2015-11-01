@@ -465,7 +465,7 @@
           </if>
         </choose>
       </if>
-      <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
+      <else-if type="bill book graphic legal_case legislation motion_picture song" match="any">
         <text variable="title" font-style="italic"/>
       </else-if>
       <else>
@@ -543,9 +543,9 @@
     <choose>
       <if type="article-newspaper">
         <group prefix=", " delimiter=", ">
-          <group>
-            <text variable="edition" suffix=" "/>
-            <text term="edition" prefix=" "/>
+          <group delimiter=" ">
+            <text variable="edition"/>
+            <text term="edition"/>
           </group>
           <group>
             <text term="section" form="short" suffix=" "/>

@@ -24,7 +24,7 @@
     <category field="philosophy"/>
     <category field="social_science"/>
     <summary>Universita' Pontificia Salesiana - Italiano</summary>
-    <updated>2014-10-14T00:00:00+00:00</updated>
+    <updated>2015-10-21T00:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="it">
@@ -41,8 +41,8 @@
   </locale>
   <macro name="editor">
     <names variable="editor" delimiter=", ">
-      <label form="verb" text-case="lowercase"/>
-      <name delimiter=", " prefix=" " and="text" delimiter-precedes-last="never" initialize-with=". "/>
+      <label form="verb" suffix=" " text-case="lowercase"/>
+      <name delimiter=", " and="text" delimiter-precedes-last="never" initialize-with=". "/>
     </names>
   </macro>
   <macro name="translator">
@@ -206,11 +206,6 @@
       <text variable="page" prefix=" "/>
     </group>
   </macro>
-  <macro name="sort-key">
-    <text macro="author-bib" suffix=" "/>
-    <text variable="issue" suffix=" "/>
-    <text variable="genre"/>
-  </macro>
   <macro name="edition-issued">
     <choose>
       <if is-numeric="edition">
@@ -360,9 +355,10 @@
       </choose>
     </layout>
   </citation>
-  <bibliography hanging-indent="true" et-al-min="7" et-al-use-first="6" subsequent-author-substitute="&#8212;&#8212;&#8212;" entry-spacing="0">
+  <bibliography hanging-indent="true" et-al-min="4" et-al-use-first="1" subsequent-author-substitute="&#8212;&#8212;&#8212;" entry-spacing="0">
     <sort>
-      <key macro="sort-key"/>
+      <key macro="author-bib"/>
+      <key variable="issued"/>
     </sort>
     <layout suffix=".">
       <text macro="author-bib" suffix=", "/>
@@ -439,6 +435,9 @@
         <text variable="original-title" font-style="italic"/>
         <text variable="original-publisher-place"/>
         <text variable="original-publisher"/>
+        <date variable="original-date">
+          <date-part name="year"/>
+        </date>
       </group>
       <text macro="locators" prefix=", "/>
       <text macro="access" prefix=", "/>
