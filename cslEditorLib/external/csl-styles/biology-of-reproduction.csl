@@ -4,7 +4,6 @@
     <title>Biology of Reproduction</title>
     <id>http://www.zotero.org/styles/biology-of-reproduction</id>
     <link href="http://www.zotero.org/styles/biology-of-reproduction" rel="self"/>
-    <link href="http://www.zotero.org/styles/international-journal-of-gynecology-and-obstetrics" rel="template"/>
     <link href="http://www.biolreprod.org/site/IforA/BOR_InfoForAuthors_2013-04-19.pdf" rel="documentation"/>
     <author>
       <name>Sebastian Karcher</name>
@@ -74,7 +73,7 @@
   <bibliography entry-spacing="0" second-field-align="flush" et-al-min="13" et-al-use-first="12">
     <layout suffix=".">
       <text variable="citation-number" prefix="[" suffix="]"/>
-      <text macro="author" prefix=" " suffix=". "/>
+      <text macro="author" suffix=". "/>
       <choose>
         <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
           <group delimiter=". ">
