@@ -63,13 +63,10 @@ define(
 		);
 	};
 	
-	// Uses the FileSaver.js library to save files to the local file system
-	var saveCsl = function (
-			cslCodeOrData,
-			styleId,
-			comment // optional, if comment is included cslCodeOrData
-			        // must be a CSLEDIT_Data instance
-			) {
+	// Uses the FileSaver.js library for style downloads
+	// @comment - optional, if comment is included @cslCodeOrData
+	//            must be a CSLEDIT_Data instance
+	var saveCsl = function (cslCodeOrData, styleId, comment) {
 		var dialog = $('<div title="Save CSL Style">' +
 				'<div id="download" style="padding-left: 300px"></div>' +
 				'<div id="refManagerInstructions"><\/div>' +
@@ -107,12 +104,12 @@ define(
 
 						saveButton.children().remove();
 						
-						dialog.find('#download').html('<button id="download-button">Save To Disk</button>');
+						saveButton.html('<button id="download-button">Download Style</button>');
 						document.getElementById("download-button").addEventListener("click", function(){
 							var blob = new Blob([cslCode], {
 								type: "text/plain;charset=utf-8"
 							});
-						saveAs(blob, filename);
+							saveAs(blob, filename);
 						});
 					}
 				});
