@@ -69,8 +69,8 @@ define(
 	var saveCsl = function (cslCodeOrData, styleId, comment) {
 		var dialog = $('<div title="Save CSL Style">' +
 				'<div id="download" style="padding-left: 300px"></div>' +
-				'<div id="refManagerInstructions"><\/div>' +
-				'<\/div>'),
+				'<div id="refManagerInstructions"></div>' +
+				'</div>'),
 			saveButton = dialog.find('#download'),
 			filename,
 			cslCode;
