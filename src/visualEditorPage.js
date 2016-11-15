@@ -8,8 +8,6 @@ define(
 			'src/debug',
 			'../src/styleUtils',
 			'../src/errorHandler',
-			'../external/downloadify/swfobject',
-			'../external/downloadify/downloadify.min',
 			'jquery.ui'
 		],
 		function (

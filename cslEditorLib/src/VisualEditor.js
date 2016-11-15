@@ -744,9 +744,11 @@ define('src/cslParser',['src/xmlUtility', 'src/debug'], function (CSLEDIT_xmlUti
 			jsonData,
 			childNode,
 			textValue,
+			ELEMENT_NODE,
 			TEXT_NODE,
 			thisNodeIndex = nodeIndex.index;
 
+		ELEMENT_NODE = 1;
 		TEXT_NODE = 3;
 		
 		for (index = 0; index < xmlNode.childNodes.length; index++) {
@@ -754,11 +756,11 @@ define('src/cslParser',['src/xmlUtility', 'src/debug'], function (CSLEDIT_xmlUti
 
 			//to be compatible with all Chrome versions and Firefox versions,
 			//we have to combine both conditions: undefined, null
-			if (childNode.localName !== undefined && childNode.localName !== null) {
+			if (childNode.nodeType === ELEMENT_NODE) {
 				nodeIndex.index++;
 				children.push(jsonNodeFromXml(xmlNode.childNodes[index], nodeIndex));
 			} else {
-				if (childNode.nodeType === TEXT_NODE && typeof childNode.data !== "undefined" && 
+				if (childNode.nodeType === TEXT_NODE && typeof childNode.data !== "undefined" &&
 						childNode.data.trim() !== "") {
 					textValue = childNode.data;
 				}
@@ -782,7 +784,7 @@ define('src/cslParser',['src/xmlUtility', 'src/debug'], function (CSLEDIT_xmlUti
 		}
 
 		thisNodeData = {
-				name : xmlNode.localName,
+				name : xmlNode.nodeName,
 				attributes : attributesList,
 				cslId : thisNodeIndex,
 				children : children
@@ -858,7 +860,7 @@ define('src/cslParser',['src/xmlUtility', 'src/debug'], function (CSLEDIT_xmlUti
 		debug.assertEqual(errors.length, 0, "xml parser error");
 
 		var styleNode = xmlDoc.childNodes[0];
-		debug.assertEqual(styleNode.localName, "style", "Invalid style - no style node");
+		debug.assertEqual(styleNode.nodeName, "style", "Invalid style - no style node");
 
 		var jsonData = jsonNodeFromXml(styleNode, { index: 0 });
 	
@@ -880,8 +882,8 @@ define('src/cslParser',['src/xmlUtility', 'src/debug'], function (CSLEDIT_xmlUti
 		if (typeof(comment) === "string") {
 			lines = cslXml.split("\n");
 
-			// comment needs to go on line no. 3, after the style node
-			lines.splice(2, 0, "<!-- " + comment + " -->");
+			// XML comment needs to go on line no. 3, after the XML declaration and style start tag
+			lines.splice(2, 0, "  <!-- " + comment + " -->");
 
 			cslXml = lines.join("\n");
 		}
@@ -3053,19 +3055,21 @@ define('src/cslStyles',['src/urlUtils', 'src/debug'], function (CSLEDIT_urlUtils
 		return styleTitle
 			.replace(/&/g, "and")
 			.replace(/\([A-Z]*\)/g, "") // remove upper case text (acronyms) in parentheses
+			.replace(/\([^\(]*\)$/, "") //remove content between last set of parentheses
+			.replace(/\[[^\[]*\]$/, "") //remove content between last set of square parentheses
 			.replace(/[\(\)\[\]]/g, "") // remove other parentheses
 			.replace(/[,'\.]/g, "")     // remove other chars
 			.replace(/[\\\/:"*?<>\| ]+/g, "-")
 			.replace(/--+/g, "-")
 			.replace(/-$/, "")
 			.toLowerCase()
-			.replace(/[����]|ã|á|à/g, "a")
-			.replace(/[����]|é|è/g, "e")
-			.replace(/[����]/g, "i")
-			.replace(/[����]/g, "o")
-			.replace(/[����]/g, "u")
-			.replace(/[�]/g, "n")
-			.replace(/[�]|ç/g, "c");
+			.replace(/[àáäâ]|Ã£|Ã¡|Ã /g, "a")
+			.replace(/[èéëê]|Ã©|Ã¨/g, "e")
+			.replace(/[ìíïî]/g, "i")
+			.replace(/[òóöô]/g, "o")
+			.replace(/[ùúüû]/g, "u")
+			.replace(/[ñ]/g, "n")
+			.replace(/[ç]|Ã§/g, "c");
 	};
 
 	// Returns a style ID based on the given styleTitle that attempts
@@ -14478,7 +14482,7 @@ define('src/Schema',['src/options', 'src/storage', 'src/debug'], function (CSLED
 
 			// add child results to the result list
 			$.each(node.childNodes, function (i, childNode) {
-				if (childNode.localName !== null) {
+				if (childNode.nodeName !== '#text') {
 					if (childNode.nodeName in nodeParsers) {
 						childResult = nodeParsers[childNode.nodeName](childNode);
 
@@ -14565,7 +14569,7 @@ define('src/Schema',['src/options', 'src/storage', 'src/debug'], function (CSLED
 			var topTwoElements = [],
 				index = elementStack.length - 1;
 
-			while (index >= 0 && topTwoElements.length < 2) {	
+			while (index >= 0 && topTwoElements.length < 2) {
 				topTwoElements.splice(0, 0, elementStack[index]);
 				index--;
 			}

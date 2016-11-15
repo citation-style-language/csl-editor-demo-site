@@ -8,8 +8,7 @@ define(
 			'src/cslStyles',
 			'src/options',
 			'src/debug',
-			'../external/downloadify/swfobject',
-			'../external/downloadify/downloadify.min',
+			'../external/FileSaver.1.3.3.min',
 			'jquery.ui'
 		],
 		function (
@@ -64,19 +63,15 @@ define(
 		);
 	};
 	
-	// Uses the Flash based downloadify library to save files to the local file system
-	var saveCsl = function (
-			cslCodeOrData,
-			styleId,
-			comment // optional, if comment is included cslCodeOrData
-			        // must be a CSLEDIT_Data instance
-			) {
+	// Uses the FileSaver.js library for style downloads
+	// @comment - optional, if comment is included @cslCodeOrData
+	//            must be a CSLEDIT_Data instance
+	var saveCsl = function (cslCodeOrData, styleId, comment) {
 		var dialog = $('<div title="Save CSL Style">' +
-				'<div id="downloadify" style="padding-left: 300px"></div>' +
-				'<div id="installFlash" style="padding-left:50px"></div>' +
-				'<div id="refManagerInstructions"><\/div>' +
-				'<\/div>'),
-			saveButton = dialog.find('#downloadify'),
+				'<div id="download" style="padding-left: 300px"></div>' +
+				'<div id="refManagerInstructions"></div>' +
+				'</div>'),
+			saveButton = dialog.find('#download'),
 			filename,
 			cslCode;
 	
@@ -108,37 +103,14 @@ define(
 						});
 
 						saveButton.children().remove();
-
-						saveButton.downloadify({
-							swf : '../external/downloadify/downloadify.swf',
-							downloadImage : '../external/downloadify/download.png',
-							width : 100,
-							height : 30,
-							filename : filename,
-							data : cslCode,
-							transparent : true,
-							onComplete: function () {
-								alert('Your CSL Style Has Been Saved');
-								dialog.dialog('destroy');
-							},
-							onCancel: function () { },
-							onError: function () { alert('Error saving file.'); }
+						
+						saveButton.html('<button id="download-button">Download Style</button>');
+						document.getElementById("download-button").addEventListener("click", function(){
+							var blob = new Blob([cslCode], {
+								type: "text/plain;charset=utf-8"
+							});
+							saveAs(blob, filename);
 						});
-
-						// if it failed, show instructions to install flash player
-						if (saveButton.find('object').length === 0) {
-							dialog.find('#refManagerInstructions').css({display: "none"});
-							dialog.find('#installFlash').html(
-								'<h2>Flash Player not found</h2><br/>' + 
-								'<h3>To save to disk, you need to:' +
-								'<ul>' +
-								'<li><a href="http://get.adobe.com/flashplayer/">Install Adobe Flash Player</a></li>' +
-								'<li>Reload this page and try again</li>' + 
-								'</ul></h3>');
-						} else {
-							dialog.find('#refManagerInstructions').css({display: "block"});
-							dialog.find('#installFlash').html('');
-						}
 					}
 				});
 			},
