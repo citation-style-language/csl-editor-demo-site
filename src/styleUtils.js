@@ -68,7 +68,9 @@ define(
 	//            must be a CSLEDIT_Data instance
 	var saveCsl = function (cslCodeOrData, styleId, comment) {
 		var dialog = $('<div title="Save CSL Style">' +
-				'<div id="download" style="padding-left: 300px"></div>' +
+				'<p>Click the "Download Style" button below to download your style.</p>' +
+				'<div id="download" style="padding-left: 30px"></div>' +
+				'<br><hr>' +
 				'<div id="refManagerInstructions"></div>' +
 				'</div>'),
 			saveButton = dialog.find('#download'),
