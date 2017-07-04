@@ -14,7 +14,7 @@
     <category field="medicine"/>
     <issn>0309-0167</issn>
     <eissn>1365-2559</eissn>
-    <updated>2017-01-18T14:54:13+00:00</updated>
+    <updated>2017-03-06T05:21:15+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
@@ -115,7 +115,7 @@
       </group>
     </layout>
   </citation>
-  <bibliography hanging-indent="false" et-al-min="4" et-al-use-first="3" second-field-align="flush">
+  <bibliography et-al-min="4" et-al-use-first="3" second-field-align="flush">
     <layout>
       <text variable="citation-number" suffix=" "/>
       <text macro="author"/>
@@ -219,7 +219,7 @@
         <else>
           <text macro="editor" prefix=" " suffix="."/>
           <group prefix=" " suffix=".">
-            <text variable="container-title" font-style="italic" form="short" suffix="."/>
+            <text variable="container-title" font-style="italic" form="short"/>
             <group delimiter="; " prefix=" ">
               <choose>
                 <if variable="issue volume" match="any">

@@ -4,8 +4,8 @@
     <title>Comparative Population Studies</title>
     <id>http://www.zotero.org/styles/comparative-population-studies</id>
     <link href="http://www.zotero.org/styles/comparative-population-studies" rel="self"/>
-    <link href="http://www.comparativepopulationstudies.de/index.php/CPoS/pages/view/AGL_E" rel="documentation"/>
     <link href="http://www.zotero.org/styles/wirtschaftsuniversitat-wien-handel-und-marketing" rel="template"/>
+    <link href="http://www.comparativepopulationstudies.de/index.php/CPoS/pages/view/AGL_E" rel="documentation"/>
     <author>
       <name>Brenton M. Wiernik</name>
       <email>zotero@wiernik.org</email>
@@ -15,12 +15,12 @@
     <issn>1869-8980</issn>
     <eissn>1869-8999</eissn>
     <summary>Citation style for Comparative Population Studies.</summary>
-    <updated>2017-01-16T16:18:07+00:00</updated>
+    <updated>2017-06-04T15:32:54+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="container">
     <choose>
-      <if type="chapter paper-conference" match="any">
+      <if type="chapter paper-conference entry-encyclopedia entry-dictionary" match="any">
         <text term="in" text-case="capitalize-first" suffix=": "/>
         <names variable="editor translator" delimiter="; " suffix=": ">
           <name delimiter-precedes-last="always" initialize-with="." name-as-sort-order="all" font-style="italic"/>
@@ -137,19 +137,8 @@
       <if variable="DOI">
         <text variable="DOI" prefix="[https://doi.org/" suffix="]"/>
       </if>
-      <else-if type="article-newspaper">
-        <group delimiter=", ">
-          <text variable="URL" prefix="[" suffix="]"/>
-          <date variable="accessed" delimiter=".">
-            <date-part name="day" form="numeric"/>
-            <date-part name="month" form="numeric"/>
-            <date-part name="year"/>
-          </date>
-        </group>
-      </else-if>
-      <else-if type="webpage">
-        <group delimiter=", ">
-          <text value="URL" suffix=": "/>
+      <else>
+        <group delimiter=", " prefix="[" suffix="]">
           <text variable="URL"/>
           <date variable="accessed" delimiter=".">
             <date-part name="day" form="numeric"/>
@@ -157,9 +146,6 @@
             <date-part name="year"/>
           </date>
         </group>
-      </else-if>
-      <else>
-        <text variable="URL" prefix="[" suffix="]"/>
       </else>
     </choose>
   </macro>
@@ -170,6 +156,7 @@
           <text variable="title" text-case="title"/>
           <group delimiter=" ">
             <text variable="genre" text-case="title"/>
+            <text term="number" form="short"/>
             <number variable="number"/>
           </group>
         </group>
@@ -219,7 +206,7 @@
       <text variable="publisher-place"/>
       <text variable="publisher"/>
       <choose>
-        <if type="chapter paper-conference" match="any">
+        <if type="chapter paper-conference entry-encyclopedia entry-dictionary" match="any">
           <text variable="page"/>
         </if>
       </choose>
