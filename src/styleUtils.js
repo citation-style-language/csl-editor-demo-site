@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Functions to handle CSL styles which don't belong in cslEditorLib
 

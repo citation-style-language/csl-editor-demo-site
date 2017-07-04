@@ -1,4 +1,4 @@
-"use strict";
+
 
 // This generates a CSL file which outputs csl-data.json
 //
