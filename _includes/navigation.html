@@ -1,0 +1,137 @@
+<style type="text/css">
+#navigationBar {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	display: block;
+	background-color: #222;
+	margin: 0px;
+	padding: 0;
+	height: 40px;
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+	z-index: 20;
+	position: relative;
+}
+
+#navigationBar ul {
+	margin: 0;
+	padding: 0 0 0 6px;
+	list-style-type: none;
+}
+
+#navigationBar li {
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+#navigationBar li a {
+	display: block;
+	float: left;
+	padding: 0 15px;
+	line-height: 40px;
+	color: #999;
+	text-decoration: none;
+}
+
+#navigationBar li a:hover {
+	color: #fff;
+}
+
+body#homepage        a#nav_home,
+body#searchByName    a#nav_searchByName,
+body#searchByExample a#nav_searchByExample,
+body#visualEditor    a#nav_visualEditor,
+body#codeEditor      a#nav_codeEditor,
+body#about           a#nav_about {
+	color: #fff;
+	background: #000;
+}
+
+.search-box {
+	font-size: 16px;
+	width: 200px;
+	margin-top: 8px;
+	position: absolute;
+	right: 10px;
+}
+</style>
+
+<nav id="navigationBar">
+	<ul>
+		<li><a href="../about/" id="nav_about">About</a></li>
+		<li><a href="../searchByName/" id="nav_searchByName">Search by name</a></li>
+		<li><a href="../searchByExample/" id="nav_searchByExample">Search by example</a></li>
+		<li><a href="../visualEditor/" id="nav_visualEditor">Visual editor</a></li>
+		<li><a href="../codeEditor/" id="nav_codeEditor">Code editor</a></li>
+		<!-- disable search box for now
+		<li><input type="search" class="search-box" value="" placeholder="Search existing styles..."></li>
+		-->
+	</ul>
+</nav>
+
+<!-- Unsupported brower message -->
+
+<style type="text/css">
+#unsupportedBrowserMessage {
+	position: fixed;
+	top: 0;
+	right: 16px;
+
+	font-size: 14px;
+	font-weight: bold;
+	font-family: Tahoma, Sans-Serif;
+	background-color: blue;
+	color: #ddddff;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+
+	z-index: 20;
+
+	display: none;
+}
+#unsupportedBrowserMessage a {
+	font-weight: bold;
+	color: white;
+}
+</style>
+
+<script type="text/javascript">
+"use strict";
+
+require(['src/config'], function () {
+	require(
+			[	'src/browserCheck',
+				'src/urlUtils',
+				'jquery',
+				'jquery.ui'
+			],
+			function (
+				CSLEDIT_browserCheck,
+				CSLEDIT_urlUtils
+			) {
+		$('document').ready( function() {
+			if (CSLEDIT_browserCheck.isCompatible()) {
+
+				// Setup uservoice feedback tag
+				var uvOptions = {};
+				(function() {
+				var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+					uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/oO7BJ8Bejbo6PLFoP4M4Q.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+				})();
+			} else {
+				$('#unsupportedBrowserMessage').css("display", "block").html(
+					'<span>Unsupported browser detected, please use the latest <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a></span>');
+			}
+		});
+	});
+});
+</script>
+
+<div id="unsupportedBrowserMessage">
+	<!--[if IE]>
+	<span>Unsupported browser detected, please use the latest <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a></span>
+	<![endif]-->
+</div>

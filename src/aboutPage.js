@@ -1,4 +1,4 @@
-
+"use strict";
 
 // Sets up the about/ page
 
