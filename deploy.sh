@@ -69,6 +69,5 @@ then
 	git add --all
 	git commit -m "deploy"
 	git push
-	git checkout master
 fi
 
