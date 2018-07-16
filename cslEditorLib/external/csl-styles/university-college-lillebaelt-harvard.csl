@@ -10,7 +10,7 @@
       <email>roaldfrosig@gmail.com</email>
     </author>
     <category citation-format="author-date"/>
-    <updated>2016-09-17T04:50:06+00:00</updated>
+    <updated>2018-04-06T01:22:17+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="da">
@@ -28,12 +28,12 @@ Sorts items by author(s), publication year and title.
 -->
   <macro name="alphabetize">
     <text macro="author-referencelist"/>
-    <text macro="year-citation"/>
+    <text macro="year-or-no-year"/>
     <text variable="title"/>
   </macro>
   <!--                                                                                                               MACRO   AUTHOR-CITATION
 Author names as they appear in citations.
-Outputs law number and date for primary legislation. Never adds label to author name. Otherwise identical to 'Author-referencelist'.
+Outputs title for primary legislation. Never adds label to author name. Otherwise identical to 'Author-referencelist'.
 -->
   <macro name="author-citation">
     <choose>
@@ -41,7 +41,7 @@ Outputs law number and date for primary legislation. Never adds label to author 
         <names variable="author">
           <name name-as-sort-order="all" initialize-with="."/>
           <substitute>
-            <text macro="law-number"/>
+            <text variable="title"/>
           </substitute>
         </names>
       </if>
@@ -117,39 +117,8 @@ Used both for citations and reference list.
       </else-if>
     </choose>
   </macro>
-  <!--                                                                                                               MACRO   YEAR-CITATION
-Chapters with an 'original-date' outputs the original publication year. Other items calls the 'year-or-no-year'-macro.
--->
-  <macro name="year-citation">
-    <choose>
-      <if variable="original-date">
-        <date variable="original-date">
-          <date-part name="year"/>
-        </date>
-      </if>
-      <else>
-        <text macro="year-or-no-year"/>
-      </else>
-    </choose>
-  </macro>
-  <!--                                                                                                               MACRO   YEAR-REFERENCELIST
-Chapters with an 'original-date' outputs the original publication year. Chapters without 'original-date' have no output. Other items calls the 'year-or-no-year'-macro.
-The only difference between this macro and 'Year-citation', is that chapters without an original date will not generate any output. The publication year will instead be rendered in the container part of the reference.
--->
-  <macro name="year-referencelist">
-    <choose>
-      <if type="chapter">
-        <date variable="original-date">
-          <date-part name="year"/>
-        </date>
-      </if>
-      <else>
-        <text macro="year-or-no-year"/>
-      </else>
-    </choose>
-  </macro>
   <!--                                                                                                               MACRO   YEAR-OR-NO-YEAR
-Ensures that primary legislation does not show a publication year. Both 'Year-citation' and 'Year-referencelist' leads here.
+Ensures that primary legislation does not show a publication year.
 Calls the 'year'-macro.
 -->
   <macro name="year-or-no-year">
@@ -287,9 +256,6 @@ Adds the container title, with editor and edition if appropiate.
               <name initialize-with="."/>
               <label form="short" prefix=" "/>
             </names>
-            <date variable="issued">
-              <date-part name="year"/>
-            </date>
           </group>
           <text variable="container-title" font-style="italic"/>
           <text macro="edition"/>
@@ -414,7 +380,7 @@ Adds page number or other locator to citations.
   </macro>
   <!--                                                                                                               CITATION
 -->
-  <citation et-al-min="4" et-al-use-first="1" delimiter-precedes-last="never" givenname-disambiguation-rule="all-names-with-initials" disambiguate-add-givenname="true" disambiguate-add-year-suffix="true" collapse="year-suffix" cite-group-delimiter=", ">
+  <citation et-al-min="4" et-al-use-first="1" delimiter-precedes-last="never" givenname-disambiguation-rule="all-names-with-initials" disambiguate-add-givenname="true" disambiguate-add-year-suffix="true" collapse="year-suffix" cite-group-delimiter=", " name-form="short">
     <sort>
       <key macro="alphabetize"/>
     </sort>
@@ -430,7 +396,7 @@ Adds page number or other locator to citations.
         <else>
           <group delimiter=" ">
             <text macro="author-citation"/>
-            <text macro="year-citation"/>
+            <text macro="year-or-no-year"/>
           </group>
           <text macro="page" prefix=", "/>
         </else>
@@ -447,7 +413,7 @@ Adds page number or other locator to citations.
       <group display="block" delimiter=", " suffix=".">
         <text macro="author-referencelist"/>
         <group delimiter=". ">
-          <text macro="year-referencelist"/>
+          <text macro="year-or-no-year"/>
           <text macro="title-and-container"/>
           <text macro="publisher"/>
         </group>

@@ -10,11 +10,15 @@
       <name>Patrick O'Brien, PhD</name>
       <email>obrienpat86@gmail.com</email>
     </author>
+    <contributor>
+      <name>Brenton M. Wiernik</name>
+      <email>zotero@wiernik.org</email>
+    </contributor>
     <category citation-format="author-date"/>
     <category field="linguistics"/>
     <eissn>2397-1835</eissn>
     <summary>Citation style for Glossa based on APA 6th edition.</summary>
-    <updated>2017-03-31T18:25:46+00:00</updated>
+    <updated>2018-05-22T00:59:23+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
@@ -23,10 +27,7 @@
         <single>ed. &amp; trans.</single>
         <multiple>eds. &amp; trans.</multiple>
       </term>
-      <term name="translator" form="short">
-        <single>trans.</single>
-        <multiple>trans.</multiple>
-      </term>
+      <term name="translator" form="short">trans.</term>
     </terms>
   </locale>
   <macro name="container-contributors">
@@ -38,7 +39,7 @@
             <label form="short" prefix=" (" text-case="title" suffix=")"/>
           </names>
           <names variable="editor translator" delimiter=", ">
-            <name and="symbol" initialize-with=". " delimiter=", "/>
+            <name and="symbol" delimiter=", "/>
             <label form="short" prefix=" (" suffix=")"/>
           </names>
         </group>
@@ -219,7 +220,7 @@
   <macro name="title-plus-extra">
     <text macro="title"/>
     <choose>
-      <if type="report thesis" match="any">
+      <if type="report" match="any">
         <group prefix=" (" suffix=")" delimiter=", ">
           <group delimiter=" ">
             <choose>
@@ -270,9 +271,9 @@
         </group>
       </if>
       <else-if type="thesis" match="any">
-        <group delimiter=", ">
-          <text variable="publisher"/>
+        <group delimiter=": ">
           <text variable="publisher-place"/>
+          <text variable="publisher" suffix=" dissertation"/>
         </group>
       </else-if>
       <else-if type="post-weblog webpage" match="none">
@@ -423,7 +424,7 @@
   <macro name="locators">
     <choose>
       <if type="article-journal article-magazine" match="any">
-        <group delimiter=". " prefix=". ">
+        <group delimiter=". " prefix=" ">
           <group>
             <text variable="volume" font-style="normal"/>
             <text variable="issue" prefix="(" suffix=")"/>
@@ -493,16 +494,13 @@
     </choose>
   </macro>
   <macro name="citation-locator">
-    <group>
+    <group delimiter=" ">
       <choose>
-        <if locator="chapter">
+        <if locator="page" match="none">
           <label variable="locator" form="long" text-case="capitalize-first"/>
         </if>
-        <else>
-          <label variable="locator" form="short"/>
-        </else>
       </choose>
-      <text variable="locator" prefix=" "/>
+      <text variable="locator"/>
     </group>
   </macro>
   <macro name="container">
@@ -591,7 +589,7 @@
       </if>
     </choose>
   </macro>
-  <citation et-al-min="6" et-al-use-first="1" et-al-subsequent-min="3" et-al-subsequent-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true" collapse="year" givenname-disambiguation-rule="primary-name">
+  <citation et-al-min="4" et-al-use-first="1" et-al-subsequent-min="3" et-al-subsequent-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true" collapse="year" givenname-disambiguation-rule="primary-name" delimiter-precedes-last="never" cite-group-delimiter="; ">
     <sort>
       <key macro="issued-sort"/>
       <key macro="author"/>
@@ -600,8 +598,8 @@
       <group delimiter=" ">
         <text macro="author-short"/>
         <text macro="issued-year"/>
-        <text macro="citation-locator"/>
       </group>
+      <text macro="citation-locator" prefix=": "/>
     </layout>
   </citation>
   <bibliography hanging-indent="true" et-al-min="8" et-al-use-first="6" et-al-use-last="true" entry-spacing="0" line-spacing="2">

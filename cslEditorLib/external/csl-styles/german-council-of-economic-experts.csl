@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" demote-non-dropping-particle="sort-only">
-  <!-- This style was edited with the Visual CSL Editor (http://editor.citationstyles.org/visualEditor/) -->
   <info>
     <title>German Council of Economic Experts</title>
     <title-short>GCEE</title-short>
@@ -16,12 +15,12 @@
     <category citation-format="author-date"/>
     <category field="political_science"/>
     <summary>Style for the German Council of Economic Experts</summary>
-    <updated>2017-03-29T04:22:37+00:00</updated>
+    <updated>2017-11-03T02:48:11+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="de">
     <terms>
-      <term name="accessed">Stand</term>
+      <term name="retrieved">abgerufen am</term>
       <term name="et-al">et al.</term>
       <term name="ordinal-01">.</term>
       <term name="ordinal-02">.</term>
@@ -145,7 +144,7 @@
       </if>
       <else-if variable="edition">
         <text variable="edition"/>
-        <text prefix=" " term="edition" form="short" suffix="."/>
+        <text prefix=" " term="edition"/>
       </else-if>
     </choose>
   </macro>
@@ -165,7 +164,7 @@
       <if type="webpage">
         <text variable="URL"/>
         <group delimiter=" " prefix=", ">
-          <text term="accessed" text-case="capitalize-first"/>
+          <text term="retrieved"/>
           <date variable="accessed">
             <date-part name="day" form="numeric" suffix="."/>
             <date-part name="month" form="numeric" suffix="."/>
@@ -182,14 +181,7 @@
   </macro>
   <macro name="title">
     <group delimiter=", ">
-      <choose>
-        <if type="book">
-          <text variable="title" font-style="normal"/>
-        </if>
-        <else>
-          <text variable="title" form="long" quotes="false" font-style="normal"/>
-        </else>
-      </choose>
+      <text variable="title"/>
       <text macro="secondary-contributors"/>
     </group>
   </macro>
@@ -201,25 +193,34 @@
             <text term="in" suffix=": "/>
           </if>
         </choose>
-        <text macro="container-contributors" suffix=": "/>
-        <text variable="container-title"/>
-        <text prefix=", " macro="secondary-container-contributors"/>
+        <group delimiter=", ">
+          <text macro="container-contributors"/>
+          <text variable="container-title"/>
+          <text macro="secondary-container-contributors"/>
+        </group>
       </if>
       <else-if type="article-journal article-magazine article-newspaper" match="all">
-        <text variable="container-title" font-style="normal"/>
+        <text variable="container-title"/>
       </else-if>
       <else-if type="speech" match="any">
-        <text value="Rede"/>
-        <text variable="event" prefix=", "/>
-        <text variable="event-place" prefix=", "/>
+        <group delimiter=", ">
+          <text value="Rede"/>
+          <text variable="event"/>
+          <text variable="event-place"/>
+        </group>
       </else-if>
       <else-if type="paper-conference" match="any">
-        <text value="Konferenzpapier" suffix=", "/>
-        <text variable="event"/>
+        <group delimiter=", ">
+          <text value="Konferenzpapier"/>
+          <text variable="event"/>
+          <text variable="event-place"/>
+        </group>
       </else-if>
       <else-if type="bill" match="any">
-        <text variable="number" suffix=", "/>
-        <text variable="authority" form="short"/>
+        <group delimiter=", ">
+          <text variable="number"/>
+          <text variable="authority" form="short"/>
+        </group>
       </else-if>
       <else-if type="personal_communication" match="any">
         <text variable="genre"/>
@@ -237,6 +238,7 @@
       </if>
       <else-if type="article-journal article-newspaper article-magazine" match="any">
         <number prefix=" " variable="volume"/>
+        <number prefix=" (" suffix=")" variable="issue"/>
       </else-if>
     </choose>
     <choose>
@@ -272,7 +274,7 @@
     <choose>
       <if type="article-newspaper manuscript speech legal_case legislation interview paper-conference pamphlet article bill report personal_communication" match="all">
         <date variable="issued">
-          <date-part name="day" prefix=", " suffix=". "/>
+          <date-part name="day" suffix=". "/>
           <date-part name="month"/>
         </date>
       </if>
@@ -281,15 +283,23 @@
   <macro name="mimeo">
     <choose>
       <if type="manuscript" match="any">
-        <text value="mimeo" prefix=", "/>
+        <text value="mimeo"/>
       </if>
     </choose>
   </macro>
-  <citation et-al-min="3" et-al-use-first="1" et-al-subsequent-min="3" et-al-subsequent-use-first="1" disambiguate-add-names="true" disambiguate-add-year-suffix="true" collapse="year" year-suffix-delimiter=", ">
+  <citation et-al-min="3" et-al-use-first="1" disambiguate-add-givenname="true" disambiguate-add-year-suffix="true" collapse="year" year-suffix-delimiter=", ">
+    <sort>
+      <key macro="date"/>
+      <key macro="contributors-long"/>
+    </sort>
     <layout prefix="(" suffix=")" delimiter="; ">
-      <text macro="contributors-short" suffix=", "/>
-      <text macro="date"/>
-      <text macro="citation-locator" prefix=": "/>
+      <group delimiter=": ">
+        <group delimiter=", ">
+          <text macro="contributors-short"/>
+          <text macro="date"/>
+        </group>
+        <text macro="citation-locator"/>
+      </group>
     </layout>
   </citation>
   <bibliography et-al-min="7" et-al-use-first="1" entry-spacing="0" hanging-indent="true">
@@ -298,15 +308,22 @@
       <key macro="date" sort="descending"/>
     </sort>
     <layout suffix=".">
-      <text macro="contributors-long"/>
-      <text prefix=" (" macro="date" suffix="), "/>
-      <text macro="title"/>
-      <text prefix=", " macro="container"/>
-      <text macro="issued"/>
-      <text prefix=", " macro="pages"/>
-      <text prefix=", " macro="access"/>
-      <text macro="exact-date"/>
-      <text macro="mimeo"/>
+      <group delimiter=", ">
+        <group delimiter=" ">
+          <text macro="contributors-long"/>
+          <text prefix="(" macro="date" suffix=")"/>
+        </group>
+        <text macro="title"/>
+        <text macro="container"/>
+      </group>
+      <group delimiter=", ">
+        <text macro="issued"/>
+        <text macro="pages"/>
+        <text macro="access"/>
+        <text macro="exact-date"/>
+        <text macro="mimeo"/>
+        <text prefix="doi:" variable="DOI"/>
+      </group>
     </layout>
   </bibliography>
 </style>
