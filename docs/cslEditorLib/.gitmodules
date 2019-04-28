@@ -1,0 +1,15 @@
+[submodule "external/codemirror2"]
+	path = external/codemirror2
+	url = http://marijnhaverbeke.nl/git/codemirror
+[submodule "external/csl-schema"]
+	path = external/csl-schema
+	url = https://github.com/citation-style-language/schema.git
+[submodule "external/jstree"]
+	path = external/jstree
+	url = https://github.com/citation-style-editor/jstree.git
+[submodule "external/locales"]
+	path = external/locales
+	url = git://github.com/citation-style-language/locales.git
+[submodule "external/csl-styles"]
+	path = external/csl-styles
+	url = git@github.com:citation-style-language/styles-distribution.git
