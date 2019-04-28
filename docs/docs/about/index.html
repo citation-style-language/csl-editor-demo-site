@@ -1,0 +1,303 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+
+	<title>About</title>
+
+	<link rel="icon" href="../images/favicon-32x32.png" type="image/png"/>
+
+	<script type="text/javascript" src="../cslEditorLib/external/require-jquery.js"></script>
+	<script>
+		require.config({
+			baseUrl: "../cslEditorLib",
+			urlArgs : "bust=d19d22d9b6dcbd1a69fe8bddc7d8df777ad96143"
+		});
+		// load the appropriate page
+		requirejs(['src/config'], function () {
+			require(['../src/aboutPage'], function () {});
+		});
+	</script>
+	<script type="text/javascript" src="../src/analytics.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/ui-lightness/jquery-ui.css">
+	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=d19d22d9b6dcbd1a69fe8bddc7d8df777ad96143" />
+<style>
+body {
+	min-width: 960px;
+}
+
+.column {
+	float: left;
+	width: 33%;
+	margin-bottom: 30px;
+}
+
+.column .padding {
+	margin-right: 30px;
+}
+
+.first .padding {
+	margin-left: 30px;
+}
+
+#styleNameInput {
+	box-sizing: border-box;
+	padding: 30px 20px;
+	background: #eeeeee;
+	border-bottom: 1px solid #c3c3c3;
+	text-align: center;
+}
+
+#styleNameInput input[type=text] {
+	width: 100%;
+	max-width: 500px;
+	border: 1px solid #999;
+	border-radius: 50px;
+	font-size: 14px;
+	font-weight: normal;
+	margin-left: 0px;
+	padding: 0.2em 0.8em;
+	line-height: 19px;
+	-webkit-appearance: none;
+	outline: none;
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+}
+
+#styleNameInput input[type=text]:focus {
+	box-shadow: 0 0 5px 0px rgba(0,136,204,0.5), inset 0 1px 2px rgba(0,0,0,0.2);
+	border: 1px solid #2f87e0;
+}
+
+.calloutRow {
+  clear: both;
+  display: block;
+  margin: 0;
+  background: #fdf9c6;
+  border-top: 1px solid #cecbaa;
+  padding: 10px 20px;
+}
+
+.callout {
+  max-width:750px;
+  margin:auto;
+  text-align:left;
+}
+
+</style>
+</head>
+<body id="about">
+<style type="text/css">
+#navigationBar {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	display: block;
+	background-color: #222;
+	margin: 0px;
+	padding: 0;
+	height: 40px;
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+	z-index: 20;
+	position: relative;
+}
+
+#navigationBar ul {
+	margin: 0;
+	padding: 0 0 0 6px;
+	list-style-type: none;
+}
+
+#navigationBar li {
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+#navigationBar li a {
+	display: block;
+	float: left;
+	padding: 0 15px;
+	line-height: 40px;
+	color: #999;
+	text-decoration: none;
+}
+
+#navigationBar li a:hover {
+	color: #fff;
+}
+
+body#homepage        a#nav_home,
+body#searchByName    a#nav_searchByName,
+body#searchByExample a#nav_searchByExample,
+body#visualEditor    a#nav_visualEditor,
+body#codeEditor      a#nav_codeEditor,
+body#about           a#nav_about {
+	color: #fff;
+	background: #000;
+}
+
+.search-box {
+	font-size: 16px;
+	width: 200px;
+	margin-top: 8px;
+	position: absolute;
+	right: 10px;
+}
+</style>
+
+<nav id="navigationBar">
+	<ul>
+		<li><a href="../about/" id="nav_about">About</a></li>
+		<li><a href="../searchByName/" id="nav_searchByName">Search by name</a></li>
+		<li><a href="../searchByExample/" id="nav_searchByExample">Search by example</a></li>
+		<li><a href="../visualEditor/" id="nav_visualEditor">Visual editor</a></li>
+		<li><a href="../codeEditor/" id="nav_codeEditor">Code editor</a></li>
+		<!-- disable search box for now
+		<li><input type="search" class="search-box" value="" placeholder="Search existing styles..."></li>
+		-->
+	</ul>
+</nav>
+
+<!-- Unsupported brower message -->
+
+<style type="text/css">
+#unsupportedBrowserMessage {
+	position: fixed;
+	top: 0;
+	right: 16px;
+
+	font-size: 14px;
+	font-weight: bold;
+	font-family: Tahoma, Sans-Serif;
+	background-color: blue;
+	color: #ddddff;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+
+	z-index: 20;
+
+	display: none;
+}
+#unsupportedBrowserMessage a {
+	font-weight: bold;
+	color: white;
+}
+</style>
+
+<script type="text/javascript">
+"use strict";
+
+require(['src/config'], function () {
+	require(
+			[	'src/browserCheck',
+				'src/urlUtils',
+				'jquery',
+				'jquery.ui'
+			],
+			function (
+				CSLEDIT_browserCheck,
+				CSLEDIT_urlUtils
+			) {
+		$('document').ready( function() {
+			if (CSLEDIT_browserCheck.isCompatible()) {
+
+				// Setup uservoice feedback tag
+				var uvOptions = {};
+				(function() {
+				var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+					uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/oO7BJ8Bejbo6PLFoP4M4Q.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+				})();
+			} else {
+				$('#unsupportedBrowserMessage').css("display", "block").html(
+					'<span>Unsupported browser detected, please use the latest <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a></span>');
+			}
+		});
+	});
+});
+</script>
+
+<div id="unsupportedBrowserMessage">
+	<!--[if IE]>
+	<span>Unsupported browser detected, please use the latest <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a></span>
+	<![endif]-->
+</div>
+
+<div id="styleNameInput">
+	<div class="lead">Find and edit <a href="http://citationstyles.org/">CSL</a> citation styles
+  </div>
+  <input type="text" id="styleNameQuery" autocomplete="off" placeholder="Search..." autofocus="autofocus" />
+  <div class="help">Search for the name of a style, the title of a Journal, or <a href="../searchByExample/">search by example</a>.
+  </div>
+</div>
+
+<div class="column first">
+  <div class="padding">
+    <h2>1. Find a style</h2>
+    <h3><a href="../searchByName">Search by name</a></h3>
+    <p>
+      If you're looking for a style like APA, Harvard, etc... just use the search box at the top of the page to search for a style name, or journal title.
+    </p>
+
+    <h3><a href="../searchByExample">Search by example</a></h3>
+    <p>
+      If you don't know the name of the style, but know what the final citation should look like, you can use our <a href="../searchByExample/">search by example</a> tool to find styles that most closely match.
+    </p>
+
+    <a href="../searchByExample/" class="fig"><img src="../images/search-by-example.png"></a>
+  </div>
+</div>
+
+<div class="column">
+  <div class="padding">
+    <h2>2. Edit the style</h2>
+    <p>
+      If you can't find a style that quite suits your needs, find one that's a pretty close match and click the "Edit style" button to open that style in the <a href="../visualEditor">visual editor</a>.
+    </p>
+    <a href="../searchByExample/" class="fig"><img src="../images/edit-style.png"></a>
+  </div>
+</div>
+
+<div class="column last">
+  <div class="padding">
+    <h2>3. Use the style</h2>
+    <p>
+      Once you've found a style that's suitable for you to use, simply click the "Install" button on the search results, or "Save" a style you've edited, to use it in your reference manager.
+    </p>
+  </div>
+</div>
+
+<div class="footer">
+<strong>Useful Links</strong>
+<ul>
+	<li><a href="http://csleditor.wordpress.com/">Blog</a></li>
+	<li><a href="https://github.com/citation-style-language/csl-editor">Source on GitHub</a></li>
+</ul>
+<strong>Attributions</strong>
+<ul>
+<li><a href="http://citationstyles.org/">Citation Style Language</a></li>
+<li><a href="https://github.com/citation-style-language/styles">CSL style repository</a></li>
+<li><a href="https://github.com/Juris-M/citeproc-js">citeproc-js</a> (Citation formatting engine)</li>
+<li><a href="http://codemirror.net/">CodeMirror</a> (text editor on codeEditor page)</li>
+<li><a href="http://code.google.com/p/google-diff-match-patch/">diff_match_patch</a> (for calculating edit distances in Search by Example)</li>
+<li><a href="http://www.thaiopensource.com/relaxng/trang.html">Trang</a> (for converting schema files from .rnc to .rng)</li>
+<li><a href="https://nodejs.org/">Node.js</a> (for JavaScript run in the build process)</li>
+<li><a href="http://www.famfamfam.com/lab/icons/silk/">FamFamFam Silk icons</a></li>
+<li><a href="https://github.com/eligrey/FileSaver.js/">FileSaver.js</a></li>
+<li><a href="http://p.yusukekamiyamane.com/">Fugue icons</a></li>
+<li><a href="http://jquery.com/">jQuery</a></li>
+<li><a href="https://www.jstree.com/">jQuery jsTree Plugin</a> (tree view on visualEditor page)</li>
+<li><a href="http://layout.jquery-dev.net">jQuery UI Layout Plugin</a></li>
+<li><a href="http://cherne.net/brian/resources/jquery.hoverIntent.html">jQuery hoverIntent Plugin</a></li>
+<li><a href="http://demos.flesler.com/jquery/scrollTo/">jQuery scrollTo Plugin</a></li>
+<li><a href="http://qunitjs.com/">QUnit</a> (JavaScript unit testing framework)</li>
+<li><a href="http://requirejs.org/">RequireJS</a> (JavaScript module loader)</li>
+<li><a href="http://mustache.github.io/">mustache</a> (used to generate HTML from templates)</li>
+<li><a href="http://code.google.com/p/pagedown/">pagedown</a> (used to generate source code docmentation)</li>
+<li><a href="http://xregexp.com/">XRegExp</a> (for unicode letter matching in the Search by Example page)</li>
+</ul>
+</div>
+
+</body>
+</html>
