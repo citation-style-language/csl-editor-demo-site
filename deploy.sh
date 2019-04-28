@@ -2,12 +2,11 @@
 
 # Use the requirejs optimizer r.js to optimise js files
 
-# By default it will create a sibling build directory called 'csl-build'
-# or it uses a command line argument if present
+# Will deploy the site the ./docs directory in the current branch.
 
 echo ""
 echo "Instructions"
-echo "Deploys to the ./docs directory"
+echo "Deploys to the ./docs directory and pushes to git repository"
 echo ""
 
 
