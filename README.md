@@ -31,9 +31,8 @@ This process creates a static HTML site with concatenated javascript files and c
 
 - Run `git clone --recursive https://github.com/citation-style-editor/csl-editor-demo-site.git csl-demo` to checkout the repo.
 
-- From the repo directory, run `./deploy.sh $BUILD_DIR $GH_PAGES_REPO_DIR`, where:
-  - `$BUILD_DIR` is the name of the directory you wish to deploy to, relative to the parent of the current directory. **All current contents of** `$BUILD_DIR` **will be removed!**
-  - `$GH_PAGES_REPO_DIR` (optional) is the name of a checked out `csl-editor-demo-site` repo directory, again relative to the parent of the current directory, which will be used to copy the built version and push the result to the `gh-pages` branch in github, which will automatically update the site at [editor.citationstyles.org](http://editor.citationstyles.org), the domain given in the CNAME file.
+- From the repo directory, run `./deploy.sh` . This will deploy the current site to the `./docs` directory in the current branch **All current contents of** `./docs` **will be removed!**
+  - This will automatically update the site at [editor.citationstyles.org](http://editor.citationstyles.org), the domain given in the CNAME file.
 
 - Point your browser to `http://editor.citationstyles.org/cslEditorLib/pages/unitTests.html` to run the unit tests
 

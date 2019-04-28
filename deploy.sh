@@ -7,19 +7,15 @@
 
 echo ""
 echo "Instructions"
-echo "Argument 1: the name of the build dir, which must be a"
-echo "            sibling of the current dir"
-echo "Argument 2: the name of the gh-pages dir to deploy to,"
-echo "            which must be a sibling of the current dir"
+echo "Deploys to the ./docs directory"
 echo ""
 
-if [ $# -eq 0 ]
-then
-	echo "Build dir not specified"
-	exit
+
+if [ -d "./docs" ]; then
+  BUILD_DIR="./docs"
 else
-	BUILD_DIR="../$1"
-	echo "Deploying to build dir: $BUILD_DIR"
+  mkdir docs
+  BUILD_DIR="./docs"
 fi
 
 
@@ -56,18 +52,10 @@ find cslEditorLib/external -name "*.php" -type f -print0 | xargs -0 rm -f
 # Run Jekyll
 jekyll build
 
-# If gh-pages repo directory specified, deploy to github
-if [ -n "$2" ]
-then
-	cd ../$2
-	git checkout gh-pages
-	git rm -rf .
+cd ..
 
-	# Copy to gh-pages repo and commit
-	cp -r $BUILD_DIR/_site/* .
+git add --all
+git commit -m "deploy"
+git push
 
-	git add --all
-	git commit -m "deploy"
-	git push
-fi
 
