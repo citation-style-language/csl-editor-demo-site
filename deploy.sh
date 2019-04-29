@@ -10,21 +10,18 @@ echo "Deploys to the ./docs directory and pushes to git repository"
 echo ""
 
 
-if [ -d "./docs" ]; then
-  GH_PAGE="./docs"
-else
+if [ ! -d "./docs" ]; then
   mkdir docs
-  GH_PAGE="./docs"
 fi
 
-if [ -d "./tmp" ]; then
+if [ -d tmp ]; then
   BUILD_DIR="./tmp"
 else
   mkdir tmp
   BUILD_DIR="./tmp"
 fi
 
-echo "doc folder created as $GH_PAGE"
+
 
 rm -rf "$BUILD_DIR"
 
@@ -61,9 +58,15 @@ find cslEditorLib/external -name "*.php" -type f -print0 | xargs -0 rm -f
 # Run Jekyll
 jekyll build
 
-cd ../$GH_PAGE
+#don't use docs directory in build
+rm -rf ./_site/docs
 
-cp -r ../$BUILD_DIR/_site/* .
+#clean up docs directory
+rm -rf ../docs/*
+cd ../docs
+
+
+cp -r ../tmp/_site/* ./
 
 cd ..
 # Clean_up
