@@ -1,4 +1,4 @@
-"use strict";
+
 
 define(['src/cslParser', 'src/urlUtils', 'jquery.qunit'], function (CSLEDIT_cslParser, CSLEDIT_urlUtils) {
 	module("CSLEDIT_cslParser");

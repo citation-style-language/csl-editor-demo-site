@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Load all the integration tests
 

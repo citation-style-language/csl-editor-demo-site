@@ -1,13 +1,14 @@
 <!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CodeMirror: Visible tabs demo</title>
+    <link rel="stylesheet" href="../lib/codemirror.css">
+    <script src="../lib/codemirror.js"></script>
+    <script src="../mode/clike/clike.js"></script>
+    <link rel="stylesheet" href="../doc/docs.css">
 
-<title>CodeMirror: Visible tabs demo</title>
-<meta charset="utf-8"/>
-<link rel=stylesheet href="../doc/docs.css">
-
-<link rel="stylesheet" href="../lib/codemirror.css">
-<script src="../lib/codemirror.js"></script>
-<script src="../mode/clike/clike.js"></script>
-<style>
+    <style type="text/css">
       .CodeMirror {border-top: 1px solid #eee; border-bottom: 1px solid #eee;}
       .cm-tab {
          background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
@@ -15,22 +16,11 @@
          background-repeat: no-repeat;
       }
     </style>
-<div id=nav>
-  <a href="https://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../doc/logo.png"></a>
+  </head>
+  <body>
+    <h1>CodeMirror: Visible tabs demo</h1>
 
-  <ul>
-    <li><a href="../index.html">Home</a>
-    <li><a href="../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
-  <ul>
-    <li><a class=active href="#">Visible tabs</a>
-  </ul>
-</div>
-
-<article>
-<h2>Visible tabs demo</h2>
-<form><textarea id="code" name="code">
+    <form><textarea id="code" name="code">
 #include "syscalls.h"
 /* getchar:  simple buffered version */
 int getchar(void)
@@ -47,7 +37,7 @@ int getchar(void)
 </textarea></form>
 
 <p>Tabs inside the editor are spans with the
-class <code>cm-tab</code>, and can be styled.</p>
+class <code>cm-tab</code>, and can be styled.
 
     <script>
       var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
@@ -59,4 +49,5 @@ class <code>cm-tab</code>, and can be styled.</p>
       });
     </script>
 
-  </article>
+  </body>
+</html>

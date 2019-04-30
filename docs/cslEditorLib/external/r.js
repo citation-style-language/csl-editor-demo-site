@@ -114,7 +114,7 @@ var requirejs, require, define;
 
 
 (function (global) {
-    'use strict';
+    
 
     var version = '2.0.4',
         commentRegExp = /(\/\*([\s\S]*?)\*\/|([^:]|^)\/\/(.*)$)/mg,
@@ -2147,7 +2147,7 @@ var requirejs, require, define;
 /*global require: false, java: false, load: false */
 
 (function () {
-    'use strict';
+    
     require.load = function (context, moduleName, url) {
 
         load(url);
@@ -2183,7 +2183,7 @@ var requirejs, require, define;
  */
 
 (function () {
-    'use strict';
+    
 
     var nodeReq = requirejsVars.nodeRequire,
         req = requirejsVars.require,
@@ -3040,7 +3040,7 @@ define('rhino/file', function () {
 if(env === 'node') {
 /*global process */
 define('node/quit', function () {
-    'use strict';
+    
     return function (code) {
         return process.exit(code);
     };
@@ -3050,7 +3050,7 @@ define('node/quit', function () {
 if(env === 'rhino') {
 /*global quit */
 define('rhino/quit', function () {
-    'use strict';
+    
     return function (code) {
         return quit(code);
     };
@@ -3067,7 +3067,7 @@ define('rhino/quit', function () {
 /*global define */
 
 define('lang', function () {
-    'use strict';
+    
 
     var lang = {
         backSlashRegExp: /\\/g,
@@ -3327,7 +3327,7 @@ parseLeftHandSideExpression: true,
 parseStatement: true, parseSourceElement: true */
 
 (function (exports) {
-    'use strict';
+    
 
     var Token,
         TokenName,
@@ -6957,7 +6957,7 @@ define('uglifyjs/consolidator', ["require", "exports", "module", "./parse-js", "
 // TODO(user) Consolidation of ECMA-262 6th Edition programs.
 // TODO(user) Rewrite in ECMA-262 6th Edition.
 exports['ast_consolidate'] = function(oAbstractSyntaxTree) {
-  'use strict';
+  
   /*jshint bitwise:true, curly:true, eqeqeq:true, forin:true, immed:true,
         latedef:true, newcap:true, noarge:true, noempty:true, nonew:true,
         onevar:true, plusplus:true, regexp:true, undef:true, strict:true,
@@ -11651,7 +11651,7 @@ module.exports = uglify
 /*global define: false */
 
 define('parse', ['./esprima', './uglifyjs/index'], function (esprima, uglify) {
-    'use strict';
+    
 
     var parser = uglify.parser,
         processor = uglify.uglify,
@@ -12569,7 +12569,7 @@ define('parse', ['./esprima', './uglifyjs/index'], function (esprima, uglify) {
 define('transform', [ './esprima', './parse', 'logger', 'lang'],
 function (esprima,     parse,     logger,   lang) {
 
-    'use strict';
+    
     var transform;
 
     return (transform = {
@@ -12831,7 +12831,7 @@ function (esprima,     parse,     logger,   lang) {
 /*global define: false */
 
 define('pragma', ['parse', 'logger'], function (parse, logger) {
-    'use strict';
+    
     function Temp() {}
 
     function create(obj, mixin) {
@@ -13209,7 +13209,7 @@ define('optimize', [ 'lang', 'logger', 'env!env/optimize', 'env!env/file', 'pars
          'pragma', 'uglifyjs/index'],
 function (lang,   logger,   envOptimize,        file,           parse,
           pragma, uglify) {
-    'use strict';
+    
 
     var optimize,
         cssImportRegExp = /\@import\s+(url\()?\s*([^);]+)\s*(\))?([\w, ]*)(;)?/g,
@@ -13994,7 +13994,7 @@ function (file,           pragma,   parse,   lang,   logger,   commonJs) {
 /*global define: false, console: false */
 
 define('commonJs', ['env!env/file', 'parse'], function (file, parse) {
-    'use strict';
+    
     var commonJs = {
         //Set to false if you do not want this file to log. Useful in environments
         //like node where you want the work to happen without noise.
@@ -14104,7 +14104,7 @@ define('build', [ 'lang', 'logger', 'env!env/file', 'parse', 'optimize', 'pragma
 function (lang,   logger,   file,          parse,    optimize,   pragma,
           transform,   load,           requirePatch,   quit,
           commonJs) {
-    'use strict';
+    
 
     var build, buildBaseConfig,
         endsWithSemiColonRegExp = /;\s*$/;

@@ -1,4 +1,4 @@
-"use strict";
+
 
 define(['src/CslNode', 'jquery.qunit'], function (CSLEDIT_CslNode) {
 	module("CSLEDIT_CslNode");

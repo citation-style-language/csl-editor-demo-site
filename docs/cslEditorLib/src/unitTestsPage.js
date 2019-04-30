@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Loads all the unit tests
 

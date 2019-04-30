@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Uses citeproc-js to generate example citaitons
 

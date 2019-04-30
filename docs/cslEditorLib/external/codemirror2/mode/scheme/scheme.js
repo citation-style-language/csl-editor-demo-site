@@ -1,24 +1,10 @@
-// CodeMirror, copyright (c) by Marijn Haverbeke and others
-// Distributed under an MIT license: https://codemirror.net/LICENSE
-
 /**
  * Author: Koh Zi Han, based on implementation by Koh Zi Chun
  */
-
-(function(mod) {
-  if (typeof exports == "object" && typeof module == "object") // CommonJS
-    mod(require("../../lib/codemirror"));
-  else if (typeof define == "function" && define.amd) // AMD
-    define(["../../lib/codemirror"], mod);
-  else // Plain browser env
-    mod(CodeMirror);
-})(function(CodeMirror) {
-"use strict";
-
-CodeMirror.defineMode("scheme", function () {
+CodeMirror.defineMode("scheme", function (config, mode) {
     var BUILTIN = "builtin", COMMENT = "comment", STRING = "string",
-        ATOM = "atom", NUMBER = "number", BRACKET = "bracket";
-    var INDENT_WORD_SKIP = 2;
+        ATOM = "atom", NUMBER = "number", BRACKET = "bracket", KEYWORD="keyword";
+    var INDENT_WORD_SKIP = 2, KEYWORDS_SKIP = 1;
 
     function makeKeywords(str) {
         var obj = {}, words = str.split(" ");
@@ -73,8 +59,7 @@ CodeMirror.defineMode("scheme", function () {
                 indentStack: null,
                 indentation: 0,
                 mode: false,
-                sExprComment: false,
-                sExprQuote: false
+                sExprComment: false
             };
         },
 
@@ -122,7 +107,7 @@ CodeMirror.defineMode("scheme", function () {
                         state.sExprComment = 0;
                     }else{
                         // if not we just comment the entire of the next token
-                        stream.eatWhile(/[^\s\(\)\[\]]/); // eat symbol atom
+                        stream.eatWhile(/[^/s]/); // eat non spaces
                         returnType = COMMENT;
                         break;
                     }
@@ -134,15 +119,7 @@ CodeMirror.defineMode("scheme", function () {
                         returnType = STRING;
 
                     } else if (ch == "'") {
-                        if (stream.peek() == "(" || stream.peek() == "["){
-                            if (typeof state.sExprQuote != "number") {
-                                state.sExprQuote = 0;
-                            } // else already in a quoted expression
-                            returnType = ATOM;
-                        } else {
-                            stream.eatWhile(/[\w_\-!$%&*+\.\/:<=>?@\^~]/);
-                            returnType = ATOM;
-                        }
+                        returnType = ATOM;
                     } else if (ch == '#') {
                         if (stream.eat("|")) {                    // Multi-line comment
                             state.mode = "comment"; // toggle to comment mode
@@ -218,7 +195,6 @@ CodeMirror.defineMode("scheme", function () {
                         stream.backUp(stream.current().length - 1); // undo all the eating
 
                         if(typeof state.sExprComment == "number") state.sExprComment++;
-                        if(typeof state.sExprQuote == "number") state.sExprQuote++;
 
                         returnType = BRACKET;
                     } else if (ch == ")" || ch == "]") {
@@ -232,34 +208,23 @@ CodeMirror.defineMode("scheme", function () {
                                     state.sExprComment = false; // turn off s-expr commenting mode
                                 }
                             }
-                            if(typeof state.sExprQuote == "number"){
-                                if(--state.sExprQuote == 0){
-                                    returnType = ATOM; // final closing bracket
-                                    state.sExprQuote = false; // turn off s-expr quote mode
-                                }
-                            }
                         }
                     } else {
-                        stream.eatWhile(/[\w_\-!$%&*+\.\/:<=>?@\^~]/);
+                        stream.eatWhile(/[\w\$_\-!$%&*+\.\/:<=>?@\^~]/);
 
                         if (keywords && keywords.propertyIsEnumerable(stream.current())) {
                             returnType = BUILTIN;
                         } else returnType = "variable";
                     }
             }
-            return (typeof state.sExprComment == "number") ? COMMENT : ((typeof state.sExprQuote == "number") ? ATOM : returnType);
+            return (typeof state.sExprComment == "number") ? COMMENT : returnType;
         },
 
-        indent: function (state) {
+        indent: function (state, textAfter) {
             if (state.indentStack == null) return state.indentation;
             return state.indentStack.indent;
-        },
-
-        closeBrackets: {pairs: "()[]{}\"\""},
-        lineComment: ";;"
+        }
     };
 });
 
 CodeMirror.defineMIME("text/x-scheme", "scheme");
-
-});

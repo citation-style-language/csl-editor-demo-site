@@ -1,4 +1,4 @@
-"use strict";
+
 
 // This converts between the following two formats:
 //

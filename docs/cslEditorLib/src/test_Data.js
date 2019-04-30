@@ -1,4 +1,4 @@
-"use strict";
+
 
 define(['src/Data', 'src/debug', 'jquery.qunit'], function (CSLEDIT_Data, debug) {
 	var CSLEDIT_data;

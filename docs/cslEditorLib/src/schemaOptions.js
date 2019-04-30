@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Options for altering the output of src/Schema for use in the CSL Editor
 

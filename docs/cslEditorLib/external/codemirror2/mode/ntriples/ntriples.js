@@ -1,25 +1,22 @@
-// CodeMirror, copyright (c) by Marijn Haverbeke and others
-// Distributed under an MIT license: https://codemirror.net/LICENSE
-
 /**********************************************************
-* This script provides syntax highlighting support for
-* the N-Triples format.
-* N-Triples format specification:
-*     https://www.w3.org/TR/n-triples/
+* This script provides syntax highlighting support for 
+* the Ntriples format.
+* Ntriples format specification: 
+*     http://www.w3.org/TR/rdf-testcases/#ntriples
 ***********************************************************/
 
-/*
+/* 
     The following expression defines the defined ASF grammar transitions.
 
     pre_subject ->
         {
         ( writing_subject_uri | writing_bnode_uri )
-            -> pre_predicate
-                -> writing_predicate_uri
-                    -> pre_object
-                        -> writing_object_uri | writing_object_bnode |
-                          (
-                            writing_object_literal
+            -> pre_predicate 
+                -> writing_predicate_uri 
+                    -> pre_object 
+                        -> writing_object_uri | writing_object_bnode | 
+                          ( 
+                            writing_object_literal 
                                 -> writing_literal_lang | writing_literal_type
                           )
                             -> post_object
@@ -28,18 +25,7 @@
              -> ERROR
          }
 */
-
-(function(mod) {
-  if (typeof exports == "object" && typeof module == "object") // CommonJS
-    mod(require("../../lib/codemirror"));
-  else if (typeof define == "function" && define.amd) // AMD
-    define(["../../lib/codemirror"], mod);
-  else // Plain browser env
-    mod(CodeMirror);
-})(function(CodeMirror) {
-"use strict";
-
-CodeMirror.defineMode("ntriples", function() {
+CodeMirror.defineMode("ntriples", function() {  
 
   var Location = {
     PRE_SUBJECT         : 0,
@@ -59,7 +45,7 @@ CodeMirror.defineMode("ntriples", function() {
   function transitState(currState, c) {
     var currLocation = currState.location;
     var ret;
-
+    
     // Opening.
     if     (currLocation == Location.PRE_SUBJECT && c == '<') ret = Location.WRITING_SUB_URI;
     else if(currLocation == Location.PRE_SUBJECT && c == '_') ret = Location.WRITING_BNODE_URI;
@@ -67,7 +53,7 @@ CodeMirror.defineMode("ntriples", function() {
     else if(currLocation == Location.PRE_OBJ     && c == '<') ret = Location.WRITING_OBJ_URI;
     else if(currLocation == Location.PRE_OBJ     && c == '_') ret = Location.WRITING_OBJ_BNODE;
     else if(currLocation == Location.PRE_OBJ     && c == '"') ret = Location.WRITING_OBJ_LITERAL;
-
+    
     // Closing.
     else if(currLocation == Location.WRITING_SUB_URI     && c == '>') ret = Location.PRE_PRED;
     else if(currLocation == Location.WRITING_BNODE_URI   && c == ' ') ret = Location.PRE_PRED;
@@ -77,33 +63,35 @@ CodeMirror.defineMode("ntriples", function() {
     else if(currLocation == Location.WRITING_OBJ_LITERAL && c == '"') ret = Location.POST_OBJ;
     else if(currLocation == Location.WRITING_LIT_LANG && c == ' ') ret = Location.POST_OBJ;
     else if(currLocation == Location.WRITING_LIT_TYPE && c == '>') ret = Location.POST_OBJ;
-
+    
     // Closing typed and language literal.
     else if(currLocation == Location.WRITING_OBJ_LITERAL && c == '@') ret = Location.WRITING_LIT_LANG;
     else if(currLocation == Location.WRITING_OBJ_LITERAL && c == '^') ret = Location.WRITING_LIT_TYPE;
 
     // Spaces.
-    else if( c == ' ' &&
+    else if( c == ' ' &&                             
              (
-               currLocation == Location.PRE_SUBJECT ||
-               currLocation == Location.PRE_PRED    ||
-               currLocation == Location.PRE_OBJ     ||
+               currLocation == Location.PRE_SUBJECT || 
+               currLocation == Location.PRE_PRED    || 
+               currLocation == Location.PRE_OBJ     || 
                currLocation == Location.POST_OBJ
              )
            ) ret = currLocation;
-
+    
     // Reset.
-    else if(currLocation == Location.POST_OBJ && c == '.') ret = Location.PRE_SUBJECT;
-
+    else if(currLocation == Location.POST_OBJ && c == '.') ret = Location.PRE_SUBJECT;    
+    
     // Error
     else ret = Location.ERROR;
-
+    
     currState.location=ret;
   }
 
+  var untilSpace  = function(c) { return c != ' '; };
+  var untilEndURI = function(c) { return c != '>'; };
   return {
     startState: function() {
-       return {
+       return { 
            location : Location.PRE_SUBJECT,
            uris     : [],
            anchors  : [],
@@ -181,15 +169,4 @@ CodeMirror.defineMode("ntriples", function() {
   };
 });
 
-// define the registered Media Type for n-triples:
-// https://www.w3.org/TR/n-triples/#n-triples-mediatype
-CodeMirror.defineMIME("application/n-triples", "ntriples");
-
-// N-Quads is based on the N-Triples format (so same highlighting works)
-// https://www.w3.org/TR/n-quads/
-CodeMirror.defineMIME("application/n-quads", "ntriples");
-
-// previously used, though technically incorrect media type for n-triples
 CodeMirror.defineMIME("text/n-triples", "ntriples");
-
-});

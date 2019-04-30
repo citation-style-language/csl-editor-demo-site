@@ -1,8 +1,8 @@
-"use strict";
+
 
 // A slide-down notification bar with a "Dismiss" button
 
-define(function () {
+define([],function () {
 	var element, messageElement;
 
 	// Initialise the notification bar

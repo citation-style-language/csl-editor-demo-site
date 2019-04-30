@@ -1,4 +1,4 @@
-"use strict";
+
 
 define(['src/NodeWatcher', 'src/debug', 'jquery.qunit'], function (CSLEDIT_NodeWatcher, debug) {
 	module("CSLEDIT_NodeWatcher", {

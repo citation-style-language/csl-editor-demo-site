@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Dynamic JS source code documentation generator
 //

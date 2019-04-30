@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Stores customisation options, typically set via contructor functions (e.g. CSLEDIT_VisualEditor())
 //

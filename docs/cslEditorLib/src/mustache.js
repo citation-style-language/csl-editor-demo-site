@@ -1,4 +1,4 @@
-"use strict";
+
 
 // This fetches and caches the mustache templates, and
 // runs mustache on them

@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Sets up handlers or hides buttons to perfom actions on a style, e.g. install/edit/view
 

@@ -1,4 +1,4 @@
-"use strict";
+
 
 // A dialog allowing the user to customise the in-line citations
 

@@ -1,47 +1,35 @@
 {
-  "name": "codemirror",
-  "version": "5.46.1",
-  "main": "lib/codemirror.js",
-  "style": "lib/codemirror.css",
-  "author": {
-    "name": "Marijn Haverbeke",
-    "email": "marijnh@gmail.com",
-    "url": "http://marijnhaverbeke.nl"
-  },
-  "description": "Full-featured in-browser code editor",
-  "license": "MIT",
-  "directories": {
-    "lib": "./lib"
-  },
-  "scripts": {
-    "build": "rollup -c",
-    "watch": "rollup -w -c",
-    "prepare": "npm run-script build",
-    "test": "node ./test/run.js",
-    "lint": "bin/lint"
-  },
-  "devDependencies": {
-    "blint": "^1",
-    "node-static": "0.7.11",
-    "phantomjs-prebuilt": "^2.1.12",
-    "rollup": "^0.66.2",
-    "rollup-plugin-buble": "^0.19.2",
-    "rollup-watch": "^4.3.1"
-  },
-  "bugs": "http://github.com/codemirror/CodeMirror/issues",
-  "keywords": [
-    "JavaScript",
-    "CodeMirror",
-    "Editor"
-  ],
-  "homepage": "https://codemirror.net",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/codemirror/CodeMirror.git"
-  },
-  "jspm": {
-    "directories": {},
-    "dependencies": {},
-    "devDependencies": {}
-  }
+    "name": "CodeMirror",
+    "version":"2.32.0",
+    "main": "codemirror.js",
+    "description": "In-browser code editing made bearable",
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://codemirror.net/LICENSE"
+        }
+    ],
+    "directories": {
+        "lib": "./lib"
+    },
+    "scripts": {
+        "test": "node ./test/run.js"
+    },
+    "devDependencies": {
+        "node-static": "0.6.0"
+    },
+    "bugs": "http://github.com/marijnh/CodeMirror2/issues",
+    "keywords": ["JavaScript", "CodeMirror", "Editor"],
+    "homepage": "http://codemirror.net",
+    "maintainers":[ {
+        "name": "Marijn Haverbeke",
+        "email": "marijnh@gmail.com",
+        "web": "http://codemirror.net"
+    }],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/marijnh/CodeMirror2.git"
+        }
+    ]
 }

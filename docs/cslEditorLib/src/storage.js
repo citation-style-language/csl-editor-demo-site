@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Provides persistent key/value storage if localStorage is available,
 // otherwise falls back to a simple session based storage

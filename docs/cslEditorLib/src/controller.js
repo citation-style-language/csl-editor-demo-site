@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Sends commands to CSLEDIT_Data, and maintains the command history used by
 // the undo function.

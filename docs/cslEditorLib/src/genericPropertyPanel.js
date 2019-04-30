@@ -1,4 +1,4 @@
-"use strict";
+
 
 // A property panel that for editing *any* arbitrary CSL node
 //

@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Hard-coded configuration data used to populate the UI
 

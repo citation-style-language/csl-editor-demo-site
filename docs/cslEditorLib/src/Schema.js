@@ -14,7 +14,7 @@
 // 
 // It assumes that an element can be uniquely identified by its name + parent's name
 
-"use strict";
+
 
 define(['src/options', 'src/storage', 'src/debug'], function (CSLEDIT_options, CSLEDIT_storage, debug) {
 	// Create a schema with the given schema options

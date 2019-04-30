@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Creates the Sys object required by citeproc-js
 // 

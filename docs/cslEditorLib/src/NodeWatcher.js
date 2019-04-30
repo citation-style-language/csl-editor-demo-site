@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Watches a CSL node represented by nodePath and calls onChange whenever it changes
 //

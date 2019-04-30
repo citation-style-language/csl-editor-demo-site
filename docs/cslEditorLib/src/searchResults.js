@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Displays a list of CSL styles, optionally including the quality of the match
 //

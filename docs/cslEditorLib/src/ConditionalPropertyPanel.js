@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Custom property panel for 'choose/if' and 'choose/else-if' nodes
 

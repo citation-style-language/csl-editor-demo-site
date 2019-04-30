@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Helper functions for use within unit tests
 

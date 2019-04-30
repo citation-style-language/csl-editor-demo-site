@@ -1,23 +1,10 @@
-// CodeMirror, copyright (c) by Marijn Haverbeke and others
-// Distributed under an MIT license: https://codemirror.net/LICENSE
-
-(function(mod) {
-  if (typeof exports == "object" && typeof module == "object") // CommonJS
-    mod(require("../../lib/codemirror"));
-  else if (typeof define == "function" && define.amd) // AMD
-    define(["../../lib/codemirror"], mod);
-  else // Plain browser env
-    mod(CodeMirror);
-})(function(CodeMirror) {
-"use strict";
-
 CodeMirror.defineMode("vb", function(conf, parserConf) {
     var ERRORCLASS = 'error';
-
+    
     function wordRegexp(words) {
         return new RegExp("^((" + words.join(")|(") + "))\\b", "i");
     }
-
+    
     var singleOperators = new RegExp("^[\\+\\-\\*/%&\\\\|\\^~<>!]");
     var singleDelimiters = new RegExp('^[\\(\\)\\[\\]\\{\\}@,:`=;\\.]');
     var doubleOperators = new RegExp("^((==)|(<>)|(<=)|(>=)|(<>)|(<<)|(>>)|(//)|(\\*\\*))");
@@ -25,18 +12,17 @@ CodeMirror.defineMode("vb", function(conf, parserConf) {
     var tripleDelimiters = new RegExp("^((//=)|(>>=)|(<<=)|(\\*\\*=))");
     var identifiers = new RegExp("^[_A-Za-z][_A-Za-z0-9]*");
 
-    var openingKeywords = ['class','module', 'sub','enum','select','while','if','function', 'get','set','property', 'try', 'structure', 'synclock', 'using', 'with'];
-    var middleKeywords = ['else','elseif','case', 'catch', 'finally'];
+    var openingKeywords = ['class','module', 'sub','enum','select','while','if','function',  'get','set','property'];
+    var middleKeywords = ['else','elseif','case'];
     var endKeywords = ['next','loop'];
+   
+    var wordOperators = wordRegexp(['and', 'or', 'not', 'xor', 'in']);
+    var commonkeywords = ['as', 'dim', 'break',  'continue','optional', 'then',  'until', 
+                          'goto', 'byval','byref','new','handles','property', 'return',
+                          'const','private', 'protected', 'friend', 'public', 'shared', 'static', 'true','false'];
+    var commontypes = ['integer','string','double','decimal','boolean','short','char', 'float','single'];
 
-    var operatorKeywords = ['and', "andalso", 'or', 'orelse', 'xor', 'in', 'not', 'is', 'isnot', 'like'];
-    var wordOperators = wordRegexp(operatorKeywords);
-
-    var commonKeywords = ["#const", "#else", "#elseif", "#end", "#if", "#region", "addhandler", "addressof", "alias", "as", "byref", "byval", "cbool", "cbyte", "cchar", "cdate", "cdbl", "cdec", "cint", "clng", "cobj", "compare", "const", "continue", "csbyte", "cshort", "csng", "cstr", "cuint", "culng", "cushort", "declare", "default", "delegate", "dim", "directcast", "each", "erase", "error", "event", "exit", "explicit", "false", "for", "friend", "gettype", "goto", "handles", "implements", "imports", "infer", "inherits", "interface", "isfalse", "istrue", "lib", "me", "mod", "mustinherit", "mustoverride", "my", "mybase", "myclass", "namespace", "narrowing", "new", "nothing", "notinheritable", "notoverridable", "of", "off", "on", "operator", "option", "optional", "out", "overloads", "overridable", "overrides", "paramarray", "partial", "private", "protected", "public", "raiseevent", "readonly", "redim", "removehandler", "resume", "return", "shadows", "shared", "static", "step", "stop", "strict", "then", "throw", "to", "true", "trycast", "typeof", "until", "until", "when", "widening", "withevents", "writeonly"];
-
-    var commontypes = ['object', 'boolean', 'char', 'string', 'byte', 'sbyte', 'short', 'ushort', 'int16', 'uint16', 'integer', 'uinteger', 'int32', 'uint32', 'long', 'ulong', 'int64', 'uint64', 'decimal', 'single', 'double', 'float', 'date', 'datetime', 'intptr', 'uintptr'];
-
-    var keywords = wordRegexp(commonKeywords);
+    var keywords = wordRegexp(commonkeywords);
     var types = wordRegexp(commontypes);
     var stringPrefixes = '"';
 
@@ -48,14 +34,14 @@ CodeMirror.defineMode("vb", function(conf, parserConf) {
 
     var indentInfo = null;
 
-    CodeMirror.registerHelper("hintWords", "vb", openingKeywords.concat(middleKeywords).concat(endKeywords)
-                                .concat(operatorKeywords).concat(commonKeywords).concat(commontypes));
+   
 
-    function indent(_stream, state) {
+
+    function indent(stream, state) {
       state.currentIndent++;
     }
-
-    function dedent(_stream, state) {
+    
+    function dedent(stream, state) {
       state.currentIndent--;
     }
     // tokenizers
@@ -63,16 +49,16 @@ CodeMirror.defineMode("vb", function(conf, parserConf) {
         if (stream.eatSpace()) {
             return null;
         }
-
+        
         var ch = stream.peek();
-
+        
         // Handle Comments
         if (ch === "'") {
             stream.skipToEnd();
             return 'comment';
         }
-
-
+        
+        
         // Handle Number Literals
         if (stream.match(/^((&H)|(&O))?[0-9\.a-f]/i, false)) {
             var floatLiteral = false;
@@ -80,7 +66,7 @@ CodeMirror.defineMode("vb", function(conf, parserConf) {
             if (stream.match(/^\d*\.\d+F?/i)) { floatLiteral = true; }
             else if (stream.match(/^\d+\.\d*F?/)) { floatLiteral = true; }
             else if (stream.match(/^\.\d+F?/)) { floatLiteral = true; }
-
+            
             if (floatLiteral) {
                 // Float literals may be "imaginary"
                 stream.eat(/J/i);
@@ -107,13 +93,13 @@ CodeMirror.defineMode("vb", function(conf, parserConf) {
                 return 'number';
             }
         }
-
+        
         // Handle Strings
         if (stream.match(stringPrefixes)) {
             state.tokenize = tokenStringFactory(stream.current());
             return state.tokenize(stream, state);
         }
-
+        
         // Handle operators and Delimiters
         if (stream.match(tripleDelimiters) || stream.match(doubleDelimiters)) {
             return null;
@@ -151,29 +137,29 @@ CodeMirror.defineMode("vb", function(conf, parserConf) {
             dedent(stream,state);
             return 'keyword';
         }
-
+        
         if (stream.match(types)) {
             return 'keyword';
         }
-
+        
         if (stream.match(keywords)) {
             return 'keyword';
         }
-
+        
         if (stream.match(identifiers)) {
             return 'variable';
         }
-
+        
         // Handle non-detected items
         stream.next();
         return ERRORCLASS;
     }
-
+    
     function tokenStringFactory(delimiter) {
         var singleline = delimiter.length == 1;
         var OUTCLASS = 'string';
-
-        return function(stream, state) {
+        
+        return function tokenString(stream, state) {
             while (!stream.eol()) {
                 stream.eatWhile(/[^'"]/);
                 if (stream.match(delimiter)) {
@@ -193,7 +179,7 @@ CodeMirror.defineMode("vb", function(conf, parserConf) {
             return OUTCLASS;
         };
     }
-
+    
 
     function tokenLexer(stream, state) {
         var style = state.tokenize(stream, state);
@@ -202,14 +188,15 @@ CodeMirror.defineMode("vb", function(conf, parserConf) {
         // Handle '.' connected identifiers
         if (current === '.') {
             style = state.tokenize(stream, state);
+            current = stream.current();
             if (style === 'variable') {
                 return 'variable';
             } else {
                 return ERRORCLASS;
             }
         }
-
-
+        
+        
         var delimiter_index = '[({'.indexOf(current);
         if (delimiter_index !== -1) {
             indent(stream, state );
@@ -225,13 +212,13 @@ CodeMirror.defineMode("vb", function(conf, parserConf) {
                 return ERRORCLASS;
             }
         }
-
+        
         return style;
     }
 
     var external = {
         electricChars:"dDpPtTfFeE ",
-        startState: function() {
+        startState: function(basecolumn) {
             return {
               tokenize: tokenBase,
               lastToken: null,
@@ -242,7 +229,7 @@ CodeMirror.defineMode("vb", function(conf, parserConf) {
 
           };
         },
-
+        
         token: function(stream, state) {
             if (stream.sol()) {
               state.currentIndent += state.nextLineIndent;
@@ -250,26 +237,24 @@ CodeMirror.defineMode("vb", function(conf, parserConf) {
               state.doInCurrentLine = 0;
             }
             var style = tokenLexer(stream, state);
-
+            
             state.lastToken = {style:style, content: stream.current()};
-
-
-
+            
+            
+            
             return style;
         },
-
+        
         indent: function(state, textAfter) {
             var trueText = textAfter.replace(/^\s+|\s+$/g, '') ;
             if (trueText.match(closing) || trueText.match(doubleClosing) || trueText.match(middle)) return conf.indentUnit*(state.currentIndent-1);
             if(state.currentIndent < 0) return 0;
             return state.currentIndent * conf.indentUnit;
-        },
-
-        lineComment: "'"
+        }
+        
     };
     return external;
 });
 
 CodeMirror.defineMIME("text/x-vb", "vb");
 
-});

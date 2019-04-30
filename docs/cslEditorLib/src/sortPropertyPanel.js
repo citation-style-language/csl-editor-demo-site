@@ -1,4 +1,4 @@
-"use strict";
+
 
 // A custom property panel for the 'sort' node and its child 'key' nodes
 //

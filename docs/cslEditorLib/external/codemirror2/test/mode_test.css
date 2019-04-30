@@ -7,13 +7,12 @@
 .mt-output .mt-style {
   font-size: x-small;
 }
-.mt-output .mt-state {
-  font-size: x-small;
-  vertical-align: top;
+.mt-test {
+  border-left: 10px solid #fff;
 }
-.mt-output .mt-state-row {
-  display: none;
+.mt-pass {
+  border-left: 10px solid #cfc;
 }
-.mt-state-unhide .mt-output .mt-state-row {
-  display: table-row;
+.mt-fail {
+  border-left: 10px solid #fcc;
 }

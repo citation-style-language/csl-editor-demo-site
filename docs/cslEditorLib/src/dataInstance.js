@@ -1,4 +1,4 @@
-"use strict";
+
 
 // The global instance of CSLEDIT_Data, which stores the currently loaded CSL style
 //

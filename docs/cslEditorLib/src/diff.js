@@ -1,4 +1,4 @@
-"use strict";
+
 
 /*global diff_match_patch:true, DIFF_INSERT:true, DIFF_DELETE:true, DIFF_EQUAL:true */
 /*jshint newcap:false */

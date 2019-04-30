@@ -1,4 +1,4 @@
-"use strict";
+
 
 // google analytics code snippet
 var _gaq = _gaq || [];

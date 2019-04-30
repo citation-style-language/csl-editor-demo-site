@@ -1,8 +1,8 @@
-"use strict";
+
 
 // Miscellaneous functions for manipulating XML (e.g. stripping tags)
 
-define(function () {
+define([],function () {
 	// Returns the given xml, but with all elements *not* within the
 	// supportedTags list removed
 	//

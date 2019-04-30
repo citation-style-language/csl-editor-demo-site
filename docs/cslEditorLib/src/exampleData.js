@@ -1,8 +1,8 @@
-"use strict";
+
 
 // Hard-coded data for the example citations
 
-define(function () {
+define([],function () {
 	var CSLEDIT_exampleData = {};
 
 	// Possible options to apply to each reference in each inline citation

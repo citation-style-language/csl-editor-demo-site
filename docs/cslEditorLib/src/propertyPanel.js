@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Creates property panels, chooses which property panel module to use for each node
 

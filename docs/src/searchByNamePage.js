@@ -1,4 +1,4 @@
-"use strict";
+
 
 define(
 		[	'src/SearchByName',

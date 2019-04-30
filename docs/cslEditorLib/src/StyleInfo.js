@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Displays information about a style in the CSL repository, including:
 //

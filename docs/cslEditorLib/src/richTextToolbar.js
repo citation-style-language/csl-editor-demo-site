@@ -1,4 +1,4 @@
-"use strict";
+
 
 // A rich text toolbar with bold, italic, etc. buttons
 //

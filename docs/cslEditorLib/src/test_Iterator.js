@@ -1,4 +1,4 @@
-"use strict";
+
 
 define(['src/Iterator', 'jquery.qunit'], function (CSLEDIT_Iterator) {
 	module("CSLEDIT_Iterator");

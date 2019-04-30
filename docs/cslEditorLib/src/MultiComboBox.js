@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Allows provides a way to edit space-delimited list of stings,
 // each of which must be one of the supplied values

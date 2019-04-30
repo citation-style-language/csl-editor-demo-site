@@ -1,4 +1,4 @@
-"use strict";
+
 
 define(['src/xmlUtility', 'jquery.qunit'], function (CSLEDIT_xmlUtility) {
 	module("CSLEDIT_xmlUtility");

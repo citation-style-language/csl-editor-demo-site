@@ -1,4 +1,4 @@
-"use strict";
+
 
 define(['src/controller', 'src/dataInstance', 'jquery.qunit'], function (CSLEDIT_controller, CSLEDIT_data) {
 	module("CSLEDIT_controller", {

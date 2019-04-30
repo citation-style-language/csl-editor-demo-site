@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Miscellaneous functions to deal with URLs
 

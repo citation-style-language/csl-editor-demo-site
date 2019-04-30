@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Iterates through a tree in depth first order
 //

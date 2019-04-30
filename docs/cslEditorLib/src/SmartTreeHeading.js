@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Heading for a smart tree
 //

@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Uses CSLEDIT_storage to store the current csl style
 //

@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Test to check that we are running on a supported browser
 //

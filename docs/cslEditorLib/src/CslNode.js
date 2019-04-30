@@ -1,4 +1,4 @@
-"use strict";
+
 
 // Wraps CSL node JSON objects and provides helpful functions to access thier attributes
 //

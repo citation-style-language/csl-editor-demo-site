@@ -1,4 +1,4 @@
-"use strict";
+
 
 // A CSLEDIT_SmartTree does the following
 //

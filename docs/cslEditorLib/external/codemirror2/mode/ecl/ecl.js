@@ -1,16 +1,3 @@
-// CodeMirror, copyright (c) by Marijn Haverbeke and others
-// Distributed under an MIT license: https://codemirror.net/LICENSE
-
-(function(mod) {
-  if (typeof exports == "object" && typeof module == "object") // CommonJS
-    mod(require("../../lib/codemirror"));
-  else if (typeof define == "function" && define.amd) // AMD
-    define(["../../lib/codemirror"], mod);
-  else // Plain browser env
-    mod(CodeMirror);
-})(function(CodeMirror) {
-"use strict";
-
 CodeMirror.defineMode("ecl", function(config) {
 
   function words(str) {
@@ -25,6 +12,17 @@ CodeMirror.defineMode("ecl", function(config) {
     return "meta";
   }
 
+  function tokenAtString(stream, state) {
+    var next;
+    while ((next = stream.next()) != null) {
+      if (next == '"' && !stream.eat('"')) {
+        state.tokenize = null;
+        break;
+      }
+    }
+    return "string";
+  }
+
   var indentUnit = config.indentUnit;
   var keyword = words("abs acos allnodes ascii asin asstring atan atan2 ave case choose choosen choosesets clustersize combine correlation cos cosh count covariance cron dataset dedup define denormalize distribute distributed distribution ebcdic enth error evaluate event eventextra eventname exists exp failcode failmessage fetch fromunicode getisvalid global graph group hash hash32 hash64 hashcrc hashmd5 having if index intformat isvalid iterate join keyunicode length library limit ln local log loop map matched matchlength matchposition matchtext matchunicode max merge mergejoin min nolocal nonempty normalize parse pipe power preload process project pull random range rank ranked realformat recordof regexfind regexreplace regroup rejected rollup round roundup row rowdiff sample set sin sinh sizeof soapcall sort sorted sqrt stepped stored sum table tan tanh thisnode topn tounicode transfer trim truncate typeof ungroup unicodeorder variance which workunit xmldecode xmlencode xmltext xmlunicode");
   var variable = words("apply assert build buildindex evaluate fail keydiff keypatch loadxml nothor notify output parallel sequential soapcall wait");
@@ -34,6 +32,7 @@ CodeMirror.defineMode("ecl", function(config) {
   var blockKeywords = words("catch class do else finally for if switch try while");
   var atoms = words("true false null");
   var hooks = {"#": metaHook};
+  var multiLineStrings;
   var isOperatorChar = /[+\-*&%=<>!?|\/]/;
 
   var curPunc;
@@ -87,18 +86,18 @@ CodeMirror.defineMode("ecl", function(config) {
     } else if (builtin.propertyIsEnumerable(cur)) {
       if (blockKeywords.propertyIsEnumerable(cur)) curPunc = "newstatement";
       return "builtin";
-    } else { //Data types are of from KEYWORD##
-                var i = cur.length - 1;
-                while(i >= 0 && (!isNaN(cur[i]) || cur[i] == '_'))
-                        --i;
-
-                if (i > 0) {
-                        var cur2 = cur.substr(0, i + 1);
-                if (variable_3.propertyIsEnumerable(cur2)) {
-                        if (blockKeywords.propertyIsEnumerable(cur2)) curPunc = "newstatement";
-                        return "variable-3";
-                }
-            }
+    } else { //Data types are of from KEYWORD## 
+		var i = cur.length - 1;
+		while(i >= 0 && (!isNaN(cur[i]) || cur[i] == '_'))
+			--i;
+		
+		if (i > 0) {
+			var cur2 = cur.substr(0, i + 1);
+	    	if (variable_3.propertyIsEnumerable(cur2)) {
+	      		if (blockKeywords.propertyIsEnumerable(cur2)) curPunc = "newstatement";
+	      		return "variable-3";
+	      	}
+	    }
     }
     if (atoms.propertyIsEnumerable(cur)) return "atom";
     return null;
@@ -111,7 +110,7 @@ CodeMirror.defineMode("ecl", function(config) {
         if (next == quote && !escaped) {end = true; break;}
         escaped = !escaped && next == "\\";
       }
-      if (end || !escaped)
+      if (end || !(escaped || multiLineStrings))
         state.tokenize = tokenBase;
       return "string";
     };
@@ -202,5 +201,3 @@ CodeMirror.defineMode("ecl", function(config) {
 });
 
 CodeMirror.defineMIME("text/x-ecl", "ecl");
-
-});

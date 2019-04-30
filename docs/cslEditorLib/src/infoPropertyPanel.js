@@ -1,4 +1,4 @@
-"use strict";
+
 
 // A custom property panel for the 'style/info' node
 //

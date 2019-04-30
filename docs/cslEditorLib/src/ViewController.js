@@ -1,4 +1,4 @@
-"use strict";
+
 
 // An CSLEDIT_ViewController instance ensures that all the views are notified
 // whenever one of the following functions is called:
