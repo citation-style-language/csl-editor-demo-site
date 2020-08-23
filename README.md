@@ -17,7 +17,7 @@ Play with it here: [Citation Style Editor](http://editor.citationstyles.org)
 
 ## To Setup Development Version
 
-- Run `git clone --recursive https://github.com/citation-style-editor/csl-editor-demo-site.git csl-demo` to checkout the repo.
+- Run `git clone --recursive https://github.com/citation-style-language/csl-editor-demo-site.git csl-demo` to checkout the repo.
 
 - In the repo directory, run `jekyll serve` (optional: add `--watch` to automatically rebuild when source changes).
 
@@ -29,7 +29,7 @@ Play with it here: [Citation Style Editor](http://editor.citationstyles.org)
 
 This process creates a static HTML site with concatenated javascript files and cache busters on the URLs, and optionally pushes to the `gh-pages` branch, currently served by github at [http://editor.citationstyles.org](http://editor.citationstyles.org).
 
-- Run `git clone --recursive https://github.com/citation-style-editor/csl-editor-demo-site.git csl-demo` to checkout the repo.
+- Run `git clone --recursive https://github.com/citation-style-language/csl-editor-demo-site.git csl-demo` to checkout the repo.
 
 - From the repo directory, run `./deploy.sh` . This will deploy the current site to the `./docs` directory in the current branch **All current contents of** `./docs` **will be removed!**
   - This will automatically update the site at [editor.citationstyles.org](http://editor.citationstyles.org), the domain given in the CNAME file.
@@ -51,7 +51,6 @@ You can override these without touching `cslEditorLib`.
 
 ## Customising the core library
 
-See documentation for the core library code and it's API at the [CSLEditorLib wiki](https://github.com/citation-style-editor/csl-editor/wiki).
+See documentation for the core library code and it's API at the [CSLEditorLib wiki](https://github.com/citation-style-language/csl-editor/wiki).
 
-If you fix bugs or otherwise improve the core [cslEditorLib](https://github.com/citation-style-editor/csl-editor) library, ensure the changes are not specific to your implementation and please issue a [pull request](https://github.com/citation-style-editor/csl-editor/pulls) so that everyone can benefit. Thanks!
-
+If you fix bugs or otherwise improve the core [cslEditorLib](https://github.com/citation-style-language/csl-editor) library, ensure the changes are not specific to your implementation and please issue a [pull request](https://github.com/citation-style-language/csl-editor/pulls) so that everyone can benefit. Thanks!
