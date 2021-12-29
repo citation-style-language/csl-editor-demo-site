@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" default-locale="cs-CZ">
   <info>
-    <title>ISO-690 (author-date, Czech)</title>
+    <title>ISO-690 (author-date, Čeština)</title>
     <id>http://www.zotero.org/styles/iso690-author-date-cs</id>
     <link href="http://www.zotero.org/styles/iso690-author-date-cs" rel="self"/>
     <link href="http://www.zotero.org/styles/iso690-author-date-en" rel="template"/>
@@ -17,12 +17,13 @@
     <category citation-format="author-date"/>
     <category field="generic-base"/>
     <summary>Style based on ČSN ISO 690:2011</summary>
-    <updated>2017-06-02T04:32:45+00:00</updated>
+    <updated>2012-09-27T22:06:38+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale>
     <terms>
       <term name="from">z</term>
+      <term name="no date">b.r.</term>
     </terms>
   </locale>
   <macro name="author">
@@ -103,7 +104,7 @@
         </choose>
       </if>
       <else>
-        <text term="anonymous" form="short" text-case="uppercase"/>
+        <text term="anonymous" form="short" text-case="capitalize-first"/>
       </else>
     </choose>
   </macro>
@@ -135,14 +136,13 @@
         </names>
       </if>
       <else>
-        <text term="anonymous" form="short" text-case="uppercase"/>
+        <text term="anonymous" form="short" text-case="capitalize-first"/>
       </else>
     </choose>
   </macro>
   <macro name="container-author">
     <names variable="container-author">
       <name and="text" delimiter=", " delimiter-precedes-last="never">
-        <!--name and="text" name-as-sort-order="all" sort-separator=" " delimiter=", " delimiter-precedes-last="never"-->
         <name-part name="given"/>
         <name-part name="family" text-case="uppercase"/>
       </name>
@@ -164,7 +164,7 @@
         </choose>
       </if>
       <else>
-        <text term="anonymous" text-case="uppercase"/>
+        <text term="anonymous" text-case="capitalize-first"/>
       </else>
     </choose>
   </macro>
@@ -181,7 +181,7 @@
         </date>
       </if>
       <else>
-        <text term="no date"/>
+        <text term="no date" suffix="]" prefix="["/>
       </else>
     </choose>
   </macro>
@@ -283,17 +283,6 @@
       </if>
     </choose>
   </macro>
-  <!--<macro name="date-day-month">
-    <choose>
-      <if variable="issued">
-        <date variable="issued">
-          <date-part name="day" suffix=".&#160;"/>
-          <date-part name="month" form="numeric" suffix="."/>-->
-  <!--date-part name="year"/-->
-  <!--</date>
-      </if>
-    </choose>
-  </macro>-->
   <macro name="scale">
     <group delimiter="&#160;">
       <text term="scale" text-case="capitalize-first"/>
@@ -489,7 +478,6 @@
                 <text macro="edition"/>
                 <text macro="secondary-responsability"/>
                 <text macro="publisher-info"/>
-                <!--text macro="page"/-->
                 <text macro="collection"/>
               </group>
               <text macro="accessed"/>
@@ -506,7 +494,6 @@
             <text macro="edition"/>
             <text macro="secondary-responsability"/>
             <text macro="publisher-info"/>
-            <!--text macro="page"/-->
             <group delimiter=" ">
               <text macro="collection"/>
               <text macro="accessed"/>
@@ -520,7 +507,10 @@
             <text macro="title"/>
             <text macro="genre"/>
             <text macro="edition"/>
-            <text macro="accessed"/>
+            <group delimiter=" ">
+              <text macro="publisher-info"/>
+              <text macro="accessed"/>
+            </group>
             <text macro="collection"/>
             <text macro="isbn"/>
           </group>
@@ -532,8 +522,6 @@
             <text macro="edition"/>
             <group delimiter=" ">
               <group delimiter=", ">
-                <text macro="publisher-info"/>
-                <!--<text macro="date-day-month"/>-->
                 <text macro="issue"/>
               </group>
               <text macro="accessed"/>
@@ -549,10 +537,6 @@
             <group delimiter=" ">
               <group delimiter=", ">
                 <text macro="publisher-info"/>
-                <!--group delimiter=": ">
-                    <text macro="publisher-place"/>
-                    <text macro="publisher"/>
-                  </group-->
                 <text macro="collection"/>
                 <text macro="page"/>
               </group>
@@ -568,7 +552,6 @@
             <text macro="genre"/>
             <text macro="publisher-place"/>
             <group delimiter=" ">
-              <!--<text macro="date-day-month"/>-->
               <text macro="accessed"/>
             </group>
             <text macro="page"/>
@@ -604,11 +587,10 @@
           <text macro="url"/>
         </else-if>
         <else-if type="webpage">
-          <group delimiter=". " suffix=". ">
-            <group delimiter=" ">
-              <text macro="title"/>
-              <text macro="accessed"/>
-            </group>
+          <group suffix=". ">
+            <text macro="title"/>
+            <text macro="publisher-info" prefix=". "/>
+            <text macro="accessed" prefix=" "/>
           </group>
           <text macro="url"/>
         </else-if>
@@ -687,8 +669,6 @@
           <group delimiter=". " suffix=". ">
             <text macro="title"/>
             <text macro="interviewer"/>
-            <!--text macro="event"/-->
-            <!--<text macro="date-day-month"/>-->
           </group>
         </else-if>
         <else>

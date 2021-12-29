@@ -14,7 +14,7 @@
     <category field="biology"/>
     <eissn>1758-0463</eissn>
     <summary>Database Oxford Journals style.</summary>
-    <updated>2019-07-28T12:11:09+00:00</updated>
+    <updated>2019-07-27T10:50:15+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="editor">
@@ -25,8 +25,12 @@
   </macro>
   <macro name="author">
     <names variable="author">
-      <name and="text" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="3" initialize-with=". " name-as-sort-order="all"/>
+      <name and="text" delimiter-precedes-last="never" initialize-with="." name-as-sort-order="all"/>
       <label form="short" prefix=" (" suffix=")"/>
+      <substitute>
+        <names variable="editor"/>
+        <text variable="title"/>
+      </substitute>
     </names>
   </macro>
   <macro name="publisher">

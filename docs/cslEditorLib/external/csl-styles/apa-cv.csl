@@ -14,7 +14,7 @@
     <category citation-format="author-date"/>
     <category field="psychology"/>
     <category field="generic-base"/>
-    <updated>2020-07-13T03:13:43+00:00</updated>
+    <updated>2019-12-04T13:09:49+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
@@ -426,10 +426,8 @@
             </group>
           </else-if>
           <else>
-            <group>
-              <text term="no date" form="short"/>
-              <text variable="year-suffix" prefix="-"/>
-            </group>
+            <text term="no date" form="short"/>
+            <text variable="year-suffix" prefix="-"/>
           </else>
         </choose>
       </group>
@@ -499,7 +497,7 @@
       </else-if>
       <else>
         <choose>
-          <if type="article-journal article-magazine article-newspaper post-weblog review review-book">
+          <if type="article-journal article-magazine article-newspaper post-weblog review review-book" match="any">
             <text variable="title" font-style="italic"/>
           </if>
           <else-if type="paper-conference">
@@ -565,7 +563,7 @@
             </group>
           </group>
         </if>
-        <else-if type="post webpage">
+        <else-if type="post webpage" match="any">
           <!-- For post webpage, container-title is treated as publisher -->
           <group delimiter="; ">
             <text macro="secondary-contributors"/>
@@ -1255,7 +1253,7 @@
             </if>
           </choose>
         </if>
-        <else-if type="post webpage">
+        <else-if type="post webpage" match="any">
           <!-- For websites, treat container title like publisher -->
           <group delimiter="; ">
             <text variable="container-title" text-case="title"/>
