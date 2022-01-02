@@ -569,6 +569,7 @@ define('src/options',
 				"generated/csl-schema/csl-categories.rng",
 				"generated/csl-schema/csl-terms.rng",
 				"generated/csl-schema/csl-types.rng",
+				"generated/csl-schema/csl-choose.rng",
 				"generated/csl-schema/csl-variables.rng"
 			], function (i, path) {
 				defaultOptions.cslSchema_childURLs.push(CSLEDIT_urlUtils.getResourceUrl(path));
@@ -601,7 +602,6 @@ define('src/options',
 		setOptions : setOptions
 	};
 });
-
 
 
 
