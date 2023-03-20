@@ -1,17 +1,10 @@
 GIT
-  remote: https://github.com/adam3smith/csl-styles.git
-  revision: 710db9105c367b11877290c9d0638ee53186d2f5
-  specs:
-    csl-styles (1.0.1.11)
-      csl (>= 1.0)
-
-GIT
   remote: https://github.com/citation-style-language/Sheldon.git
-  revision: c88a062e987c67dee4841b5f09ca70e3c0c974d9
+  revision: 2f22073efcbfe1d0a2599f8a8a68791a81da2022
   specs:
-    sheldon (1.0.30)
+    sheldon (1.0.31)
       citeproc-ruby (~> 2.0)
-      csl-styles
+      csl-styles (~> 2.0)
       diffy
       dotenv
       erubis (~> 2.7)
@@ -37,8 +30,10 @@ GEM
     csl (2.0.0)
       namae (~> 1.0)
       rexml
+    csl-styles (2.0.0)
+      csl (~> 2.0)
     diff-lcs (1.5.0)
-    diffy (3.4.0)
+    diffy (3.4.2)
     dotenv (2.7.6)
     erubis (2.7.0)
     faraday (1.8.0)
@@ -67,20 +62,20 @@ GEM
       ruby-progressbar (~> 1.4)
     git_diff (0.4.3)
     hashdiff (0.3.7)
-    mini_portile2 (2.6.1)
+    mini_portile2 (2.8.0)
     multipart-post (2.1.1)
     namae (1.1.1)
-    nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
+    nokogiri (1.13.10)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.12.5-x64-mingw32)
+    nokogiri (1.13.10-x64-mingw32)
       racc (~> 1.4)
     octokit (4.21.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
     ostruct (0.5.2)
     public_suffix (4.0.6)
-    racc (1.6.0)
+    racc (1.6.1)
     rake (13.0.6)
     reverse_markdown (2.1.1)
       nokogiri
@@ -110,7 +105,6 @@ PLATFORMS
 
 DEPENDENCIES
   csl (~> 2.0)
-  csl-styles!
   fuubar
   nokogiri
   rake
