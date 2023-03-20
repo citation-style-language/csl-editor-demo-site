@@ -72,8 +72,8 @@ cd ..
 # Clean_up
 rm -rf "$BUILD_DIR"
 
-git add --all
-git commit -m "deploy"
-git push
+# git add --all
+# git commit -m "deploy"
+# git push
 
 
