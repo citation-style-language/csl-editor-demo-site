@@ -46,8 +46,13 @@ define(
 								alert("Error loading style: " + result.error.message);
 							}
 						} else {
-							// User chose Code Editor - redirect there instead
-							window.location.href = visualEditorUrl.replace("visualEditor", "codeEditor");
+							// User chose Code Editor - load style with warning bypassed (Code Editor doesn't use tree view)
+							result = CSLEDIT_controller.exec("setCslCode", [cslCode, false, true], true);
+							if (!("error" in result)) {
+								window.location.href = visualEditorUrl.replace("visualEditor", "codeEditor");
+							} else {
+								alert("Error loading style: " + result.error.message);
+							}
 						}
 					} else {
 						// Other errors - show alert
