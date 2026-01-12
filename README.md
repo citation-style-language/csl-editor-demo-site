@@ -27,16 +27,24 @@ Play with it here: [Citation Style Editor](http://editor.citationstyles.org)
 
 ## To Deploy
 
-This process creates a static HTML site with concatenated javascript files and cache busters on the URLs, and optionally pushes to the `gh-pages` branch, currently served by github at [http://editor.citationstyles.org](http://editor.citationstyles.org).
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
 
-- Run `git clone --recursive https://github.com/citation-style-language/csl-editor-demo-site.git csl-demo` to checkout the repo.
+Quick deploy:
 
-- From the repo directory, run `./deploy.sh` . This will deploy the current site to the `./docs` directory in the current branch **All current contents of** `./docs` **will be removed!**
-  - This will automatically update the site at [editor.citationstyles.org](http://editor.citationstyles.org), the domain given in the CNAME file.
+```bash
+# Update library and build
+cd cslEditorLib
+git submodule update --recursive --remote
+npm run build:styles
+npm run build:citations
+npm run build
+cd ..
 
-- Point your browser to `http://editor.citationstyles.org/cslEditorLib/pages/unitTests.html` to run the unit tests
+# Deploy to GitHub Pages (docs/ directory)
+./deploy.sh
+```
 
-- Point your browser to `http://editor.citationstyles.org` to view the deployed site
+The site will be automatically deployed to [editor.citationstyles.org](http://editor.citationstyles.org).
 
 ## Customising the editor to integrate with your website or application
 
