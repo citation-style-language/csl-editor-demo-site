@@ -1,79 +1,66 @@
 #!/bin/bash
-
-# Use the requirejs optimizer r.js to optimise js files
-
-# Will deploy the site the ./docs directory in the current branch.
+set -e  # Exit on any error
 
 echo ""
-echo "Instructions"
-echo "Deploys to the ./docs directory and pushes to git repository"
+echo "=== Deploying to ./docs directory ==="
 echo ""
 
-
-if [ ! -d "./docs" ]; then
-  mkdir docs
-fi
-
-if [ -d tmp ]; then
-  BUILD_DIR="./tmp"
-else
-  mkdir tmp
-  BUILD_DIR="./tmp"
-fi
-
-
-
-rm -rf "$BUILD_DIR"
-
-node cslEditorLib/external/r.js -o build.js dir=$BUILD_DIR
-
-# doing this becuase the cjsTranslate r.js option breaks citeproc.js
-ORIGINAL_CITEPROC=$(find cslEditorLib/external/citeproc/citeproc*.js)
-BUILD_CITEPROC=$(find $BUILD_DIR/cslEditorLib/external/citeproc/citeproc*.js)
-echo "copying $ORIGINAL_CITEPROC to $BUILD_CITEPROC"
-cp $ORIGINAL_CITEPROC $BUILD_CITEPROC
-
-# Replace $GIT_COMMIT with the git commit hash in all php files
+# Get git commit hash for cache busting
 GIT_COMMIT=$(git rev-parse HEAD)
+echo "Git commit: $GIT_COMMIT"
 
-echo "git commit is $GIT_COMMIT"
-
-cd $BUILD_DIR
-
-find cslEditorLib/pages/*.html >> find */index.html > filesToConvert
-
-while read FILENAME;
-do
-echo "converting $FILENAME"
-sed s/\$GIT_COMMIT/$GIT_COMMIT/g <$FILENAME >tempFile
-mv tempFile $FILENAME
-done < filesToConvert
-rm filesToConvert
-
-# Remove any *.php files in external libraries
-
-find external -name "*.php" -type f -print0 | xargs -0 rm -f
-find cslEditorLib/external -name "*.php" -type f -print0 | xargs -0 rm -f
-
-# Run Jekyll
+# Run Jekyll to build site
+echo "Running Jekyll build..."
 jekyll build
 
-#don't use docs directory in build
-rm -rf ./_site/docs
+# Replace $GIT_COMMIT in the BUILT files (in _site), not the source
+echo "Replacing \$GIT_COMMIT with actual commit hash in built files..."
+find _site -name "*.html" -type f | while read file; do
+  sed -i.bak "s/\$GIT_COMMIT/$GIT_COMMIT/g" "$file" && rm "$file.bak"
+done
 
-#clean up docs directory
-rm -rf ../docs/*
-cd ../docs
+# Clean docs directory
+echo "Cleaning docs directory..."
+rm -rf ./docs/*
+mkdir -p ./docs
 
+# Copy only the necessary directories/files from _site to docs
+echo "Copying built site to docs..."
+# Add .nojekyll to prevent GitHub Pages from running Jekyll processing
+touch ./docs/.nojekyll
+cp -r _site/cslEditorLib ./docs/
 
-cp -r ../tmp/_site/* ./
+# Copy directories excluded from Jekyll (too many files for Jekyll to process)
+echo "Copying style/locale data (excluded from Jekyll for speed)..."
+mkdir -p ./docs/cslEditorLib/external
+cp -r cslEditorLib/external/csl-styles ./docs/cslEditorLib/external/
+cp -r cslEditorLib/external/locales ./docs/cslEditorLib/external/
+cp -r cslEditorLib/external/csl-schema ./docs/cslEditorLib/external/
+cp -r cslEditorLib/external/jstree ./docs/cslEditorLib/external/
+cp -r _site/about ./docs/
+cp -r _site/codeEditor ./docs/
+cp -r _site/cslDataExporter ./docs/
+cp -r _site/external ./docs/
+cp -r _site/home ./docs/
+cp -r _site/html ./docs/
+cp -r _site/images ./docs/
+cp -r _site/searchByExample ./docs/
+cp -r _site/searchByName ./docs/
+cp -r _site/settings ./docs/
+cp -r _site/src ./docs/
+cp -r _site/styleInfo ./docs/
+cp -r _site/visualEditor ./docs/
+cp _site/index.html ./docs/
+cp _site/CNAME ./docs/ 2>/dev/null || true
+cp _site/MIT-LICENCE.txt ./docs/ 2>/dev/null || true
+cp _site/*.html ./docs/ 2>/dev/null || true
 
-cd ..
-# Clean_up
-rm -rf "$BUILD_DIR"
+# Remove node_modules if accidentally copied
+rm -rf ./docs/cslEditorLib/node_modules 2>/dev/null
 
-git add --all
-git commit -m "deploy"
-git push
-
-
+echo ""
+echo "=== Build complete! ==="
+echo ""
+echo "Review changes with: git status"
+echo "To commit and push: git add --all && git commit -m 'deploy' && git push"
+echo ""
