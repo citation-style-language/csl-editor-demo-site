@@ -1,0 +1,21 @@
+# Local development config - overrides _config.yml
+# Usage: jekyll serve --config _config.yml,_config.local.yml
+#
+# This removes the exclusions for csl-styles, locales, csl-schema, and jstree
+# so that jekyll serve can serve them directly. The build will be slower but
+# all files will be accessible.
+exclude:
+  - "cslEditorLib/exampleCitationsGenerator"
+  - ".git"
+  - ".gitignore"
+  - ".gitmodules"
+  - ".github"
+  - ".jekyll-cache"
+  - "deploy.sh"
+  - "build.js"
+  - "configure.sh"
+  - "*.md"
+  - "node_modules"
+  - "package.json"
+  - "package-lock.json"
+  - ".jshintrc"
