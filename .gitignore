@@ -3,3 +3,5 @@
 *.jsxdr
 csledit/exampleCitationsGenerator/node_modules
 _site
+.claude/settings.local.json
+.jekyll-metadata
