@@ -1,16 +1,19 @@
 #searchResults {
 	font-size: 13px;
-	
+	/*position : relative;*/
 }
+
 #searchResults table {
 	width : 100%;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
 	font-size: 13px;
 }
+
 .style-title {
 	font-size: 16px;
 }
+
 #searchResults td {
 	position : relative;
 }
@@ -26,9 +29,11 @@
 	background-color : #eaf8ff;
 	border: 1px solid #99DEFD;
 }
+
 #searchResults table.featuredStyle td {
 	vertical-align: top;
 }
+
 #searchResults span.featuredStyle {
 	padding: 3px 5px;
 	display: block;
@@ -42,5 +47,7 @@
 	background: #00aeff;
 	border-radius: 3px;
 }
+
 .editStyle {
+
 }

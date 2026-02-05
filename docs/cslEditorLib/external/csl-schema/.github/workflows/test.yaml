@@ -1,0 +1,41 @@
+name: CSL CI Test Suite
+on:
+- push
+- pull_request
+jobs:
+  prettier:
+    name: prettier
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v2
+    - name: Set up npm
+      uses: actions/setup-node@v1
+    - name: Install prettier
+      run: npx prettier@2.0.5 . --write
+    - name: check json and yaml formatting
+      run: npx prettier --check schemas/**/*.json
+  csl-json:
+    name: CSL JSON Tests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+    - name: Install dependencies
+      run: pip install --requirement=tests/schemas/input/requirements.txt
+    - name: Run Tests
+      run: pytest --verbose --color=yes tests
+  csl-xml:
+    name: CSL XML Tests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install --yes trang
+    - name: Check schema validity
+      run: trang schemas/styles/csl.rnc csl.rng && trang csl.rng csl.rnc
+    - name: Check schema formatting
+      run: for f in csl*.rnc; do diff -q $f schemas/styles/$f ; done

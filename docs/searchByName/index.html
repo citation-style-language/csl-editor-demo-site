@@ -6,16 +6,16 @@
 	<title>CSL Search by Name</title>
 
 	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.9.1/themes/ui-lightness/jquery-ui.css">
-	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=0483a498cef2e0081232d43e35cf9122a0da4cb7" />
-	<link rel="stylesheet" href="../cslEditorLib/css/searchResults.css?bust=0483a498cef2e0081232d43e35cf9122a0da4cb7" />
-	<link rel="stylesheet" href="../cslEditorLib/css/searchByName.css?bust=0483a498cef2e0081232d43e35cf9122a0da4cb7" />
+	<link rel="stylesheet" href="../cslEditorLib/css/base.css?bust=f477f9b9120e0c7dbc49db4aec3f3a11aa61e92d" />
+	<link rel="stylesheet" href="../cslEditorLib/css/searchResults.css?bust=f477f9b9120e0c7dbc49db4aec3f3a11aa61e92d" />
+	<link rel="stylesheet" href="../cslEditorLib/css/searchByName.css?bust=f477f9b9120e0c7dbc49db4aec3f3a11aa61e92d" />
 	<link rel="icon" href="../images/favicon-32x32.png" type="image/png"/>
 
 	<script type="text/javascript" src="../cslEditorLib/external/require-jquery.js"></script>
 	<script>
 		require.config({
 			baseUrl: "../cslEditorLib",
-			urlArgs : "bust=0483a498cef2e0081232d43e35cf9122a0da4cb7"
+			urlArgs : "bust=f477f9b9120e0c7dbc49db4aec3f3a11aa61e92d"
 		});
 		requirejs(['src/config'], function (config) {
 			require(['src/SearchByName'], function () {
@@ -140,16 +140,7 @@ require(['src/config'], function () {
 				CSLEDIT_urlUtils
 			) {
 		$('document').ready( function() {
-			if (CSLEDIT_browserCheck.isCompatible()) {
-
-				// Setup uservoice feedback tag
-				var uvOptions = {};
-				(function() {
-				var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
-					uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/oO7BJ8Bejbo6PLFoP4M4Q.js';
-					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
-				})();
-			} else {
+			if (!CSLEDIT_browserCheck.isCompatible()) {
 				$('#unsupportedBrowserMessage').css("display", "block").html(
 					'<span>Unsupported browser detected, please use the latest <a href="https://www.google.com/intl/en/chrome/browser/">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a></span>');
 			}

@@ -1,4 +1,4 @@
-
+"use strict";
 
 // Uses CSLEDIT_storage to store the current csl style
 //
@@ -182,10 +182,18 @@ define([	'src/uiConfig', // TODO: remove this dependency
 		};
 
 		// Sets the current CSL style from the given string containing XML
-		var setCslCode = function (cslCode, allowDependentStyle /* optional */) {
+		//
+		// Performance note: This function performs synchronous XML parsing and tree building.
+		// For large styles (>75KB), this can cause browser freezing. See VISUAL_EDITOR_PERFORMANCE.md
+		// for planned improvements (web workers, virtual scrolling, lazy loading).
+		//
+		// @param cslCode - The CSL XML code as a string
+		// @param allowDependentStyle - If true, allows loading dependent styles (used for style info pages)
+		// @param skipLargeStyleWarning - If true, bypasses the large style warning (when user confirms they want to proceed)
+		var setCslCode = function (cslCode, allowDependentStyle, skipLargeStyleWarning /* optional */) {
 			var cslData,
 				error;
-			
+
 			try {
 				cslData = CSLEDIT_cslParser.cslDataFromCslCode(cslCode);
 			} catch (err) {
@@ -229,6 +237,23 @@ define([	'src/uiConfig', // TODO: remove this dependency
 
 			if (error) {
 				return { error: error };
+			}
+
+			// Performance warning for large styles (unless bypassed or viewing info only)
+			// Skip warning if allowDependentStyle=true (used for style info pages, not editing)
+			if (!skipLargeStyleWarning && !allowDependentStyle && cslCode.length > 75000) {
+				console.warn("Large CSL style detected:", cslCode.length, "bytes");
+				console.warn("Visual Editor may experience performance issues");
+				console.warn("Consider using Code Editor for better performance");
+
+				return { error: {
+					type: "largeStyle",
+					styleSize: cslCode.length,
+					message: "Performance Warning: This style is very large (" +
+						Math.round(cslCode.length / 1024) + "KB).\n\n" +
+						"The Visual Editor may become unresponsive with styles this large.\n\n" +
+						"Use the Code Editor instead for better performance."
+				}};
 			}
 
 			if (updateTime) {

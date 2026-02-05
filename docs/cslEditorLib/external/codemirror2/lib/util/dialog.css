@@ -1,6 +1,7 @@
 .CodeMirror-dialog {
   position: relative;
 }
+
 .CodeMirror-dialog > div {
   position: absolute;
   top: 0; left: 0; right: 0;
@@ -11,6 +12,7 @@
   overflow: hidden;
   color: #333;
 }
+
 .CodeMirror-dialog input {
   border: none;
   outline: none;
@@ -19,6 +21,7 @@
   color: inherit;
   font-family: monospace;
 }
+
 .CodeMirror-dialog button {
   font-size: 70%;
 }

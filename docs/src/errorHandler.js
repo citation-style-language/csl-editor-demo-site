@@ -1,4 +1,4 @@
-
+"use strict";
 
 // Show an error dialog on any error
 //

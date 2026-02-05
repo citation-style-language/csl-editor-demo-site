@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" page-range-format="expanded">
   <info>
-    <title>American Psychological Association 6th edition</title>
-    <title-short>APA (6th ed.)</title-short>
+    <title>APA Style 6th edition</title>
+    <title-short>Publication Manual of the American Psychological Association (6th ed.)</title-short>
     <id>http://www.zotero.org/styles/apa-6th-edition</id>
     <link href="http://www.zotero.org/styles/apa-6th-edition" rel="self"/>
     <link href="http://owl.english.purdue.edu/owl/resource/560/01/" rel="documentation"/>
@@ -90,6 +90,11 @@
         <single>éd.</single>
         <multiple>éds.</multiple>
       </term>
+    </terms>
+  </locale>
+  <locale xml:lang="ro">
+    <terms>
+      <term name="et-al">et al.</term>
     </terms>
   </locale>
   <macro name="container-contributors-booklike">
@@ -1095,14 +1100,8 @@
     <!--This should be localized -->
     <choose>
       <if type="bill legal_case legislation" match="any"/>
-      <else-if type="interview motion_picture song" match="any">
-        <text value="Original work recorded"/>
-      </else-if>
-      <else-if type="broadcast">
-        <text value="Original work broadcast"/>
-      </else-if>
       <else>
-        <text value="Original work published"/>
+        <text term="original-work-published" text-case="capitalize-first"/>
       </else>
     </choose>
   </macro>

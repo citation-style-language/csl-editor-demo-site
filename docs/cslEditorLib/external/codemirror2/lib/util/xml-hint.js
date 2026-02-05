@@ -1,4 +1,4 @@
-
+﻿
 (function() {
 
     CodeMirror.xmlHints = [];
@@ -15,7 +15,7 @@
         // dirty hack for simple-hint to receive getHint event on space
         var getTokenAt = editor.getTokenAt;
 
-        editor.getTokenAt = function() { return 'disabled'; };
+        editor.getTokenAt = function() { return 'disabled'; }
         CodeMirror.simpleHint(cm, getHint);
 
         editor.getTokenAt = getTokenAt;
@@ -40,7 +40,7 @@
                 }
             }
 
-            text = text.slice(0, text.length - typed.length);
+            text = text.substr(0, text.length - typed.length);
 
             var path = getActiveElement(cm, text) + simbol;
             var hints = CodeMirror.xmlHints[path];
@@ -58,10 +58,10 @@
             return {
                 list: hints,
                 from: { line: cursor.line, ch: cursor.ch - typed.length },
-                to: cursor
+                to: cursor,
             };
         };
-    };
+    }
 
     var getActiveElement = function(codeMirror, text) {
 
@@ -76,7 +76,7 @@
             while ((match = regex.exec(text)) != null) {
                 matches.push({
                     tag: match[1],
-                    selfclose: (match[0].slice(match[0].length - 2) === '/>')
+                    selfclose: (match[0].substr(-1) === '/>')
                 });
             }
 
@@ -114,7 +114,7 @@
 
         if (close < open)
         {
-            text = text.slice(open);
+            text = text.substr(open);
 
             if(text != '<') {
 
@@ -127,7 +127,7 @@
                 if (space < 0)
                     space = text.length;
 
-                return text.slice(0, space);
+                return text.substr(0, space);
             }
         }
 

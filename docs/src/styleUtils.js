@@ -1,4 +1,4 @@
-
+"use strict";
 
 // Functions to handle CSL styles which don't belong in cslEditorLib
 
@@ -27,7 +27,39 @@ define(
 			styleURL,
 			function (cslCode) {
 				var result = CSLEDIT_controller.exec("setCslCode", [cslCode], true);
-				if (!("error" in result)) {
+
+				if ("error" in result) {
+					// Handle large style warning specially
+					if (result.error.type === "largeStyle") {
+						var proceed = confirm(
+							result.error.message + "\n\n" +
+							"Click OK to load anyway (may cause browser to freeze).\n" +
+							"Click Cancel to use Code Editor instead."
+						);
+
+						if (proceed) {
+							// User chose to proceed - reload with warning bypassed
+							result = CSLEDIT_controller.exec("setCslCode", [cslCode, false, true], true);
+							if (!("error" in result)) {
+								window.location.href = visualEditorUrl;
+							} else {
+								alert("Error loading style: " + result.error.message);
+							}
+						} else {
+							// User chose Code Editor - load style with warning bypassed (Code Editor doesn't use tree view)
+							result = CSLEDIT_controller.exec("setCslCode", [cslCode, false, true], true);
+							if (!("error" in result)) {
+								window.location.href = visualEditorUrl.replace("visualEditor", "codeEditor");
+							} else {
+								alert("Error loading style: " + result.error.message);
+							}
+						}
+					} else {
+						// Other errors - show alert
+						alert("Error loading style: " + result.error.message);
+					}
+				} else {
+					// No error - proceed normally
 					window.location.href = visualEditorUrl;
 				}
 			},

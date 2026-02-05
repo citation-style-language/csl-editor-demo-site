@@ -13,8 +13,14 @@
     <translator>
       <name>Juhana Venäläinen</name>
     </translator>
+    <translator>
+      <name>Tuomas Hietala</name>
+    </translator>
+    <translator>
+      <name>Luukas Pörtfors</name>
+    </translator>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
-    <updated>2022-10-12T15:53:27-04:00</updated>
+    <updated>2025-10-16T03:24:01+00:00</updated>
   </info>
   <style-options punctuation-in-quote="false"/>
   <date form="text">
@@ -28,72 +34,73 @@
     <date-part name="year"/>
   </date>
   <terms>
+    <!-- LONG GENERAL TERMS -->
+    <term name="accessed">viitattu</term>
     <term name="advance-online-publication">advance online publication</term>
-    <term name="album">album</term>
-    <term name="audio-recording">audio recording</term>
+    <term name="album">albumi</term>
+    <term name="and">ja</term>
+    <term name="and others">ym.</term>
+    <term name="anonymous">tuntematon</term>
+    <term name="at">osoitteessa</term>
+    <term name="audio-recording">äänite</term>
+    <term name="available at">saatavissa</term>
+    <term name="by">tekijä</term>
+    <term name="circa">noin</term>
+    <term name="cited">viitattu</term>
+    <term name="et-al">ym.</term>
     <term name="film">film</term>
+    <term name="forthcoming">tulossa</term>
+    <term name="from">osoitteesta</term>
     <term name="henceforth">henceforth</term>
+    <term name="ibid">mt.</term>
+    <term name="in">teoksessa</term>
+    <term name="in press">painossa</term>
+    <term name="internet">internet</term>
+    <term name="letter">kirje</term>
     <term name="loc-cit">loc. cit.</term> <!-- like ibid., the abbreviated form is the regular form  -->
+    <term name="no date">ei päivämäärää</term>
     <term name="no-place">no place</term>
-    <term name="no-place" form="short">n.p.</term>
     <term name="no-publisher">no publisher</term> <!-- sine nomine -->
-    <term name="no-publisher" form="short">n.p.</term>
     <term name="on">on</term>
+    <term name="online">verkossa</term>
     <term name="op-cit">op. cit.</term> <!-- like ibid., the abbreviated form is the regular form  -->
     <term name="original-work-published">original work published</term>
     <term name="personal-communication">henkilökohtainen viestintä</term>
     <term name="podcast">podcast</term>
     <term name="podcast-episode">podcast episode</term>
     <term name="preprint">preprint</term>
-    <term name="radio-broadcast">radio broadcast</term>
+    <term name="presented at">esitetty tilaisuudessa</term>
+    <term name="radio-broadcast">radiolähetys</term>
     <term name="radio-series">radio series</term>
     <term name="radio-series-episode">radio series episode</term>
-    <term name="special-issue">special issue</term>
-    <term name="special-section">special section</term>
-    <term name="television-broadcast">television broadcast</term>
-    <term name="television-series">television series</term>
-    <term name="television-series-episode">television series episode</term>
-    <term name="video">video</term>
-    <term name="working-paper">working paper</term>
-    <term name="accessed">viitattu</term>
-    <term name="and">ja</term>
-    <term name="and others">ym.</term>
-    <term name="anonymous">tuntematon</term>
-    <term name="anonymous" form="short">tuntematon</term>
-    <term name="at">osoitteessa</term>
-    <term name="available at">saatavissa</term>
-    <term name="by">tekijä</term>
-    <term name="circa">noin</term>
-    <term name="circa" form="short">n.</term>
-    <term name="cited">viitattu</term>
-    <term name="edition">
-      <single>painos</single>
-      <multiple>painokset</multiple>
-    </term>
-    <term name="edition" form="short">p.</term>
-    <term name="et-al">ym.</term>
-    <term name="forthcoming">tulossa</term>
-    <term name="from">osoitteesta</term>
-    <term name="ibid">mt.</term>
-    <term name="in">teoksessa</term>
-    <term name="in press">painossa</term>
-    <term name="internet">internet</term>
-    <term name="letter">kirje</term>
-    <term name="no date">ei päivämäärää</term>
-    <term name="no date" form="short">ei pvm.</term>
-    <term name="online">verkossa</term>
-    <term name="presented at">esitetty tilaisuudessa</term>
     <term name="reference">
       <single>viittaus</single>
       <multiple>viittaukset</multiple>
     </term>
+    <term name="retrieved">noudettu</term>
+    <term name="review-of">review of</term>
+    <term name="scale">mittakaava</term>
+    <term name="special-issue">erikoisnumero</term>
+    <term name="special-section">special section</term>
+    <term name="television-broadcast">televisiolähetys</term>
+    <term name="television-series">televisiosarja</term>
+    <term name="television-series-episode">televisiosarjan jakso</term>
+    <term name="video">video</term>
+    <term name="working-paper">working paper</term>
+
+    <!-- SHORT GENERAL TERMS -->
+    <term name="anonymous" form="short">tuntematon</term>
+    <term name="circa" form="short">n.</term>
+    <term name="no date" form="short">ei pvm.</term>
+    <term name="no-place" form="short">n.p.</term>
+    <term name="no-publisher" form="short">n.p.</term>
     <term name="reference" form="short">
       <single>viit.</single>
       <multiple>viit.</multiple>
     </term>
-    <term name="retrieved">noudettu</term>
-    <term name="scale">mittakaava</term>
-    <term name="version">versio</term>
+    <term name="review-of" form="short">rev. of</term>
+
+    <!-- SYMBOLIC GENERAL FORMS -->
 
     <!-- LONG ITEM TYPE FORMS -->
     <term name="article">preprint</term>
@@ -102,7 +109,7 @@
     <term name="article-newspaper">newspaper article</term>
     <term name="bill">bill</term>
     <!-- book is in the list of locator terms -->
-    <term name="broadcast">broadcast</term>
+    <term name="broadcast">lähetys</term>
     <!-- chapter is in the list of locator terms -->
     <term name="classic">classic</term>
     <term name="collection">collection</term>
@@ -118,26 +125,26 @@
     <term name="interview">haastattelu</term>
     <term name="legal_case">legal case</term>
     <term name="legislation">legislation</term>
-    <term name="manuscript">manuscript</term>
-    <term name="map">map</term>
-    <term name="motion_picture">video recording</term>
+    <term name="manuscript">käsikirjoitus</term>
+    <term name="map">kartta</term>
+    <term name="motion_picture">videotallenne</term>
     <term name="musical_score">musical score</term>
     <term name="pamphlet">pamphlet</term>
     <term name="paper-conference">conference paper</term>
-    <term name="patent">patent</term>
-    <term name="performance">performance</term>
+    <term name="patent">patentti</term>
+    <term name="performance">esitys</term>
     <term name="periodical">periodical</term>
     <term name="personal_communication">henkilökohtainen viestintä</term>
     <term name="post">post</term>
-    <term name="post-weblog">blog post</term>
+    <term name="post-weblog">blogikirjoitus</term>
     <term name="regulation">regulation</term>
-    <term name="report">report</term>
+    <term name="report">raportti</term>
     <term name="review">review</term>
-    <term name="review-book">book review</term>
-    <term name="software">software</term>
-    <term name="song">audio recording</term>
-    <term name="speech">presentation</term>
-    <term name="standard">standard</term>
+    <term name="review-book">kirja-arvostelu</term>
+    <term name="software">ohjelmisto</term>
+    <term name="song">äänite</term>
+    <term name="speech">esitys</term>
+    <term name="standard">standardi</term>
     <term name="thesis">thesis</term>
     <term name="treaty">treaty</term>
     <term name="webpage">webpage</term>
@@ -159,11 +166,19 @@
     <term name="review-book" form="short">bk. rev.</term>
     <term name="song" form="short">audio rec.</term>
 
+    <!-- LONG VERB ITEM TYPE FORMS -->
+    <!-- Only where applicable -->
+    <term name="hearing" form="verb">testimony of</term>
+    <term name="review" form="verb">review of</term>
+    <term name="review-book" form="verb">review of the book</term>
+
+    <!-- SHORT VERB ITEM TYPE FORMS -->
+
     <!-- HISTORICAL ERA TERMS -->
-    <term name="ad">jaa.</term>
-    <term name="bc">eaa.</term>
-    <term name="bce">BCE</term>
-    <term name="ce">CE</term>
+    <term name="ad">jKr.</term>
+    <term name="bc">eKr.</term>
+    <term name="bce">eaa.</term>
+    <term name="ce">jaa.</term>
 
     <!-- PUNCTUATION -->
     <term name="open-quote">”</term>
@@ -191,53 +206,25 @@
     <term name="long-ordinal-10">kymmenes</term>
 
     <!-- LONG LOCATOR FORMS -->
-    <term name="act">			 
+    <term name="act">
       <single>act</single>
-      <multiple>acts</multiple>						 
+      <multiple>acts</multiple>
     </term>
-    <term name="appendix">			 
+    <term name="appendix">
       <single>appendix</single>
-      <multiple>appendices</multiple>						 
+      <multiple>appendices</multiple>
     </term>
-    <term name="article-locator">			 
+    <term name="article-locator">
       <single>article</single>
-      <multiple>articles</multiple>						 
-    </term>
-    <term name="canon">			 
-      <single>canon</single>
-      <multiple>canons</multiple>						 
-    </term>
-    <term name="elocation">			 
-      <single>location</single>
-      <multiple>locations</multiple>						 
-    </term>
-    <term name="equation">			 
-      <single>equation</single>
-      <multiple>equations</multiple>						 
-    </term>
-    <term name="rule">			 
-      <single>rule</single>
-      <multiple>rules</multiple>						 
-    </term>
-    <term name="scene">			 
-      <single>scene</single>
-      <multiple>scenes</multiple>						 
-    </term>
-    <term name="table">			 
-      <single>table</single>
-      <multiple>tables</multiple>						 
-    </term>
-    <term name="timestamp"> <!-- generally blank -->
-      <single></single>
-      <multiple></multiple>						 
-    </term>
-    <term name="title-locator">			 
-      <single>title</single>
-      <multiple>titles</multiple>						 
+      <multiple>articles</multiple>
     </term>
     <term name="book">
       <single>kirja</single>
       <multiple>kirjat</multiple>
+    </term>
+    <term name="canon">
+      <single>canon</single>
+      <multiple>canons</multiple>
     </term>
     <term name="chapter">
       <single>luku</single>
@@ -246,6 +233,14 @@
     <term name="column">
       <single>palsta</single>
       <multiple>palstat</multiple>
+    </term>
+    <term name="elocation">
+      <single>location</single>
+      <multiple>locations</multiple>
+    </term>
+    <term name="equation">
+      <single>equation</single>
+      <multiple>equations</multiple>
     </term>
     <term name="figure">
       <single>kuvio</single>
@@ -275,10 +270,6 @@
       <single>sivu</single>
       <multiple>sivut</multiple>
     </term>
-    <term name="number-of-pages">
-      <single>sivu</single>
-      <multiple>sivut</multiple>
-    </term>
     <term name="paragraph">
       <single>kappale</single>
       <multiple>kappaleet</multiple>
@@ -286,6 +277,14 @@
     <term name="part">
       <single>osa</single>
       <multiple>osat</multiple>
+    </term>
+    <term name="rule">
+      <single>rule</single>
+      <multiple>rules</multiple>
+    </term>
+    <term name="scene">
+      <single>scene</single>
+      <multiple>scenes</multiple>
     </term>
     <term name="section">
       <single>osa</single>
@@ -295,55 +294,51 @@
       <single>sub verbo</single>
       <multiple>sub verbis</multiple>
     </term>
+    <term name="supplement">
+      <single>supplement</single>
+      <multiple>supplements</multiple>
+    </term>
+    <term name="table">
+      <single>table</single>
+      <multiple>tables</multiple>
+    </term>
+    <term name="timestamp"> <!-- generally blank -->
+      <single/>
+      <multiple/>
+    </term>
+    <term name="title-locator">
+      <single>title</single>
+      <multiple>titles</multiple>
+    </term>
     <term name="verse">
       <single>säkeistö</single>
       <multiple>säkeistöt</multiple>
     </term>
     <term name="volume">
-      <single>vuosikerta</single>
-      <multiple>vuosikerrat</multiple>
+      <single>volyymi</single>
+      <multiple>volyymit</multiple>
     </term>
 
     <!-- SHORT LOCATOR FORMS -->
-    <term name="appendix" form="short">			 
+    <term name="appendix" form="short">
       <single>app.</single>
-      <multiple>apps.</multiple>						 
+      <multiple>apps.</multiple>
     </term>
-    <term name="article-locator" form="short">			 
+    <term name="article-locator" form="short">
       <single>art.</single>
       <multiple>arts.</multiple>
-    </term>
-    <term name="elocation" form="short">			 
-      <single>loc.</single>
-      <multiple>locs.</multiple>
-    </term>
-    <term name="equation" form="short">			 
-      <single>eq.</single>
-      <multiple>eqs.</multiple>
-    </term>
-    <term name="rule" form="short">			 
-      <single>r.</single>
-      <multiple>rr.</multiple>						 
-    </term>
-    <term name="scene" form="short">			 
-      <single>sc.</single>
-      <multiple>scs.</multiple>						 
-    </term>
-    <term name="table" form="short">			 
-      <single>tbl.</single>
-      <multiple>tbls.</multiple>						 
-    </term>
-    <term name="timestamp" form="short"> <!-- generally blank -->
-      <single></single>
-      <multiple></multiple>						 
-    </term>
-    <term name="title-locator" form="short">			 
-      <single>tit.</single>
-      <multiple>tits.</multiple>
     </term>
     <term name="book" form="short">kirja</term>
     <term name="chapter" form="short">luku</term>
     <term name="column" form="short">palsta</term>
+    <term name="elocation" form="short">
+      <single>loc.</single>
+      <multiple>locs.</multiple>
+    </term>
+    <term name="equation" form="short">
+      <single>eq.</single>
+      <multiple>eqs.</multiple>
+    </term>
     <term name="figure" form="short">kuv.</term>
     <term name="folio" form="short">fol.</term>
     <term name="issue" form="short">nro</term>
@@ -352,29 +347,49 @@
     <term name="opus" form="short">op.</term>
     <term name="page" form="short">
       <single>s.</single>
-      <multiple>ss.</multiple>
-    </term>
-    <term name="number-of-pages" form="short">
-      <single>s.</single>
-      <multiple>ss.</multiple>
+      <multiple>s.</multiple>
     </term>
     <term name="paragraph" form="short">kappale</term>
     <term name="part" form="short">osa</term>
+    <term name="rule" form="short">
+      <single>r.</single>
+      <multiple>rr.</multiple>
+    </term>
+    <term name="scene" form="short">
+      <single>sc.</single>
+      <multiple>scs.</multiple>
+    </term>
     <term name="section" form="short">osa</term>
     <term name="sub-verbo" form="short">
       <single>s.v.</single>
       <multiple>s.vv.</multiple>
+    </term>
+    <term name="supplement" form="short">
+      <single>supp.</single>
+      <multiple>supps.</multiple>
+    </term>
+    <term name="table" form="short">
+      <single>tbl.</single>
+      <multiple>tbls.</multiple>
+    </term>
+    <term name="timestamp" form="short"> <!-- generally blank -->
+      <single/>
+      <multiple/>
+    </term>
+    <term name="title-locator" form="short">
+      <single>tit.</single>
+      <multiple>tits.</multiple>
     </term>
     <term name="verse" form="short">
       <single>säk.</single>
       <multiple>säk.</multiple>
     </term>
     <term name="volume" form="short">
-      <single>vsk.</single>
-      <multiple>vsk.</multiple>
+      <single>vol.</single>
+      <multiple>vol.</multiple>
     </term>
 
-    <!-- SYMBOL LOCATOR FORMS -->
+    <!-- SYMBOLIC LOCATOR FORMS -->
     <term name="paragraph" form="symbol">
       <single>¶</single>
       <multiple>¶¶</multiple>
@@ -384,22 +399,128 @@
       <multiple>§§</multiple>
     </term>
 
+    <!-- LONG NUMBER VARIABLE FORMS -->
+    <term name="chapter-number">
+      <single>luku</single>
+      <multiple>luvut</multiple>
+    </term>
+    <term name="citation-number">
+      <single>viite</single>
+      <multiple>viitteet</multiple>
+    </term>
+    <term name="collection-number">
+      <single>numero</single>
+      <multiple>numerot</multiple>
+    </term>
+    <term name="edition">
+      <single>painos</single>
+      <multiple>painokset</multiple>
+    </term>
+    <term name="first-reference-note-number">
+      <single>viite</single>
+      <multiple>viitteet</multiple>
+    </term>
+    <term name="number">
+      <single>number</single>
+      <multiple>numbers</multiple>
+    </term>
+    <term name="number-of-pages">
+      <single>sivu</single>
+      <multiple>sivut</multiple>
+    </term>
+    <term name="number-of-volumes">
+      <single>volume</single>
+      <multiple>volumes</multiple>
+    </term>
+    <term name="page-first">
+      <single>sivu</single>
+      <multiple>sivut</multiple>
+    </term>
+    <term name="printing">
+      <single>printing</single>
+      <multiple>printings</multiple>
+    </term>
+    <term name="version">versio</term>
+
+    <!-- SHORT NUMBER VARIABLE FORMS -->
+    <term name="chapter-number" form="short">
+      <single>chap.</single>
+      <multiple>chaps.</multiple>
+    </term>
+    <term name="citation-number" form="short">
+      <single>cit.</single>
+      <multiple>cits.</multiple>
+    </term>
+    <term name="collection-number" form="short">nro</term>
+    <term name="edition" form="short">p.</term>
+    <term name="first-reference-note-number" form="short">
+      <single>ref.</single>
+      <multiple>refs.</multiple>
+    </term>
+    <term name="number" form="short">
+      <single>no.</single>
+      <multiple>nos.</multiple>
+    </term>
+    <term name="number-of-pages" form="short">
+      <single>s.</single>
+      <multiple>s.</multiple>
+    </term>
+    <term name="number-of-volumes" form="short">
+      <single>vol.</single>
+      <multiple>vols.</multiple>
+    </term>
+    <term name="page-first" form="short">
+      <single>s.</single>
+      <multiple>s.</multiple>
+    </term>
+    <term name="printing" form="short">
+      <single>print.</single>
+      <multiple>prints.</multiple>
+    </term>
+
     <!-- LONG ROLE FORMS -->
+    <term name="author"/> <!-- generally blank -->
     <term name="chair">
       <single>chair</single>
       <multiple>chairs</multiple>
+    </term>
+    <term name="collection-editor">
+      <single>toim.</single>
+      <multiple>toim.</multiple>
     </term>
     <term name="compiler">
       <single>compiler</single>
       <multiple>compilers</multiple>
     </term>
+    <term name="composer"/> <!-- generally blank -->
+    <term name="container-author"/> <!-- generally blank -->
     <term name="contributor">
       <single>contributor</single>
       <multiple>contributors</multiple>
     </term>
     <term name="curator">
-      <single>curator</single>
-      <multiple>curators</multiple>
+      <single>kuraattori</single>
+      <multiple>kuraattorit</multiple>
+    </term>
+    <term name="director">
+      <single>ohjaaja</single>
+      <multiple>ohjaajat</multiple>
+    </term>
+    <term name="editor">
+      <single>toimittaja</single>
+      <multiple>toimittajat</multiple>
+    </term>
+    <term name="editor-translator">
+      <single>toimittaja ja kääntäjä</single>
+      <multiple>toimittajat ja kääntäjät</multiple>
+    </term>
+    <term name="editortranslator">
+      <single>toimittaja ja kääntäjä</single>
+      <multiple>toimittajat ja kääntäjät</multiple>
+    </term>
+    <term name="editorial-director">
+      <single>toimittaja</single>
+      <multiple>toimittajat</multiple>
     </term>
     <term name="executive-producer">
       <single>executive producer</single>
@@ -413,53 +534,41 @@
       <single>host</single>
       <multiple>hosts</multiple>
     </term>
+    <term name="illustrator">
+      <single>kuvittaja</single>
+      <multiple>kuvittajat</multiple>
+    </term>
+    <term name="interviewer"/> <!-- generally blank -->
     <term name="narrator">
       <single>narrator</single>
       <multiple>narrators</multiple>
     </term>
     <term name="organizer">
-      <single>organizer</single>
-      <multiple>organizers</multiple>
+      <single>järjestäjä</single>
+      <multiple>järjestäjät</multiple>
     </term>
+    <term name="original-author"/> <!-- generally blank -->
     <term name="performer">
-      <single>performer</single>
-      <multiple>performers</multiple>
+      <single>esittäjä</single>
+      <multiple>esittäjät</multiple>
     </term>
     <term name="producer">
-      <single>producer</single>
-      <multiple>producers</multiple>
+      <single>tuottaja</single>
+      <multiple>tuottajat</multiple>
     </term>
+    <term name="recipient"/> <!-- generally blank -->
+    <term name="reviewed-author"/> <!-- generally blank -->
     <term name="script-writer">
-      <single>writer</single>
-      <multiple>writers</multiple>
+      <single>käsikirjoittaja</single>
+      <multiple>käsikirjoittajat</multiple>
     </term>
     <term name="series-creator">
-      <single>series creator</single>
-      <multiple>series creators</multiple>
-    </term>
-    <term name="director">
-      <single>ohjaaja</single>
-      <multiple>ohjaajat</multiple>
-    </term>
-    <term name="editor">
-      <single>toimittaja</single>
-      <multiple>toimittajat</multiple>
-    </term>
-    <term name="editorial-director">
-      <single>toimittaja</single>
-      <multiple>toimittajat</multiple>
-    </term>
-    <term name="illustrator">
-      <single>kuvittaja</single>
-      <multiple>kuvittajat</multiple>
+      <single>sarjan luoja</single>
+      <multiple>sarjan luojat</multiple>
     </term>
     <term name="translator">
       <single>kääntäjä</single>
       <multiple>kääntäjät</multiple>
-    </term>
-    <term name="editortranslator">
-      <single>toimittaja ja kääntäjä</single>
-      <multiple>toimittajat ja kääntäjät</multiple>
     </term>
 
     <!-- SHORT ROLE FORMS -->
@@ -475,9 +584,33 @@
       <single>cur.</single>
       <multiple>curs.</multiple>
     </term>
+    <term name="director" form="short">
+      <single>ohj.</single>
+      <multiple>ohj.</multiple>
+    </term>
+    <term name="editor" form="short">
+      <single>toim.</single>
+      <multiple>toim.</multiple>
+    </term>
+    <term name="editor-translator" form="short">
+      <single>toim. ja käänt.</single>
+      <multiple>toim. ja käänt.</multiple>
+    </term>
+    <term name="editortranslator" form="short">
+      <single>toim. ja käänt.</single>
+      <multiple>toim. ja käänt.</multiple>
+    </term>
+    <term name="editorial-director" form="short">
+      <single>toim.</single>
+      <multiple>toim.</multiple>
+    </term>
     <term name="executive-producer" form="short">
       <single>exec. prod.</single>
       <multiple>exec. prods.</multiple>
+    </term>
+    <term name="illustrator" form="short">
+      <single>kuv.</single>
+      <multiple>kuv.</multiple>
     </term>
     <term name="narrator" form="short">
       <single>narr.</single>
@@ -488,90 +621,74 @@
       <multiple>orgs.</multiple>
     </term>
     <term name="performer" form="short">
-      <single>perf.</single>
-      <multiple>perfs.</multiple>
+      <single>esitt.</single>
+      <multiple>esitt.</multiple>
     </term>
     <term name="producer" form="short">
-      <single>prod.</single>
-      <multiple>prods.</multiple>
+      <single>tuott.</single>
+      <multiple>tuott.</multiple>
     </term>
     <term name="script-writer" form="short">
-      <single>writ.</single>
-      <multiple>writs.</multiple>
+      <single>käsik.</single>
+      <multiple>käsik.</multiple>
     </term>
     <term name="series-creator" form="short">
       <single>cre.</single>
       <multiple>cres.</multiple>
     </term>
-    <term name="director" form="short">
-      <single>ohj.</single>
-      <multiple>ohj.</multiple>
-    </term>
-    <term name="editor" form="short">
-      <single>toim.</single>
-      <multiple>toim.</multiple>
-    </term>
-    <term name="editorial-director" form="short">
-      <single>toim.</single>
-      <multiple>toim.</multiple>
-    </term>
-    <term name="illustrator" form="short">
-      <single>kuv.</single>
-      <multiple>kuv.</multiple>
-    </term>
     <term name="translator" form="short">
       <single>käänt.</single>
       <multiple>käänt.</multiple>
     </term>
-    <term name="editortranslator" form="short">
-      <single>toim. ja käänt.</single>
-      <multiple>toim. ja käänt.</multiple>
-    </term>
 
     <!-- VERB ROLE FORMS -->
     <term name="chair" form="verb">chaired by</term>
+    <term name="collection-editor" form="verb">toimittanut</term>
     <term name="compiler" form="verb">compiled by</term>
+    <term name="container-author" form="verb"/>
     <term name="contributor" form="verb">with</term>
-    <term name="curator" form="verb">curated by</term>
+    <term name="curator" form="verb">kuratoinut</term>
+    <term name="director" form="verb">ohjannut</term>
+    <term name="editor" form="verb">toimittanut</term>
+    <term name="editor-translator" form="verb">toimittanut ja kääntänyt</term>
+    <term name="editortranslator" form="verb">toimittanut ja kääntänyt</term>
+    <term name="editorial-director" form="verb">toimittanut</term>
     <term name="executive-producer" form="verb">executive produced by</term>
     <term name="guest" form="verb">with guest</term>
     <term name="host" form="verb">hosted by</term>
-    <term name="narrator" form="verb">narrated by</term>
-    <term name="organizer" form="verb">organized by</term>
-    <term name="performer" form="verb">performed by</term>
-    <term name="producer" form="verb">produced by</term>
-    <term name="script-writer" form="verb">written by</term>
-    <term name="series-creator" form="verb">created by</term>
-    <term name="container-author" form="verb"></term>
-    <term name="director" form="verb">ohjannut</term>
-    <term name="editor" form="verb">toimittanut</term>
-    <term name="editorial-director" form="verb">toimittanut</term>
     <term name="illustrator" form="verb">kuvittanut</term>
     <term name="interviewer" form="verb">haastatellut</term>
+    <term name="narrator" form="verb">narrated by</term>
+    <term name="organizer" form="verb">järjestänyt</term>
+    <term name="performer" form="verb">esittänyt</term>
+    <term name="producer" form="verb">tuottanut</term>
     <term name="recipient" form="verb">vastaanottaja</term>
-    <term name="reviewed-author" form="verb"></term>
+    <term name="reviewed-author" form="verb"/>
+    <term name="script-writer" form="verb">käsikirjoittanut</term>
+    <term name="series-creator" form="verb">created by</term>
     <term name="translator" form="verb">kääntänyt</term>
-    <term name="editortranslator" form="verb">toimittanut ja kääntänyt</term>
 
     <!-- SHORT VERB ROLE FORMS -->
+    <term name="collection-editor" form="verb-short">ed. by</term>
     <term name="compiler" form="verb-short">comp. by</term>
     <term name="contributor" form="verb-short">w.</term>
     <term name="curator" form="verb-short">cur. by</term>
+    <term name="director" form="verb-short">ohj.</term>
+    <term name="editor" form="verb-short">toim.</term>
+    <term name="editor-translator" form="verb-short">toim. ja käänt.</term>
+    <term name="editortranslator" form="verb-short">toim. ja käänt.</term>
+    <term name="editorial-director" form="verb-short">toim.</term>
     <term name="executive-producer" form="verb-short">exec. prod. by</term>
     <term name="guest" form="verb-short">w. guest</term>
     <term name="host" form="verb-short">hosted by</term>
+    <term name="illustrator" form="verb-short">kuv.</term>
     <term name="narrator" form="verb-short">narr. by</term>
     <term name="organizer" form="verb-short">org. by</term>
-    <term name="performer" form="verb-short">perf. by</term>
-    <term name="producer" form="verb-short">prod. by</term>
-    <term name="script-writer" form="verb-short">writ. by</term>
+    <term name="performer" form="verb-short">esitt.</term>
+    <term name="producer" form="verb-short">tuott.</term>
+    <term name="script-writer" form="verb-short">käsik.</term>
     <term name="series-creator" form="verb-short">cre. by</term>
-    <term name="director" form="verb-short">ohj.</term>
-    <term name="editor" form="verb-short">toim.</term>
-    <term name="editorial-director" form="verb-short">toim.</term>
-    <term name="illustrator" form="verb-short">kuv.</term>
     <term name="translator" form="verb-short">käänt.</term>
-    <term name="editortranslator" form="verb-short">toim. ja käänt.</term>
 
     <!-- LONG MONTH FORMS -->
     <term name="month-01">tammikuuta</term>

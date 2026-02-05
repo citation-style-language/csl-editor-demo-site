@@ -145,7 +145,7 @@ CodeMirror.defineMode("clojure", function (config, mode) {
                     } else if (isNumber(ch,stream)){
                         returnType = NUMBER;
                     } else if (ch == "(" || ch == "[") {
-                        var keyWord = '', indentTemp = stream.column(), letter;
+                        var keyWord = ''; var indentTemp = stream.column();
                         /**
                         Either
                         (indent-word ..

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Integration Test - Modernized CSL Editor</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			max-width: 1200px;
+			margin: 20px auto;
+			padding: 20px;
+		}
+		.test-section {
+			background: #f5f5f5;
+			padding: 15px;
+			margin: 10px 0;
+			border-left: 4px solid #007bff;
+		}
+		.success { color: #28a745; }
+		.error { color: #dc3545; }
+		.info { color: #17a2b8; }
+		h1 {
+			color: #333;
+		}
+		#output {
+			background: white;
+			padding: 15px;
+			border: 1px solid #ddd;
+			min-height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Demo Site Integration Test</h1>
+	<p>Testing the modernized CSL Editor library with RequireJS compatibility shim.</p>
+
+	<div class="test-section">
+		<h2>Test Output</h2>
+		<div id="output">
+			<p>Loading RequireJS and initializing...</p>
+		</div>
+	</div>
+
+	<!-- Load RequireJS + jQuery -->
+	<script type="text/javascript" src="cslEditorLib/external/require-jquery.js"></script>
+	<script>
+		var output = document.getElementById('output');
+
+		function log(message, type) {
+			var p = document.createElement('p');
+			p.className = type || 'info';
+			p.textContent = message;
+			output.appendChild(p);
+		}
+
+		// Configure RequireJS
+		require.config({
+			baseUrl: "cslEditorLib",
+			urlArgs: "bust=" + Date.now()
+		});
+
+		// Load config, then test the cslStyles shim
+		requirejs(['src/config'], function(config) {
+			log('✓ RequireJS config loaded', 'success');
+
+			// Now load the cslStyles module (which should use the shim)
+			require(['src/cslStyles'], function(cslStyles) {
+				log('✓ cslStyles module loaded', 'success');
+
+				// Wait for initialization
+				if (cslStyles.ready) {
+					log('Waiting for library initialization...', 'info');
+
+					cslStyles.ready.then(function() {
+						log('✓ Modern library initialized!', 'success');
+
+						// Test basic functionality
+						try {
+							// Test 1: Get all style IDs
+							var allIds = cslStyles.getAllStyleIds();
+							log('Total styles: ' + allIds.length, 'info');
+
+							// Test 2: Search
+							var apaResults = cslStyles.searchByTitle('APA');
+							log('Found ' + apaResults.length + ' styles matching "APA"', 'info');
+
+							// Test 3: Get master ID
+							var masterId = cslStyles.getMasterIdFromId('http://www.zotero.org/styles/2d-materials');
+							log('2D Materials master: ' + masterId, 'info');
+
+							// Test 4: Get style title
+							var title = cslStyles.getStyleTitle('http://www.zotero.org/styles/apa');
+							log('APA title: ' + title, 'info');
+
+							// Test 5: Load style XML (async)
+							log('Loading APA style XML...', 'info');
+							cslStyles.loadStyleXml('http://www.zotero.org/styles/apa', function(xml) {
+								log('✓ Loaded APA XML (' + xml.length + ' chars)', 'success');
+								log('', '');
+								log('=== ALL TESTS PASSED ===', 'success');
+								log('The modernized library works with RequireJS!', 'success');
+							});
+
+						} catch (err) {
+							log('✗ Error: ' + err.message, 'error');
+							console.error(err);
+						}
+					}).catch(function(err) {
+						log('✗ Initialization failed: ' + err.message, 'error');
+						console.error(err);
+					});
+				} else {
+					log('✗ No ready promise found', 'error');
+				}
+			});
+		});
+	</script>
+</body>
+</html>

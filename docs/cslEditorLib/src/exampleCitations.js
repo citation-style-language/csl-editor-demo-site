@@ -1,4 +1,4 @@
-
+"use strict";
 
 // Allows getting and setting
 //
@@ -261,8 +261,11 @@ define(
 	// Trigger a CSLEDIT_viewController updateFinished event,
 	// which will re-generate the citations
 	var update = function () {
-		if (!suppressUpdate && typeof(CSLEDIT_viewController) !== "undefined") {
-			CSLEDIT_viewController.styleChanged("updateFinished");
+		if (!suppressUpdate) {
+			if (typeof(CSLEDIT_viewController) !== "undefined") {
+				CSLEDIT_viewController.styleChanged("updateFinished");
+			}
+			$(document).trigger('csledit:citationsChanged');
 		}
 	};
 

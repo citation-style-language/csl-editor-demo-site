@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8"/>
     <title>CodeMirror: User Manual</title>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans:bold"/>
     <link rel="stylesheet" type="text/css" href="docs.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <style>dl dl {margin: 0;}</style>
   </head>
   <body>
@@ -161,7 +161,7 @@
       Default is true.</dd>
 
       <dt id="option_autoClearEmptyLines"><code>autoClearEmptyLines (boolean)</code></dt>
-      <dd>When turned on (default is off), this will
+      <dd>When turned on (default is off), this will clear
       automatically clear lines consisting only of whitespace when the
       cursor leaves them. This is mostly useful to prevent auto
       indentation from introducing trailing whitespace in a file.</dd>
@@ -226,13 +226,6 @@
       <dt id="option_onCursorActivity"><code>onCursorActivity (function)</code></dt>
       <dd>Will be called when the cursor or selection moves, or any
       change is made to the editor content.</dd>
-
-      <dt id="option_onViewportChange"><code>onViewportChange (function)</code></dt>
-      <dd>When given, will be called whenever
-      the <a href="#getViewport">view port</a> of the editor changes
-      (due to scrolling, editing, or any other factor). It will be
-      passed three arguments, the editor instance, the start of the
-      viewport, and its end.</dd>
 
       <dt id="option_onGutterClick"><code>onGutterClick (function)</code></dt>
       <dd>When given, will be called whenever the editor gutter (the
@@ -353,15 +346,14 @@
     default bindings.</p>
 
     <p>The values of properties in keymaps can be either functions of
-    a single argument (the CodeMirror instance), strings, or
-    <code>false</code>. Such strings refer to properties of the
+    a single argument (the CodeMirror instance), or strings. Such
+    strings refer to properties of the
     <code>CodeMirror.commands</code> object, which defines a number of
     common commands that are used by the default keybindings, and maps
-    them to functions. If the property is set to <code>false</code>,
-    CodeMirror leaves handling of the key up to the browser. A key
-    handler function may throw <code>CodeMirror.Pass</code> to indicate
-    that it has decided not to handle the key, and other handlers (or
-    the default behavior) should be given a turn.</p>
+    them to functions. A key handler function may throw
+    <code>CodeMirror.Pass</code> to indicate that it has decided not
+    to handle the key, and other handlers (or the default behavior)
+    should be given a turn.</p>
 
     <p>Keys mapped to command names that start with the
     characters <code>"go"</code> (which should be used for
@@ -658,15 +650,6 @@
 
       <dt id="getLineHandle"><code>getLineHandle(num) → lineHandle</code></dt>
       <dd>Fetches the line handle for the given line number.</dd>
-
-      <dt id="getViewport"><code>getViewport() → object</code></dt>
-      <dd>Returns a <code>{from, to}</code> object indicating the
-      start (inclusive) and end (exclusive) of the currently displayed
-      part of the document. In big documents, when most content is
-      scrolled out of view, CodeMirror will only render the visible
-      part, and a margin around it. See also
-      the <a href="#option_onViewportChange"><code>onViewportChange</code></a>
-      option.</dd>
 
       <dt id="addWidget"><code>addWidget(pos, node, scrollIntoView)</code></dt>
       <dd>Puts <code>node</code>, which should be an absolutely

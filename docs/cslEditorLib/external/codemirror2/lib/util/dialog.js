@@ -30,10 +30,7 @@
       inp.focus();
       CodeMirror.connect(inp, "blur", close);
     } else if (button = dialog.getElementsByTagName("button")[0]) {
-      CodeMirror.connect(button, "click", function() {
-        close();
-        me.focus();
-      });
+      CodeMirror.connect(button, "click", close);
       button.focus();
       CodeMirror.connect(button, "blur", close);
     }

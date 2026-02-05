@@ -7,14 +7,17 @@ html, body {
 	font-size: 13px;
 	color: #222;
 }
+
 a {
 	color: #08C;
 	text-decoration: none;
 }
+
 a:hover {
 	color: #005580;
 	text-decoration: underline;
 }
+
 .lead {
 	font-size: 32px;
 	font-weight: 300;
@@ -22,6 +25,7 @@ a:hover {
 	margin: 0 auto;
 	margin-bottom: 20px;
 }
+
 .fig {
 	display: block;
 	border: 2px solid #c3c3c3;
@@ -34,8 +38,11 @@ a:hover {
 	box-shadow: 0 1px 8px rgba(0,0,0,0.2);
 	margin-bottom: 1em;
 }
+
 .fig img {
+
 }
+
 .note {
 	margin: 0;
 	display: block;
@@ -44,25 +51,32 @@ a:hover {
 	padding: 10px 20px;
 	text-align: center;
 }
+
 h2 {
 	font-weight: 400;
 }
+
 div.spacer {
 	width: 6px;
 	height: 10px;
 }
+
 div.panel {
 	position: absolute;
 	border-width: 1px;
 	border-style: solid;
 	border-color: #c3c3c3;
+
 	padding: 4px;
+
 	top: 0px;
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
+
 	background: #ffffff;
 }
+
 #titlebarContainer{
 	position: relative;
 	z-index: 20;
@@ -71,6 +85,7 @@ div.panel {
 #titlebar{
 	padding-left: 1.2em;
 }
+
 #titlebar h3 {
 	margin: 0;
 	padding: 0;
@@ -79,6 +94,7 @@ div.panel {
 	font-weight: 300;
 	color: #888;
 }
+
 #exampleOutput {
 	position: absolute;
 	padding: 1em;
@@ -95,12 +111,14 @@ div.panel {
 	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 	font-size: 13px;
 }
+
 #exampleOutput span {
 	margin: -1px;
 	border: 1px solid rgba(255,255,255,0);
 	-webkit-transition: background 150ms ease-out, border 150ms ease-out, box-shadow 150ms ease-out;
 	border-radius: 3px;
 }
+
 #exampleOutput h3 {
 	margin: 0;
 	margin-bottom: 1em;
@@ -110,14 +128,18 @@ div.panel {
 	font-weight: bold;
 	color: #6d8fa2;
 }
+
 #formattedCitations {
 	margin-bottom: 2em;
 	padding-left: 10px;
 }
+
 #formattedBibliography {
 	margin-bottom: 2em;
 	padding-left: 10px;
 }
+
+/* citeproc formatting */
 .csl-left-margin {
 	float: left;
 }
@@ -133,12 +155,15 @@ div.panel {
 	padding-left: 0;
 	text-indent: 0;
 }
+
 .csl-entry-container {
 	margin-bottom: 5px;
 }
+
 #statusMessage {
 	color: #cc1111;
 }
+
 .toolbar {
 	position: relative;
 	display: inline-block;
@@ -154,9 +179,11 @@ div.panel {
 	-webkit-transition: opacity 300ms linear;
 	transition: opacity 300ms linear;
 }
+
 .has-arrow {
 	box-shadow: 0 0px 8px rgba(0,0,0,0.4);
 }
+
 .has-arrow:after, .has-arrow:before {
 	bottom: 100%;
 	border: solid transparent;
@@ -166,6 +193,7 @@ div.panel {
 	position: absolute;
 	pointer-events: none;
 }
+
 .has-arrow:after {
 	border-color: rgba(247, 247, 247, 0);
 	border-bottom-color: #f7f7f7;
@@ -180,6 +208,7 @@ div.panel {
 	left: 11px;
 	margin-left: -6px;
 }
+
 .toolbar a {
 	display: inline-block;
 	margin: 0;
@@ -194,10 +223,12 @@ div.panel {
 	text-decoration: none;
 	border-right: 1px solid #d4d5d7;
 }
+
 .toolbar a:hover {
 	color: #007ae2;
 	box-shadow: inset 0 0 8px rgba(0,0,0,0.2);
 }
+
 .toolbar a sup,
 .toolbar a sub {
 	vertical-align: baseline;
@@ -209,23 +240,28 @@ div.panel {
 .toolbar a sub {
    top: 0.15em;
 }
+
 .toolbar a.selected {
 	color: #fff;
 	background: #0099e2;
 	box-shadow: inset 0 0 4px rgba(0,0,0,0.3);
 	text-shadow: none;
 }
+
 .toolbar a:last-child {
 	border-right: 0;
 }
+
 .richTextContainer {
 	position: relative;
 }
+
 .help {
 	color: #999;
 	font-size: 11px;
 	padding: 3px 12px;
 }
+
 .footer {
 	clear: both;
 	padding: 20px 20px;
